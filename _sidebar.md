@@ -1,4 +1,6 @@
 <!-- docs/_sidebar.md -->
 
-* [About CB-Geo MPM](/)
-* [Running the code](docker.md)
+* [About](/)
+* [Compile](compile.md)
+* [Docker](docker.md)
+
