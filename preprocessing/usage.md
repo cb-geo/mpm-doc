@@ -2,7 +2,7 @@
 
 The CB-Geo MPM code uses `JSON` file type for input configuration.
 
-## Usage
+## Usage {docsify-ignore}
 ```shell
 ./mpm  -a <analysis> [-i <input_file>] -f <working_dir> [--] [--version]
        [-h]
