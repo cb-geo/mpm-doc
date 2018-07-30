@@ -3,5 +3,6 @@
 * [About](/)
 * [Compile](compile.md)
 * [Docker](docker.md)
-* [Run](preprocessing/run.md)
-* [Input](preprocessing/input.md)
+* Running the code
+  * [Usage](preprocessing/usage.md)
+  * [Input](preprocessing/input.md)
