@@ -11,5 +11,6 @@
 
 * Theory
 
+  * [MPM](theory/mpm.md)
   * MPM Explicit
-    * [USF](theory/usf.md)
+    * [Update Stress First](theory/usf.md)

@@ -19,16 +19,48 @@
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
-      repo: 'https://github.com/cb-geo/mpm-doc'
+      repo: 'https://github.com/cb-geo/mpm-doc',
+      plugins: [
+        function (hook) {
+          hook.beforeEach(function (content) {
+            return content.replace(/\$\$([\s\S]*?)\$\$/g,
+               function(x){ return x.replace(/[_]/g,'[subscript]')}
+            )
+          })
+          hook.beforeEach(function (content) {
+            return content.replace(/\$([\s\S]*?)\$/g,
+               function(x){ return x.replace('_','[subscript]')}
+            )
+          })
+          hook.afterEach(function(html, next) {
+            html = html.replace(/\$\$([\s\S]*?)\$\$/g,
+               function(x){ return x.replace(/(\[subscript\])/g,'_') }
+            )
+            html = html.replace(/\$([\s\S]*?)\$/g,
+               function(x){ return x.replace(/(\[subscript\])/g,'_')}
+            )
+            MathJax.Hub.Queue( ["Typeset",MathJax.Hub] ) // calling it twice
+            MathJax.Hub.Queue( ["Typeset",MathJax.Hub] ) //fixes MathJax refresh issue
+            next(html)
+          })
+        }
+      ]
     }
+  </script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true
+      },
+      "HTML-CSS": { availableFonts: ["TeX"] }
+    });
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-    });
-  </script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 </body>
 </html>

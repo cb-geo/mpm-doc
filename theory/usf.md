@@ -1,11 +1,11 @@
-# MPM Explicit Update Stress First (USF)
+# Update Stress First (USF)
+> MPM Explicit
 
-
-## Nomenclature
+## Nomenclature {docsify-ignore}
 
 ### General {docsify-ignore}
 
-$G$ acceleration due to gravity ($G = 9.81 m/s^2$)
+$G$   acceleration due to gravity ($G = 9.81 m/s^2$)
 
 ### Material Point {docsify-ignore}
 
