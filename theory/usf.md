@@ -3,16 +3,15 @@
 
 Update stress first refers to incrementing the stresses at the material points before calculating the internal force and consequently before solving the balance of momentum.
 
-## Initialisation {docsify-ignore}
+
+## USF Algorithm {docsify-ignore}
+> at each time step $\Delta t$ from $t$ to $t + \Delta t$:
 
 * Material points carry all state variables (mass/density, velocity, strain, stress, other material parameters corresponding to the adopted constitutive relation). The state variables are initialised at every material point at the start of the time step.
 
 * Mass of each material point is computed based on its density and initial volume. The initial volume is computed based on the number of material points in cell or can be provided as an input argument. Although the density of material points are updated, the mass is conserved.
 
-$$ m_p = \rho V_p $$
-
-## USF Algorithm {docsify-ignore}
-> at each time step $\Delta t$ from $t$ to $t + \Delta t$:
+	$$ m_p = \rho V_p $$
 
 * The shape functions ($N_i (\textbf{x}_p^t)$) and the gradient of the shape functions $B_i (\textbf{x}_p^t)$ are computed for each material point $p$, based on the cell in which they are located.
 
@@ -30,10 +29,10 @@ $$ m_p = \rho V_p $$
 
 	$$ \textbf{v}_i^{t} = \frac{(m\textbf{v})_i^{t}}{m_i^{t}} $$
 
-* The particle strain is computed by mapping the strain rate from the nodes to the particles:
+* The strain at each material point is computed by mapping the strain rate from the nodes:
 	$$ \boldsymbol{\varepsilon}_p^t = \sum\limits_{p=1}^{n_P} B_i(\textbf{x}_p^t) \textbf{v}_i^t $$
 
-* The particle stress is updated using $\Delta\sigma_p^t$ based on the constitutive model:
+* The stress at each material point is updated using $\Delta\sigma_p^t$ based on the constitutive model:
 	$$ \boldsymbol{\sigma}_p^t = \boldsymbol{\sigma}_p^{t-\Delta t} + \Delta \boldsymbol{\sigma}_p^t $$
 
 	$$ \Delta\boldsymbol{\sigma}_p^t= \mathbf{D} : \Delta \boldsymbol{\varepsilon}_p^t $$
@@ -60,13 +59,13 @@ $$ m_p = \rho V_p $$
 * Apply any velocity constraints (and acceleration constraints - when velocity is set, acceleration is set to zero) at the nodes.
 
 * Update the position of the material points based on the nodal velocity.
-    * Particle velocity:
+    * Material point velocity:
         $$ \textbf{v}_p^{t+\Delta t} = \sum\limits_{i=1}^{n_n} N_i(\textbf{x}_p^t) \textbf{v}_i^{t+\Delta t} $$
 
-    * Particle position:
+    * Material point position:
         $$ \textbf{x}_p^{t+\Delta t} = \textbf{x}_p^t + \textbf{v}_p^{t+\Delta t} *  \Delta t$$
 
-* Locate particles in the mesh and assign a new cell to the particle, if the particle(s) have crossed cells. 
+* Locate all material points in the mesh and assign a new cell to the material point, if the material points have crossed cells. 
 
 * At the end of every time step, all the variables on the grid nodes are initialised to zero. The material points carry all the information about the solution, and the computational grid is re-initialised for the next step.
 
