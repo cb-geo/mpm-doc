@@ -16,14 +16,14 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
       "density": 1000.0,
       "poisson_ratio": 0.495,
       "type": "LinearElastic3D",
-      "youngs_modulus": 100000000.0
+      "youngs_modulus": 1.0E+08
     },
     {
       "id": 1,
       "density": 2300.0,
       "poisson_ratio": 0.25,
       "type": "LinearElastic3D",
-      "youngs_modulus": 1500000.0
+      "youngs_modulus": 1.5E+06
     }
   ],
   "mesh": {
@@ -34,16 +34,12 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "particle_type": "P3D"
   },
   "analysis": {
-    "dt": 0.001,
+    "dt": 1.0E-5,
     "nsteps": 10,
-    "gravity": [
-      0.0,
-      0.0,
-      -9.81
-    ]
+    "gravity": [0.0, 0.0, -9.81]
   },
   "post_processing": {
-    "output_steps": 10,
+    "output_steps": 5,
     "path": "results/"
   }
 }
