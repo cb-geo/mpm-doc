@@ -52,17 +52,19 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
 ## Ascii files
 ### Mesh
 
-The mesh file must have the following format:
+The ASCII mesh has the following format:
 
 ```
 nnodes 	ncells
+# nodal coordinates
 x_0 	y_0 	z_0
 x_1	y_1 	z_1
 ...
 x_i	y_i	z_i
 ...
 x_n	y_n	z_n 
-
+# cells
+# indices of nodes forming each cell
 n1_0 n1_1 n1_2 n1_3 n1_4 n1_5 n1_6 n1_7
 n2_3 n2_4 n2_5 n2_6 n2_7 n2_8 n2_9 n2_10
 ...
@@ -90,7 +92,7 @@ An example of a 3D mesh comprising of two cells and twelve nodes is shown below:
 
 
 ```
-# nnodes (12) and ncells (2)
+# 12 nodes and 2 cells
 12	2
 0	0	0	# Node 0
 1	0	0	# Node 1
@@ -107,3 +109,44 @@ An example of a 3D mesh comprising of two cells and twelve nodes is shown below:
 0	1	2	3	4	5	6	7	# Cell 0
 1	8	9	2	5	10	11	6	# Cell 1
 ```
+
+### Velocity constraints
+
+Velocity constraints at each node can be specified in the following format:
+
+```
+n_0     d_1     v_1
+n_1     d_0     v_0
+...
+...
+n_i     d_1     v_1
+...
+...
+n_n     d_2     v_2
+```
+
+where, 
+
+`n_i` is the node number.
+
+`d_i` is the direction number `(0|1|2)` that corresponds to a cartesian direction, typically `(x|y|z)`.
+
+`v_i` is the specified velocity in direction `d_i`.
+
+
+### Material points
+
+The material points file has the following format:
+
+```
+# material point coordinates
+x_0	y_0 	z_0
+x_1	y_1 	z_1
+...
+x_i	y_i	z_i
+...
+x_n	y_n	z_n 
+```
+
+$x_i$, $y_i$, $z_i$ correspond to the Cartesian coordinates of each material point. The material points are assigned a unique id from 0 to `n - 1`.
+
