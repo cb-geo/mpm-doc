@@ -4,7 +4,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
 
 ```JSON
 {
-  "title": "Example JSON Input for MPM",
+  "title": "Example JSON Input for 3D MPM",
   "input_files": {
     "constraints": "mesh_constraints.txt",
     "mesh": "mesh-3d.txt",
@@ -12,15 +12,15 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   },
   "materials": [
     {
-      "density": 1000.0,
       "id": 0,
+      "density": 1000.0,
       "poisson_ratio": 0.495,
       "type": "LinearElastic3D",
       "youngs_modulus": 100000000.0
     },
     {
-      "density": 2300.0,
       "id": 1,
+      "density": 2300.0,
       "poisson_ratio": 0.25,
       "type": "LinearElastic3D",
       "youngs_modulus": 1500000.0
@@ -34,27 +34,17 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "particle_type": "P3D"
   },
   "analysis": {
-    "boundary_friction": 0.5,
-    "damping": {
-      "damping": true,
-      "damping_ratio": 0.02
-    },
     "dt": 0.001,
+    "nsteps": 10,
     "gravity": [
       0.0,
       0.0,
       -9.81
-    ],
-    "newmark": {
-      "beta": 0.25,
-      "gamma": 0.5,
-      "newmark": true
-    },
-    "nsteps": 10
+    ]
   },
   "post_processing": {
     "output_steps": 10,
     "path": "results/"
-  },
+  }
 }
 ```
