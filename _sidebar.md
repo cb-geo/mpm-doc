@@ -2,12 +2,14 @@
 
 * User documentation
 
-  * [About](/)
-  * [Compile](compile.md)
-  * [Docker](docker.md)
+  * [About](user)
+  * [Compile](user/compile.md)
+  * [Docker](user/docker.md)
   * Running the code
-    * [Usage](preprocessing/usage.md)
-    * [Input](preprocessing/input.md)
+    * [Usage](user/preprocessing/usage.md)
+    * [Input](user/preprocessing/input.md)
+  * Postprocessing
+    * [HDF5 data](user/hdf5.md)
 
 * Theory
 
