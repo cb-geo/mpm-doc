@@ -16,6 +16,7 @@
   * [MPM](theory/mpm.md)
   * MPM Explicit
     * [Update Stress First](theory/usf.md)
+  * [Strain](theory/strain.md)
   * Material
     * [Bingham](theory/material/bingham.md)
 
