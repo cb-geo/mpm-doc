@@ -11,18 +11,27 @@ The following additional packages are required to compile the MPM code.
 * [HDF5](https://support.hdfgroup.org/HDF5/)
 * [VTK](https://www.vtk.org/)
 
-### Fedora installation
+### Fedora (Recommended)
+> 28
 
 Please run the following command:
 
 ```shell
 dnf install -y boost boost-devel clang cmake cppcheck eigen3-devel findutils gcc gcc-c++ \
-                   git hdf5 hdf5-devel kernel-devel lcov\
-                   make openmpi openmpi-devel sqlite sqlite-devel tar tbb tbb-devel valgrind vim \
-                   voro++ voro++-devel vtk vtk-devel wget
+               git hdf5 hdf5-devel kernel-devel lcov make openmpi openmpi-devel tar \
+	       tbb tbb-devel valgrind vim vtk vtk-devel wget
 ```
 
-> Alternatively the [CB-Geo MPM docker image](/docker) can be also used, which comes pre-packaged with relevant libraries.
+### Ubuntu 
+> 18.04
+
+```shell
+sudo apt-get install -y cmake gcc git libboost-all-dev libeigen3-dev libhdf5-dev libtbb-dev libvtk7-dev
+```
+
+### Docker
+
+Alternatively the [CB-Geo MPM docker image](/docker) can be also used, which comes pre-packaged with relevant libraries.
 
 ## Compile
 
