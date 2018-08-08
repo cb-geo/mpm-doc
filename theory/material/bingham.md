@@ -1,6 +1,6 @@
 # Bingham
 
-The constitutive equation for the stress tensor for a non-Newtonian fluid can be
+The constitutive equation for the stress tensor for a non-Newtonian fluid [1] can be
 expressed as:
 
 $$\mathbf{\sigma} = − p \bf{I} + \tau$$
@@ -49,4 +49,5 @@ $$ I_2 = \frac{1}{2}tr(\mathbf{D}^2) = \frac{1}{2}D_{ij}D_{ij}$$
 
 where $tr$ denotes the trace.
 
-
+## References
+[1] Reddy, J. N. (2014). An Introduction to Nonlinear Finite Element Analysis: with applications to heat transfer, fluid mechanics, and solid mechanics. OUP Oxford.
