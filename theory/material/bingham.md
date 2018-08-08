@@ -3,14 +3,16 @@
 The constitutive equation for the stress tensor for a non-Newtonian fluid can be
 expressed as:
 
-$$\sigma = − p I + \tau \qquad (\sigma_{ij} = −p \delta_{ij} + \tau_{ij})$$
+$$\mathbf{\sigma} = − p \bf{I} + \tau$$
 
-where $\tau$ is known as the viscous or extra stress tensor.
+$$\sigma_{ij} = − p \delta_{ij} + \tau_{ij}$$
+
+where $\tau$ is known as the viscous or extra stress tensor and $p$ is the thermodynamic pressure.
 
 The mean stress $\tilde \sigma$ is equal to the thermodynamic pressure $−p$, if and only if one
 of the following two conditions are satisfied:
 
-   * Fluid is incompressible: $\Delta \cdot D = 0$
+   * Fluid is incompressible: $\Delta \cdot \bf{D} = 0$
 
    * Stokes condition: $K = \frac{2}{3}\mu + \lambda = 0.$
 
@@ -21,7 +23,7 @@ The thermodynamic pressure $p$ is calculated as
 
 $$p = p_0 - K d\epsilon_v$$
 
-Where, $p_0$ is the initial thermodynamic pressure, calculated as the mean initial stress,
+where, $p_0$ is the initial thermodynamic pressure, calculated as the mean initial stress,
 $K$ is the bulk modulus and $d\epsilon_v$ is the volumetric strain (compressive volumetric strain
 is negative). Typically, the thermodynamic pressure is calculated as the centre of the cell
 to minimise pressure osciallations.
@@ -41,7 +43,7 @@ $$\tau = 0 \quad \mathrm{when} \quad \frac{1}{2}tr(\tau^2) < \tau_0^2$$
 The apparent viscosity of the material beyond the yield point is
 $\left( \frac{\tau_0}{\sqrt{I_2}} + 2 \mu \right)$.
 
-Where $I_2$ is a principal invariant of the deformation tensor $\mathbf{D}$,
+Where $I_2$ is the second principal invariant of the deformation tensor $\mathbf{D}$,
 
 $$ I_2 = \frac{1}{2}tr(\mathbf{D}^2) = \frac{1}{2}D_{ij}D_{ij}$$
 
