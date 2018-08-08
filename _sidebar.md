@@ -12,11 +12,11 @@
     * [HDF5 data](user/hdf5.md)
 
 * Theory
-
+  * Continuum mechanics
+    * [Strains](theory/continuum-mechanics/strain.md)
   * [MPM](theory/mpm.md)
   * MPM Explicit
     * [Update Stress First](theory/usf.md)
-  * [Strain](theory/strain.md)
   * Material
     * [Bingham](theory/material/bingham.md)
 
