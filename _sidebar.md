@@ -12,6 +12,8 @@
     * [HDF5 data](user/hdf5.md)
 
 * Theory
+
+  * [About](theory/about.md)
   * Continuum mechanics
     * [Strains](theory/continuum-mechanics/strain.md)
   * [MPM](theory/mpm.md)
@@ -21,6 +23,6 @@
     * [Bingham](theory/material/bingham.md)
 
 
-* Code
+* Developer
 
   * [Overview](code/overview.md)
