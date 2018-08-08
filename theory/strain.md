@@ -34,10 +34,6 @@ As a 6x1 the rate of deformation tensor $D = \left[\frac{du_x}{dx}, \frac{du_y}{
 
 # Strain rate
 
-The rate of deformation tensor $D$ is not the same as the time rate of change of the
-infinitesimal strain tensor $\epsilon$, that is, the strain rate $\dot \epsilon$̇,
-where superposed dot signifies the material time derivative.
-
 In CB-Geo MPM, the strain rate tensor $\dot\epsilon$ is calculated as $B * u$, where $B$ is
 the B-matrix and $u$ represents the velocity components.
 
@@ -51,6 +47,13 @@ $$ \dot \epsilon=\left[
 $$
 
 As a 6x1 strain rate $\dot \epsilon = \left[\frac{du_x}{dx}, \frac{du_y}{dy}, \frac{du_z}{dz}, (\frac{du_x}{dy} + \frac{du_y}{dx}), (\frac{du_y}{dz} + \frac{du_z}{dy}), (\frac{du_x}{dz} + \frac{du_z}{dx})\right]^T$
+
+
+## Relation between strain rate $\dot \epsilon$ and rate of deformation tensor (**D**)
+
+The rate of deformation tensor $D$ is not the same as the time rate of change of the
+infinitesimal strain tensor $\epsilon$, that is, the strain rate $\dot \epsilon$̇,
+where superposed dot signifies the material time derivative.
 
 $$ \dot \epsilon = \left[ \dot \epsilon_{xx}, \dot \epsilon_{yy}, \dot \epsilon_{yy}, \dot \epsilon_{xy}, \dot \epsilon_{yz}, \dot \epsilon_{zx}\right]^T$$
 
