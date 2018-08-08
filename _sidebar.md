@@ -2,7 +2,7 @@
 
 * User documentation
 
-  * [About](user)
+  * [About](user/about.md)
   * [Compile](user/compile.md)
   * [Docker](user/docker.md)
   * Running the code
