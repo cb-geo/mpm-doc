@@ -35,10 +35,10 @@ the applied stresses exceed $τ_0$ the material flows, with the viscous stresses
 proportional to the excess of the stress over the yield condition. In a general form,
 the Bingham model can be expressed as
 
-$$\tau = 2 \left( \frac{\tau_0}{\dot{\gamma}} + \mu \right) \mathbf{D} \qquad
-\mathrm{when} \quad \frac{1}{2}tr(\tau^2) \ge \tau_0^2$$
+$$\mathbf{\tau} = 2 \left( \frac{\tau_0}{\dot{\gamma}} + \mu \right) \mathbf{D} \qquad
+\mathrm{when} \quad \frac{1}{2}tr(\mathbf{\tau}^2) \ge \tau_0^2$$
 
-$$\tau = 0 \quad \mathrm{when} \quad \frac{1}{2}tr(\tau^2) < \tau_0^2$$
+$$\mathbf{\tau} = 0 \quad \mathrm{when} \quad \frac{1}{2}tr(\mathbf{\tau}^2) < \tau_0^2$$
 
 
 where $tr$ denotes the trace. The apparent viscosity of the material beyond the yield point is $\left( \frac{\tau_0}{\dot{\gamma}} + \mu \right)$.
