@@ -35,10 +35,10 @@ the applied stresses exceed $τ_0$ the material flows, with the viscous stresses
 proportional to the excess of the stress over the yield condition. In a general form,
 the Bingham model can be expressed as
 
-$$\mathbf{\tau} = 2 \left( \frac{\tau_0}{\dot{\gamma}} + \mu \right) \mathbf{D} \qquad
-\mathrm{when} \quad \frac{1}{2}tr(\mathbf{\tau}^2) \ge \tau_0^2$$
+$$\boldsymbol{\tau} = 2 \left( \frac{\tau_0}{\dot{\gamma}} + \mu \right) \mathbf{D} \qquad
+\mathrm{when} \quad \frac{1}{2}tr(\boldsymbol{\tau}^2) \ge \tau_0^2$$
 
-$$\mathbf{\tau} = 0 \quad \mathrm{when} \quad \frac{1}{2}tr(\mathbf{\tau}^2) < \tau_0^2$$
+$$\boldsymbol{\tau} = 0 \quad \mathrm{when} \quad \frac{1}{2}tr(\boldsymbol{\tau}^2) < \tau_0^2$$
 
 
 where $tr$ denotes the trace. The apparent viscosity of the material beyond the yield point is $\left( \frac{\tau_0}{\dot{\gamma}} + \mu \right)$.
@@ -51,4 +51,4 @@ $$ \dot{\gamma} = \sqrt{2 D_{ij}D_{ij}} $$
 
 ## References
 [1] Reddy, J. N. (2014). An Introduction to Nonlinear Finite Element Analysis: with applications to heat transfer, fluid mechanics, and solid mechanics. OUP Oxford.
-[2] Beverly, C. R. and Tanner, R. I. (1992). "Numerical Analysisof three-dimensional Bingham plastic flow." Journal of Non-Newtonian Fluid Mechanics 42(85-115). Elsevier Science Publishers B.V., Amsterdam.
+[1] Beverly, C. R. and Tanner, R. I. (1992). "Numerical Analysisof three-dimensional Bingham plastic flow." Journal of Non-Newtonian Fluid Mechanics 42(85-115). Elsevier Science Publishers B.V., Amsterdam.
