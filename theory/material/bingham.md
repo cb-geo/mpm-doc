@@ -50,5 +50,7 @@ $$ \dot{\gamma} = \sqrt{2 D_{ij}D_{ij}} $$
 
 
 ## References
-[1] Reddy, J. N. (2014). An Introduction to Nonlinear Finite Element Analysis: with applications to heat transfer, fluid mechanics, and solid mechanics. OUP Oxford.
-[1] Beverly, C. R. and Tanner, R. I. (1992). "Numerical Analysisof three-dimensional Bingham plastic flow." Journal of Non-Newtonian Fluid Mechanics 42(85-115). Elsevier Science Publishers B.V., Amsterdam.
+
+1. Reddy, J. N. (2014). An Introduction to Nonlinear Finite Element Analysis: with applications to heat transfer, fluid mechanics, and solid mechanics. OUP Oxford.
+
+1. Beverly, C. R. and Tanner, R. I. (1992). Numerical analysisof three-dimensional Bingham plastic flow. Journal of non-newtonian fluid mechanics 42(1-2), 85-115.
