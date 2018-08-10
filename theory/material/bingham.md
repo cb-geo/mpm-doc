@@ -33,21 +33,24 @@ sustain an applied stress without fluid motion occurring. The fluid possesses a 
 stress, $τ_0$, such that when the applied stresses are below $τ_0$ no motion occurs; when
 the applied stresses exceed $τ_0$ the material flows, with the viscous stresses being
 proportional to the excess of the stress over the yield condition. In a general form,
-the Bingham model can be expressed as
+the Bingham model [2] can be expressed as
 
-$$\tau = \left( \frac{\tau_0}{\sqrt{I_2}} + 2 \mu \right) \mathbf{D} \qquad
-\mathrm{when} \quad \frac{1}{2}tr(\tau^2) \ge \tau_0^2$$
+$$\boldsymbol{\tau} = 2 \left( \frac{\tau_0}{\dot{\gamma}} + \mu \right) \mathbf{D} \qquad
+\mathrm{when} \quad \frac{1}{2}tr(\boldsymbol{\tau}^2) \ge \tau_0^2$$
 
-$$\tau = 0 \quad \mathrm{when} \quad \frac{1}{2}tr(\tau^2) < \tau_0^2$$
+$$\boldsymbol{\tau} = 0 \quad \mathrm{when} \quad \frac{1}{2}tr(\boldsymbol{\tau}^2) < \tau_0^2$$
 
-The apparent viscosity of the material beyond the yield point is
-$\left( \frac{\tau_0}{\sqrt{I_2}} + 2 \mu \right)$.
 
-Where $I_2$ is the second principal invariant of the deformation tensor $\mathbf{D}$,
+where $tr$ denotes the trace. The apparent viscosity of the material beyond the yield point is $\left( \frac{\tau_0}{\dot{\gamma}} + \mu \right)$.
 
-$$ I_2 = \frac{1}{2}tr(\mathbf{D}^2) = \frac{1}{2}D_{ij}D_{ij}$$
+Where $\dot{\gamma}$ is the shear rate defined as
 
-where $tr$ denotes the trace.
+$$ \dot{\gamma} = \sqrt{2 D_{ij}D_{ij}} $$
+
+
 
 ## References
+
 [1] Reddy, J. N. (2014). An Introduction to Nonlinear Finite Element Analysis: with applications to heat transfer, fluid mechanics, and solid mechanics. OUP Oxford.
+
+[2] Beverly, C. R. and Tanner, R. I. (1992). Numerical analysisof three-dimensional Bingham plastic flow. Journal of non-newtonian fluid mechanics 42(1-2), 85-115.
