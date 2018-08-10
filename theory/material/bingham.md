@@ -33,7 +33,7 @@ sustain an applied stress without fluid motion occurring. The fluid possesses a 
 stress, $τ_0$, such that when the applied stresses are below $τ_0$ no motion occurs; when
 the applied stresses exceed $τ_0$ the material flows, with the viscous stresses being
 proportional to the excess of the stress over the yield condition. In a general form,
-the Bingham model can be expressed as
+the Bingham model [2] can be expressed as
 
 $$\boldsymbol{\tau} = 2 \left( \frac{\tau_0}{\dot{\gamma}} + \mu \right) \mathbf{D} \qquad
 \mathrm{when} \quad \frac{1}{2}tr(\boldsymbol{\tau}^2) \ge \tau_0^2$$
@@ -51,6 +51,6 @@ $$ \dot{\gamma} = \sqrt{2 D_{ij}D_{ij}} $$
 
 ## References
 
-1. Reddy, J. N. (2014). An Introduction to Nonlinear Finite Element Analysis: with applications to heat transfer, fluid mechanics, and solid mechanics. OUP Oxford.
+[1] Reddy, J. N. (2014). An Introduction to Nonlinear Finite Element Analysis: with applications to heat transfer, fluid mechanics, and solid mechanics. OUP Oxford.
 
-1. Beverly, C. R. and Tanner, R. I. (1992). Numerical analysisof three-dimensional Bingham plastic flow. Journal of non-newtonian fluid mechanics 42(1-2), 85-115.
+[2] Beverly, C. R. and Tanner, R. I. (1992). Numerical analysisof three-dimensional Bingham plastic flow. Journal of non-newtonian fluid mechanics 42(1-2), 85-115.
