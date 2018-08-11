@@ -36,6 +36,11 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   "analysis": {
     "dt": 1.0E-5,
     "nsteps": 10,
+    "resume" : {
+      "resume": true,
+      "uuid": "restart",
+      "step" : 5
+    },
     "gravity": [0.0, 0.0, -9.81]
   },
   "post_processing": {
