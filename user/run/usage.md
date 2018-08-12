@@ -28,3 +28,20 @@ Where:
    -h,  --help
      Displays usage information and exits.
 ```
+
+### Analysis
+
+The CB-Geo MPM currently supports 2D and 3D explicit analysis. An analysis option can be selected by passing a required `-a` command to the mpm executable.
+
+Supported analysis:
+
+|-----------------------|---------------------------------------|
+|Analysis		| Description				|
+|-----------------------|---------------------------------------|
+|MPMExplicit2D 		| Explicit 2D MPM Update Stress First	|
+|MPMExplicit3D 		| Explicit 3D MPM Update Stress First	|
+|MPMExplicitUSL2D 	| Explicit 2D MPM Update Stress Last	|
+|MPMExplicitUSL3D 	| Explicit 3D MPM Update Stress Last	|
+|-----------------------|---------------------------------------|
+
+

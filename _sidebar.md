@@ -5,11 +5,13 @@
   * [About](user/about.md)
   * [Compile](user/compile.md)
   * [Docker](user/docker.md)
-  * Running the code
-    * [Usage](user/preprocessing/usage.md)
-    * [Preprocessing](user/preprocessing/input.md)
-  * Postprocessing
-    * [HDF5 data](user/hdf5.md)
+  * [Preprocess]
+    * [Input JSON](user/preprocess/input.md)
+    * [ASCII Mesh/Particles](user/preprocess/ascii-mesh-particles.md)
+  * Run MPM
+    * [Usage](user/run/usage.md)
+  * Postprocess
+    * [HDF5 data](user/postprocess/hdf5.md)
 
 * Theory
 
