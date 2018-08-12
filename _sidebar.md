@@ -5,7 +5,7 @@
   * [About](user/about.md)
   * [Compile](user/compile.md)
   * [Docker](user/docker.md)
-  * [Preprocess]
+  * Preprocess
     * [Input JSON](user/preprocess/input.md)
     * [ASCII Mesh/Particles](user/preprocess/ascii-mesh-particles.md)
   * Run MPM
