@@ -32,3 +32,5 @@ where,
 $u$ is the applied velocity at both ends,
 $l$ is the length of the block, and
 $E$ is the young's modulus of the system.
+
+![uniaxial stress](uniaxial-stress.png)
