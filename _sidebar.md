@@ -7,7 +7,7 @@
   * [Docker](user/docker.md)
   * Running the code
     * [Usage](user/preprocessing/usage.md)
-    * [Input](user/preprocessing/input.md)
+    * [Preprocessing](user/preprocessing/input.md)
   * Postprocessing
     * [HDF5 data](user/hdf5.md)
 

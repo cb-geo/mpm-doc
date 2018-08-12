@@ -1,5 +1,6 @@
-# Input
+# Preprocessing
 
+## Input JSON
 The CB-Geo MPM code uses a `JSON` file for input configuration.
 
 ```JSON
@@ -49,6 +50,27 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   }
 }
 ```
+
+### Analysis
+
+The analysis object defines the type of analysis, number of steps, time-step, and an optional resume support.
+
+```
+  "analysis": {
+    "dt": 1.0E-5,
+    "nsteps": 10,
+    "gravity": [0.0, -9.81, 0.0],
+    "resume" : {
+      "resume": true,
+      "uuid": "restart",
+      "step" : 5
+    }
+  }
+```
+
+#### Resume [optional]
+
+The CB-Geo mpm code allows for an optional resume at a check-point support. To resume an analysis at a give time-step, please set the option `resume` to `true`, the analysis `uuid` to which to resume from has to be assigned, and the `step` from which to resume. 
 
 ## Ascii files
 ### Mesh
