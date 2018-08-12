@@ -19,10 +19,16 @@ $$ \epsilon_{lateral} = - \nu \epsilon_{axial} $$
 
 Fo an axial loading condition, the axial strain and stress at a given time $t$ are:
 
-$$ \epsilon_{yy} = V \times \frac{(t - t_0)}{L} $$
+$$ \epsilon_{yy} = u \times \frac{(t - t_0)}{l} $$
 
-$$ \sigma_{yy} = E \epsilon_{yy} = E \times V \times \frac{(t - t_0)}{L} $$
+$$ \sigma_{yy} = E \epsilon_{yy} = E \times u \times \frac{(t - t_0)}{l} $$
 
 and the lateral strains are:
 
 $$ \epsilon_{xx} = \epsilon_{zz} = -\nu \times \epsilon_{yy} $$
+
+where,
+
+$u$ is the applied velocity at both ends,
+$l$ is the length of the block, and
+$E$ is the young's modulus of the system.
