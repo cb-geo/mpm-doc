@@ -34,3 +34,50 @@ $l$ is the length of the block, and
 $E$ is the young's modulus of the system.
 
 ![uniaxial stress](uniaxial-stress.png)
+
+## MPM configuration
+
+### Mesh
+
+|Cell dimensions	| value		|
+|-----------------------|---------------|
+|x-length 		| 1.0 $m$ 	|
+|y-length 		| 1.0 $m$ 	|
+|z-length 		| 1.0 $m$ 	|
+
+### Particles
+
+|Particle spacings	| value		|
+|-----------------------|---------------|
+|x-spacing 		| 0.5 $m$ 	|
+|y-spacing 		| 0.5 $m$ 	|
+|z-spacing 		| 0.5 $m$ 	|
+
+### Analysis
+
+|Description		| value		|
+|-----------------------|---------------|
+|Total analysis time 	| 0.1 s		|
+|Gravity		| false		|
+
+### Material
+
+|Description		| value		|
+|-----------------------|---------------|
+|Material	 	| Linear Elastic|
+|Young's modulus ($E$)	| 1000 $N/m^2$	|
+|Poisson ratio ($\nu$)	| 0.2		|
+
+## Analysis
+
+### Cases
+
+|Description		 | Case I	| Case I	| Case I	|
+|------------------------|--------------|---------------|---------------|
+|Density $\rho$($kg/m^3$)| 1.0		| 1.0		| 0.01		|
+|dt (s)			 | 0.01		| 0.001		| 0.001		|
+|nsteps			 | 10		| 100		| 1000		|
+
+### USF Results
+
+

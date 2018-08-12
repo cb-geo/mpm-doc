@@ -35,13 +35,10 @@ The CB-Geo MPM currently supports 2D and 3D explicit analysis. An analysis optio
 
 Supported analysis:
 
-|-----------------------|---------------------------------------|
 |Analysis		| Description				|
 |-----------------------|---------------------------------------|
 |MPMExplicit2D 		| Explicit 2D MPM Update Stress First	|
 |MPMExplicit3D 		| Explicit 3D MPM Update Stress First	|
 |MPMExplicitUSL2D 	| Explicit 2D MPM Update Stress Last	|
 |MPMExplicitUSL3D 	| Explicit 3D MPM Update Stress Last	|
-|-----------------------|---------------------------------------|
-
 
