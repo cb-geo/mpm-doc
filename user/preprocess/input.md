@@ -28,7 +28,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     }
   ],
   "mesh": {
-    "cell_type": "SFH8",
+    "cell_type": "ED3H8",
     "material_id": 1,
     "mesh_reader": "Ascii3D",
     "node_type": "N3D",

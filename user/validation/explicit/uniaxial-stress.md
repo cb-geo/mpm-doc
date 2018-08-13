@@ -70,6 +70,8 @@ $E$ is the young's modulus of the system.
 
 ## Analysis
 
+Analysis are carried out using MPM Explicit USF and USL algorithms.
+
 ### Cases
 
 |Description		 | Case I	| Case I	| Case I	|
@@ -78,6 +80,7 @@ $E$ is the young's modulus of the system.
 |dt (s)			 | 0.01		| 0.001		| 0.001		|
 |nsteps			 | 10		| 100		| 1000		|
 
+## Results
 ### USF Results at 0.1s
 
 | Parameter				| Analytical	| Case I	| Case II 	| Case III 	|
