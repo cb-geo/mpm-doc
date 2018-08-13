@@ -37,8 +37,8 @@ Supported analysis:
 
 |Analysis		| Description				|
 |-----------------------|---------------------------------------|
-|MPMExplicit2D 		| Explicit 2D MPM Update Stress First	|
-|MPMExplicit3D 		| Explicit 3D MPM Update Stress First	|
+|MPMExplicitUSF2D	| Explicit 2D MPM Update Stress First	|
+|MPMExplicitUSF3D	| Explicit 3D MPM Update Stress First	|
 |MPMExplicitUSL2D 	| Explicit 2D MPM Update Stress Last	|
 |MPMExplicitUSL3D 	| Explicit 3D MPM Update Stress Last	|
 
