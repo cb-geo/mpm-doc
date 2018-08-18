@@ -18,7 +18,7 @@ The particles HDF5 data has the following variables stored in the dataframe:
 ```
 ['id', 'coord_x', 'coord_y', 'coord_z', 'velocity_x', 'velocity_y', 'velocity_z', 
 'stress_xx', 'stress_yy', 'stress_zz', 'tau_xy', 'tau_yz', 'tau_xz', 
-'strain_xx', 'strain_yy', 'strain_zz', 'gamma_xy', 'gamma_yz', 'gamma_xz', 'status']
+'strain_xx', 'strain_yy', 'strain_zz', 'gamma_xy', 'gamma_yz', 'gamma_xz', 'epsilon_v', 'status']
 ```
 
 Each item in the header can be used to access data in the `h5` file. To print velocities (x, y, and z) of the particles:
