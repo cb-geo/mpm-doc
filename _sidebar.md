@@ -20,6 +20,7 @@
   * [About](theory/about.md)
   * Continuum mechanics
     * [Strains](theory/continuum-mechanics/strain.md)
+  * [Geometry](theory/mathematics/geometry.md)
   * [MPM](theory/mpm.md)
     * MPM Explicit
       * [Update Stress First](theory/usf.md)
