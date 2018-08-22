@@ -26,5 +26,10 @@ $$
 \mathbf{R} = \left[\begin{matrix} \cos{\alpha} \cos{\beta} - \sin{\alpha} \sin{\beta} & - \cos{\alpha} \sin{\beta} - \sin{\alpha} \cos{\beta} \\\\ \sin{\alpha} \cos{\beta} + \cos{\alpha} \sin{\beta} & - \sin{\alpha} \sin{\beta} + \cos{\alpha} \cos{\beta} \end{matrix}\right]
 $$
 
+## Reference
+
+[1] https://en.wikipedia.org/wiki/Rotation_matrix
+
+[2] https://en.wikipedia.org/wiki/Euler_angles
 
 
