@@ -20,10 +20,10 @@ $$
 \mathbf{R} = \left[\begin{matrix}
 \cos{\alpha} \cos{\beta} - \sin{\alpha} \cos{\gamma} \sin{\beta} & 
 - \cos{\alpha} \sin{\beta} - \sin{\alpha} \cos{\gamma} \cos{\beta} &
-\sin{\gamma} \sin{\alpha} \\\\
+\sin{\gamma} \sin{\alpha} \\
 \sin{\alpha} \cos{\beta} + \cos{\alpha} \cos{\gamma} \sin{\beta} & 
 - \sin{\alpha} \sin{\beta} + \cos{\alpha} \cos{\gamma} \cos{\beta} &
-- \sin{\gamma} \cos{\alpha} \\\\
+- \sin{\gamma} \cos{\alpha} \\
 \sin{\gamma} \sin{\beta} & 
 \sin{\gamma} \cos{\beta} &
 \cos{\gamma} 
@@ -35,7 +35,7 @@ In 2 dimensional, the rotation matrix is simplified as follow
 $$
 \mathbf{R} = \left[\begin{matrix}
 \cos{\alpha} \cos{\beta} - \sin{\alpha} \sin{\beta} & 
-- \cos{\alpha} \sin{\beta} - \sin{\alpha} \cos{\beta} \\\\
+- \cos{\alpha} \sin{\beta} - \sin{\alpha} \cos{\beta} \\
 \sin{\alpha} \cos{\beta} + \cos{\alpha} \sin{\beta} & 
 - \sin{\alpha} \sin{\beta} + \cos{\alpha} \cos{\beta} \
 \end{matrix}\right]
