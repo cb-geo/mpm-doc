@@ -9,7 +9,8 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   "input_files": {
     "velocity_constraints": "velocity-constraints.txt",
     "mesh": "mesh-3d.txt",
-    "particles": "particles-3d.txt"
+    "particles": "particles-3d.txt",
+    "particles_tractions": "particles-tractions.txt",
   },
   "materials": [
     {
@@ -36,10 +37,11 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   },
   "analysis": {
     "dt": 1.0E-5,
+    "uuid": "usf-axial-loading-5cb93af"
     "nsteps": 10,
     "resume" : {
       "resume": true,
-      "uuid": "restart",
+      "uuid": "usf-axial-loading-5cb93af",
       "step" : 5
     },
     "gravity": [0.0, 0.0, -9.81]
@@ -59,10 +61,11 @@ The analysis object defines the type of analysis, number of steps, time-step, an
   "analysis": {
     "dt": 1.0E-5,
     "nsteps": 10,
+    "uuid": "usf-axial-loading-5cb93af",
     "gravity": [0.0, -9.81, 0.0],
     "resume" : {
       "resume": true,
-      "uuid": "restart",
+      "uuid": "usf-axial-loading-5cb93af",
       "step" : 5
     }
   }
