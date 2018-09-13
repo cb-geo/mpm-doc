@@ -11,7 +11,7 @@ where $\hat{\mathbf{u}}$ is the property vector (for example velocity or acceler
 ![Euler angles](euler-angles.png)
 > Euler angles geometrical definition used in the code [2].
 
-The lower case $x, y, z$ is the original coordinate system, while the upper case $X, Y, Z$ is the rotated coordinate system. The angles shown are defined anti-clockwise from the original coordinate system. Note that all angles in the code are in radians, not degrees. Also $\gamma = 0$ in two-dimensional case and the implementation omits this extra variable. 
+The lower case $x, y, z$ is the original coordinate system, while the upper case $X, Y, Z$ is the rotated coordinate system. The upper case $N$ is the line of nodes, defined as the line that bisects $x$ and $y$ in the original coordinate system. The angles shown are defined anti-clockwise from the original coordinate system. Note that all angles in the code are in radians, not degrees. Also $\gamma = 0$ in two-dimensional case and the implementation omits this extra variable. 
 
 The rotation matrix, $\mathbf{R}$ is:
 
