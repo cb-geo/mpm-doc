@@ -35,7 +35,7 @@ Alternatively the [CB-Geo MPM docker image](/docker) can be also used, which com
 
 ## Compile
 
-0. Run `mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release /path/to/CMakeLists.txt`.
+0. Run CMake to create make files. `mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ ..`. Here `..` refers to the path to the `CMakeLists.txt` file.
 
 1. Run `make clean && make -jN` (where N is the number of cores).
 
