@@ -74,7 +74,7 @@ Analysis are carried out using MPM Explicit USF and USL algorithms.
 
 ### Cases
 
-|Description		 | Case I	| Case I	| Case I	|
+|Description		 | Case I	| Case II	| Case III	|
 |------------------------|--------------|---------------|---------------|
 |Density $\rho$($kg/m^3$)| 1.0		| 1.0		| 0.01		|
 |dt (s)			 | 0.01		| 0.001		| 0.001		|
@@ -86,9 +86,9 @@ Analysis are carried out using MPM Explicit USF and USL algorithms.
 | Parameter				| Analytical	| Case I	| Case II 	| Case III 	|
 |---------------------------------------|---------------|---------------|---------------|---------------|
 |$\epsilon_{yy}$			|-0.001		|-0.001		|-0.001		|-0.001		|
-|$\epsilon_{xx}$ / $\epsilon_{zz}$	| 0.0002	| 0.000231	| 0.00023	| 0.000201 	|
+|$\epsilon_{xx}$ or $\epsilon_{zz}$	| 0.0002	| 0.000231	| 0.00023	| 0.000201 	|
 |$\sigma_{yy} (N/m^2)$			|-1.00		|-0.982638	|-0.983478	|-0.999406	|
-|$\sigma_{xx}$ / $\sigma_{zz} (N/m^2)$	| 0.00		| 0.043406	| 0.041306	| 0.001485	|
+|$\sigma_{xx}$ or $\sigma_{zz} (N/m^2)$	| 0.00		| 0.043406	| 0.041306	| 0.001485	|
 
 
 
@@ -97,7 +97,7 @@ Analysis are carried out using MPM Explicit USF and USL algorithms.
 | Parameter				| Analytical	| Case I	| Case II 	| Case III 	|
 |---------------------------------------|---------------|---------------|---------------|---------------|
 |$\epsilon_{yy}$			|-0.001		|-0.001		|-0.001		|-0.001		|
-|$\epsilon_{xx}$ / $\epsilon_{zz}$	| 0.0002	| 0.000201	| 0.000224	| 0.0002	|
+|$\epsilon_{xx}$ or $\epsilon_{zz}$	| 0.0002	| 0.000201	| 0.000224	| 0.0002	|
 |$\sigma_{yy} (N/m^2)$			|-1.00		|-0.999476	|-0.986596	|-1.0		|
-|$\sigma_{xx}$ / $\sigma_{zz} (N/m^2)$	| 0.00		| 0.0131	| 0.033509  	| 1.595325e-07 	|
+|$\sigma_{xx}$ or $\sigma_{zz} (N/m^2)$	| 0.00		| 0.0131	| 0.033509  	| 1.595325e-07 	|
 
