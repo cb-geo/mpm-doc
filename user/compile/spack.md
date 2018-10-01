@@ -61,4 +61,4 @@ class Mpm(CMakePackage):
 
 Run `spack spec -I mpm` to check if `spack` has picked up the required mpm packages. The specification file for the MPM code can be edited by typing `spack edit mpm` once you have a `mpm/package.py` file in the `myspack` repo.
 
-To compile install the code use `spack install mpm`. 
+To compile and install the code use `spack install mpm`. 
