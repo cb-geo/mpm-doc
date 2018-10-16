@@ -45,7 +45,7 @@ Given the material points cannot move horizontally, the hydrostatic column colla
 |Young's modulus ($E$)	              | 1000000 $N/m^2$	|
 |Yield stress ($\tau_0$)              |  0.0     |
 |Viscosity ($\mu$)                    |  0.0     |
-|Critical shear rate ($\dot{\gamma}$) |  0.0     | 
+|Critical shear rate ($\dot{\gamma_c}$) |  0.0     | 
 
 
 ## Hydrostatic Analysis
