@@ -1,10 +1,10 @@
 # Column Collapse
 
-In 
+
 
 ## Hydrostatic Analytical Solution
 
-Given the material points cannot move horizontally, the hydrostatic column collapse problem should yield condition. 
+Given the material points cannot move horizontally, the hydrostatic column collapse problem should yield hydrostatic condition. We expect no deviatoric stress component in hydrostatic condition and thus Bingham fluid model will give the same pressure for all normal stress directions ($\sigma_xx, \sigma_yy, \sigma_zz$).
 
 
 ![column collapse](columncollapse.png)
@@ -43,14 +43,14 @@ Given the material points cannot move horizontally, the hydrostatic column colla
 |Material	                          | Bingham |
 |Density ($\rho$) 		              | 1800.0 $kg/m^3$ |
 |Young's modulus ($E$)	              | 1000000 $N/m^2$	|
-|Yield stress ($\tau_0$)              | 20.0     |
-|Viscosity ($\mu$)                    | 25.0     |
+|Yield stress ($\tau_0$)              |  0.0     |
+|Viscosity ($\mu$)                    |  0.0     |
 |Critical shear rate ($\dot{\gamma}$) |  0.0     | 
 
 
 ## Hydrostatic Analysis
 
-Analysis are carried out using MPM Explicit USF and USL algorithms. Note that the material position is updated using nodal acceleration.
+Analysis are carried out using MPM Explicit USF and USL algorithms. Note that the material position is updated using nodal velocity.
 
 ### Cases
 
@@ -63,8 +63,8 @@ Analysis are carried out using MPM Explicit USF and USL algorithms. Note that th
 
 | Parameter				| Analytical	| Case I	| Case II 	|
 |---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1665.024	| -1680.967	|
-|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1665.024	| -1680.967	|
+|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1685.681	| -1680.792	|
+|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1685.681	| -1680.792	|
 
 
 
@@ -73,6 +73,6 @@ Analysis are carried out using MPM Explicit USF and USL algorithms. Note that th
 
 | Parameter				| Analytical	| Case I	| Case II 	|
 |---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1669.019	| -1680.962	|
-|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1669.019	| -1680.962	|
+|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1685.562	| -1680.718	|
+|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1685.562	| -1680.718	|
 
