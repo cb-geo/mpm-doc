@@ -4,7 +4,7 @@
 
 ## Hydrostatic Analytical Solution
 
-Given the material points cannot move horizontally, the hydrostatic column collapse problem should yield hydrostatic condition. We expect no deviatoric stress component in hydrostatic condition and thus Bingham fluid model will give the same pressure for all normal stress directions ($\sigma_xx, \sigma_yy, \sigma_zz$).
+Given the material points cannot move horizontally, the hydrostatic column collapse problem should yield hydrostatic condition. We expect no deviatoric stress component in hydrostatic condition and thus Bingham fluid model will give the same pressure for all normal stress directions ($\sigma_{xx}, \sigma_{yy}, \sigma_{zz}$).
 
 
 ![column collapse](columncollapse.png)
@@ -54,7 +54,7 @@ Analysis are carried out using MPM Explicit USF and USL algorithms. Note that th
 
 ### Cases
 
-|Description		 | Case I	| Case I	|
+|Description		 | Case I	| Case II	|
 |------------------------|--------------|---------------|
 |Poisson ratio ($\nu$)   | 0.0		 | 0.3		 |
 
