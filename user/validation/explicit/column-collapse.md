@@ -24,8 +24,8 @@ Given the material points cannot move horizontally, the hydrostatic column colla
 
 |Particle spacings	| value		|
 |-----------------------|---------------|
-|x-spacing 		| 0.02 $m$ 	|
-|y-spacing 		| 0.02 $m$ 	|
+|x-spacing 		| 0.002 $m$ 	|
+|y-spacing 		| 0.002 $m$ 	|
 |Particles per cell |  25  |
 
 
@@ -63,8 +63,8 @@ Analysis are carried out using MPM Explicit USF and USL algorithms. Note that th
 
 | Parameter				| Analytical	| Case I	| Case II 	|
 |---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		|-0.982638	|-0.983478	|
-|$\sigma_{xx} (N/m^2)$          |     0.00		| 0.043406	| 0.041306	|
+|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1665.024	| -1680.967	|
+|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1665.024	| -1680.967	|
 
 
 
@@ -73,6 +73,6 @@ Analysis are carried out using MPM Explicit USF and USL algorithms. Note that th
 
 | Parameter				| Analytical	| Case I	| Case II 	|
 |---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		|-0.982638	|-0.983478	|
-|$\sigma_{xx} (N/m^2)$          |     0.00		| 0.043406	| 0.041306	|
+|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1669.019	| -1680.962	|
+|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1669.019	| -1680.962	|
 

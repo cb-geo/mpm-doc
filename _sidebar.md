@@ -15,6 +15,7 @@
   * Valdiation
     * Explicit
       * [Uniaxial stress](user/validation/explicit/uniaxial-stress.md)
+      * [Column Collapse](user/validation/explicit/column-collapse.md)
 * Theory
 
   * [About](theory/about.md)
