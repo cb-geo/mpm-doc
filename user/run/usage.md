@@ -4,12 +4,15 @@ The CB-Geo MPM code uses `JSON` file type for input configuration.
 
 ## Usage {docsify-ignore}
 ```shell
-./mpm  [-i <input_file>] -f <working_dir> [--] [--version]
-       [-h]
+   ./mpm  [-p <tbb_parallel>] [-i <input_file>] -f <working_dir> [--]
+          [--version] [-h]
 ```
 
 Where:
 ```shell
+   -p <tbb_parallel>,  --tbb_parallel <tbb_parallel>
+     Number of parallel TBB threads
+
    -i <input_file>,  --input_file <input_file>
      Input JSON file [mpm.json]
 
@@ -30,5 +33,5 @@ Where:
 For example:
 
 ```
-./mpm -f /path/to/input-dir/ -i mpm-usf-3d.json
+./mpm -f /path/to/input-dir/ -i mpm-usf-3d.json -p 8
 ```
