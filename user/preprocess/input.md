@@ -31,6 +31,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   ],
   "mesh": {
     "isoparametric": false,
+    "check_duplicates": false,
     "cell_type": "ED3H8",
     "material_id": 1,
     "mesh_reader": "Ascii3D",
