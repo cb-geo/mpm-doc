@@ -12,6 +12,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "particles": "particles-3d.txt",
     "particles_tractions": "particles-tractions.txt",
     "particles_stresses": "particles-stresses.txt",
+    "particles_cells": "particles-cells.txt"
   },
   "materials": [
     {
