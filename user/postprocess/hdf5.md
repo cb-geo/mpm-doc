@@ -39,3 +39,22 @@ print(df[['velocity_x', 'velocity_y','velocity_z']])
 6         0.0         0.0    0.033333
 7         0.0         0.0    0.033333
 ```
+
+## Partitioned HDF5
+
+When running MPM on multiple nodes, the CB-Geo MPM code currently outputs files split based on their MPI rank. Each file is named as `attribute-mpirank_mpisize-01.h5` to read from all Particle HDF5 file:
+
+```python
+# Read partitioned HDF5 data
+# !pip3 install pandas
+import pandas as pd
+# Number of MPI tasks
+mpi = 4
+# Create empty data frame
+df = pd.DataFrame(index=range(0))
+# Iterate over different files from MPI and append to data frame
+for i in range(mpi):
+    file = 'particles-'+str(i)+'_'+str(mpi)+'-09.h5'
+    df = df.append(pd.read_hdf(file, 'table'))
+print(df[['id', 'stress_xx', 'stress_yy','strain_xx', 'strain_yy', 'pressure']])
+```

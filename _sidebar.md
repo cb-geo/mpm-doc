@@ -3,8 +3,9 @@
 * User documentation
 
   * [About](user/about.md)
-  * [Compile](user/compile.md)
-  * [Docker](user/docker.md)
+  * [Compile](user/compile/compile.md)
+  * [Spack](user/compile/spack.md)
+  * [Docker](user/compile/docker.md)
   * Preprocess
     * [Input JSON](user/preprocess/input.md)
     * [ASCII Mesh/Particles](user/preprocess/ascii-mesh-particles.md)

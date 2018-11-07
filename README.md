@@ -1,4 +1,4 @@
-# CB-Geo Material Point Method
+# High-Performance Material Point Method (CB-Geo mpm)
 
 The CB-Geo MPM code is available at [GitHub](https://github.com/cb-geo/mpm).
 

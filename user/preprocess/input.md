@@ -9,7 +9,10 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   "input_files": {
     "velocity_constraints": "velocity-constraints.txt",
     "mesh": "mesh-3d.txt",
-    "particles": "particles-3d.txt"
+    "particles": "particles-3d.txt",
+    "particles_tractions": "particles-tractions.txt",
+    "particles_stresses": "particles-stresses.txt",
+    "particles_cells": "particles-cells.txt"
   },
   "materials": [
     {
@@ -28,6 +31,8 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     }
   ],
   "mesh": {
+    "isoparametric": false,
+    "check_duplicates": false,
     "cell_type": "ED3H8",
     "material_id": 1,
     "mesh_reader": "Ascii3D",
@@ -35,17 +40,20 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "particle_type": "P3D"
   },
   "analysis": {
+    "type": "MPMExplicitUSF3D",
     "dt": 1.0E-5,
+    "uuid": "usf-axial-loading-5cb93af"
     "nsteps": 10,
     "resume" : {
       "resume": true,
-      "uuid": "restart",
+      "uuid": "usf-axial-loading-5cb93af",
       "step" : 5
     },
     "gravity": [0.0, 0.0, -9.81]
   },
   "post_processing": {
     "output_steps": 5,
+    "vtk": ["stresses", "strains", "velocities"],
     "path": "results/"
   }
 }
@@ -57,16 +65,30 @@ The analysis object defines the type of analysis, number of steps, time-step, an
 
 ```
   "analysis": {
+    "type": "MPMExplicitUSF3D",
     "dt": 1.0E-5,
     "nsteps": 10,
+    "uuid": "usf-axial-loading-5cb93af",
     "gravity": [0.0, -9.81, 0.0],
     "resume" : {
       "resume": true,
-      "uuid": "restart",
+      "uuid": "usf-axial-loading-5cb93af",
       "step" : 5
     }
   }
 ```
+
+The CB-Geo MPM currently supports 2D and 3D explicit analysis. An analysis option can be selected by passing a required `-a` command to the mpm executable.
+
+Supported analyses are:
+
+|Analysis		| Description				|
+|-----------------------|---------------------------------------|
+|MPMExplicitUSF2D	| Explicit 2D MPM Update Stress First	|
+|MPMExplicitUSF3D	| Explicit 3D MPM Update Stress First	|
+|MPMExplicitUSL2D 	| Explicit 2D MPM Update Stress Last	|
+|MPMExplicitUSL3D 	| Explicit 3D MPM Update Stress Last	|
+
 
 #### Resume [optional]
 
