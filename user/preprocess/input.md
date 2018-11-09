@@ -7,9 +7,10 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
 {
   "title": "Example JSON Input for 3D MPM",
   "input_files": {
-    "velocity_constraints": "velocity-constraints.txt",
     "mesh": "mesh-3d.txt",
     "particles": "particles-3d.txt",
+    "velocity_constraints": "velocity-constraints.txt",
+    "particles_volumes" : "particles-volumes.txt",
     "particles_tractions": "particles-tractions.txt",
     "particles_stresses": "particles-stresses.txt",
     "particles_cells": "particles-cells.txt"
@@ -58,10 +59,36 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   }
 }
 ```
+### Input files
+
+The `input_files` object define the location of various optional and required input files:
+```
+  "input_files": {
+    "mesh": "mesh-3d.txt",
+    "particles": "particles-3d.txt",
+    "velocity_constraints": "velocity-constraints.txt",
+    "particles_volumes" : "particles-volumes.txt",
+    "particles_tractions": "particles-tractions.txt",
+    "particles_stresses": "particles-stresses.txt",
+    "particles_cells": "particles-cells.txt"
+  }
+```
+
+|File					| Description				|
+|---------------------------------------|---------------------------------------|
+|mesh					| Nodal coordinates and cell node ids	|
+|particles				| Particle coordinates			|
+|velocity_constraints (optional) 	| Velocity constraints on the nodes	|
+|particles_volumes (optional) 		| Particle volumes			|
+|particles_tractions (optional) 	| Traction applied on the particles	|
+|particles_stresses (optional) 		| Initial stresses of the particles	|
+|particles_cells (optional) 		| Initial guess of particle location	|
+
+
 
 ### Analysis
 
-The analysis object defines the type of analysis, number of steps, time-step, and an optional resume support.
+The `analysis` object defines the type of analysis, number of steps, time-step, and an optional resume support.
 
 ```
   "analysis": {
