@@ -15,3 +15,9 @@ The CB-Geo MPM code is also available as a Singularity container, which can be u
 * Alternatively, if you have an earlier version of Singularity (version below 3.0), the CB-Geo MPM Singularity image is also available on [direct download](https://s3.eu-west-2.amazonaws.com/singularity-containers/mpm.img).
 
 * To run the Singularity CB-Geo MPM container `singularity run mpm.img -f /path/to/working/dir`. The results will be written to working dir.
+
+
+## Building / testing MPM code locally within the container
+
+* To test your own changes to the code using the Singularity container, the easiest option would be to bind your local directory to the Singularity container using the [`--bind` / `-B`](https://www.sylabs.io/guides/3.0/user-guide/bind_paths_and_mounts.html) flag. 
+
