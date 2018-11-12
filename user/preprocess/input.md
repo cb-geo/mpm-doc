@@ -42,6 +42,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   },
   "analysis": {
     "type": "MPMExplicitUSF3D",
+    "velocity_update", true,
     "dt": 1.0E-5,
     "uuid": "usf-axial-loading-5cb93af"
     "nsteps": 10,
@@ -93,6 +94,7 @@ The `analysis` object defines the type of analysis, number of steps, time-step, 
 ```
   "analysis": {
     "type": "MPMExplicitUSF3D",
+    "velocity_update", true,
     "dt": 1.0E-5,
     "nsteps": 10,
     "uuid": "usf-axial-loading-5cb93af",
@@ -116,6 +118,10 @@ Supported analyses are:
 |MPMExplicitUSL2D 	| Explicit 2D MPM Update Stress Last	|
 |MPMExplicitUSL3D 	| Explicit 3D MPM Update Stress Last	|
 
+
+#### Velocity update [optional]
+
+In explicit code, the `velocity_update` flag allows to switch between updating particle velocity based on nodal acceleration (default, when `velocity_update` is set to `false`) and to use nodal velocity when set to `true`.
 
 #### Resume [optional]
 
