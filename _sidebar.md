@@ -6,6 +6,7 @@
   * [Compile](user/compile/compile.md)
   * [Spack](user/compile/spack.md)
   * [Docker](user/compile/docker.md)
+  * [Singularity](user/compile/singularity.md)
   * Preprocess
     * [Input JSON](user/preprocess/input.md)
     * [ASCII Mesh/Particles](user/preprocess/ascii-mesh-particles.md)

@@ -8,6 +8,8 @@ The CB-Geo MPM code uses `JSON` file type for input configuration.
           [--version] [-h]
 ```
 
+arguments listed within `[]` are optional
+
 Where:
 ```shell
    -p <tbb_parallel>,  --tbb_parallel <tbb_parallel>
