@@ -4,7 +4,7 @@
 
 ## Hydrostatic Analytical Solution
 
-The hydrostatic validation involves applying gravity loading to a column of fluid restrained in both lateral directions and along the bottom plane. The Newtonian fluid model will yield hydrostatic pressures for all normal stress directions ($\sigma_{xx}$, $\sigma_{yy}$, $\sigma_{zz}$).
+The hydrostatic validation involves applying gravity loading to a column of material restrained in both lateral directions and along the bottom plane. The Newtonian fluid model will yield hydrostatic pressures for all normal stress directions ($\sigma_{xx}$, $\sigma_{yy}$, $\sigma_{zz}$). The Linear Elastic material will yield static gravity driven stress in vertical direction while the horizontal stress depends on the poisson's ratio.
 
 
 ![hydrostatic column](hydrostatic-column.png)
@@ -43,30 +43,36 @@ The hydrostatic validation involves applying gravity loading to a column of flui
 |-----------------------|---------------|
 |Material	                          | Newtonian |
 |Density ($\rho$) 		              | 1800.0 $kg/m^3$ |
-|Young's modulus ($E$)	              | 1000000 $N/m^2$	|
+|Bulk modulus ($K$)	                  | 1000000 $N/m^2$	|
 |Viscosity ($\mu$)                    |  0.0     |
 
+|Description		| value		|
+|-----------------------|---------------|
+|Material	                          | Linear Elastic |
+|Density ($\rho$) 		              | 1800.0 $kg/m^3$ |
+|Young's modulus ($E$)	              | 1000000 $N/m^2$	|
+|Poisson's ratio ($\nu$)              |  0.0     |
 
 ## Hydrostatic Analysis
 
-Analysis are carried out using MPM Explicit USF and USL algorithms.
+Analysis are carried out using MPM Explicit USF and USL algorithms using velocity update.
 
 ## Results
 
 ### USF Results at 0.1s
 
-| Parameter				| Analytical	| Velocity Update	| Acceleration Update 	|
-|---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.244	|  |
-|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.244	|  |
+| Parameter				| Analytical for Fluid	| Newtonian	| Linear Elastic 	|
+|-----------------------|---------------|---------------|---------------|
+|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.244	| -1680.244 |
+|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.244	|     0.000|
 
 
 
 ### USL Results at 0.1s
 
 
-| Parameter				| Analytical	| Velocity Update	| Acceleration Update 	|
+| Parameter				| Analytical for Fluid	| Newtonian	| Linear Elastic 	|
 |---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.182	|   |
-|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.182	| 	|
+|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.182	| -1680.182  |
+|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.182	| 	  0.000 |
 
