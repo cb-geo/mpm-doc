@@ -40,31 +40,28 @@ Given the material points cannot move horizontally, the hydrostatic column colla
 
 |Description		| value		|
 |-----------------------|---------------|
-|Material	                          | Bingham |
+|Material	                          | Newtonian |
 |Density ($\rho$) 		              | 1800.0 $kg/m^3$ |
 |Young's modulus ($E$)	              | 1000000 $N/m^2$	|
-|Yield stress ($\tau_0$)              |  0.0     |
 |Viscosity ($\mu$)                    |  0.0     |
-|Critical shear rate ($\dot{\gamma_c}$) |  0.0     | 
 
 
 ## Hydrostatic Analysis
 
-Analysis are carried out using MPM Explicit USF and USL algorithms. Note that the material position is updated using nodal velocity.
+Analysis are carried out using MPM Explicit USF and USL algorithms.
 
 ### Cases
 
-|Description		 | Case I	| Case II	|
-|------------------------|--------------|---------------|
-|Poisson ratio ($\nu$)   | 0.0		 | 0.3		 |
+Case I: Velocity update
+Case II: Acceleration update
 
 ## Results
 ### USF Results at 0.1s
 
 | Parameter				| Analytical	| Case I	| Case II 	|
 |---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1685.681	| -1680.792	|
-|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1685.681	| -1680.792	|
+|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.244	|  |
+|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.244	|  |
 
 
 
@@ -73,6 +70,6 @@ Analysis are carried out using MPM Explicit USF and USL algorithms. Note that th
 
 | Parameter				| Analytical	| Case I	| Case II 	|
 |---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1685.562	| -1680.718	|
-|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1685.562	| -1680.718	|
+|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.182	|   |
+|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.182	| 	|
 
