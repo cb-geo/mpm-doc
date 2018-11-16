@@ -1,6 +1,8 @@
-# Plate with a hole stress
+# Plate with a hole
 
-Uniaxially loaded plate with a hole at the centre.
+A plate with a circular hole is uniaxially loaded in the lateral direction.
+
+![Plate with a hole](plate-hole.svg)
 
 ## Results
 
