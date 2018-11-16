@@ -1,14 +1,14 @@
-# Column Collapse
+# Hydrostatic Column
 
 
 
 ## Hydrostatic Analytical Solution
 
-Given the material points cannot move horizontally, the hydrostatic column collapse problem should yield hydrostatic condition. We expect no deviatoric stress component in hydrostatic condition and thus Bingham fluid model will give the same pressure for all normal stress directions ($\sigma_{xx}, \sigma_{yy}, \sigma_{zz}$).
+The hydrostatic validation involves applying gravity loading to a column of fluid restrained in both lateral directions and along the bottom plane. The Newtonian fluid model will yield hydrostatic pressures for all normal stress directions ($\sigma_{xx}$, $\sigma_{yy}$, $\sigma_{zz}$).
 
 
-![column collapse](columncollapse.png)
-*Figure illustrating the hydrostatic column collapse. w = 0.2 m and h = 0.1 m. All three sides (left, bottom and right) are normally fixed*
+![hydrostatic column](hydrostatic-column.png)
+*Hydrostatic column with a width `w` of 0.2 m and height `h` of 0.1 m. Restrained in both the lateral directions and along the bottom plane*
 
 
 ## MPM configuration
@@ -34,6 +34,7 @@ Given the material points cannot move horizontally, the hydrostatic column colla
 |Description		| value		|
 |-----------------------|---------------|
 |Total analysis time 	| 0.1 s		|
+|dt                     | 0.00001 s |
 |Gravity		| -9.81 $m/s^2$		|
 
 ### Material
@@ -50,15 +51,11 @@ Given the material points cannot move horizontally, the hydrostatic column colla
 
 Analysis are carried out using MPM Explicit USF and USL algorithms.
 
-### Cases
-
-Case I: Velocity update
-Case II: Acceleration update
-
 ## Results
+
 ### USF Results at 0.1s
 
-| Parameter				| Analytical	| Case I	| Case II 	|
+| Parameter				| Analytical	| Velocity Update	| Acceleration Update 	|
 |---------------------------------------|---------------|---------------|---------------|
 |$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.244	|  |
 |$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.244	|  |
@@ -68,7 +65,7 @@ Case II: Acceleration update
 ### USL Results at 0.1s
 
 
-| Parameter				| Analytical	| Case I	| Case II 	|
+| Parameter				| Analytical	| Velocity Update	| Acceleration Update 	|
 |---------------------------------------|---------------|---------------|---------------|
 |$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.182	|   |
 |$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.182	| 	|
