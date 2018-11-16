@@ -69,7 +69,7 @@ MPM Explicit USF approach with velocity update is performed.
 |---------------------------------------|---------------|---------------|
 | Point A ($\sigma_{xx}/\sigma_0$)	|  3.00		|  3.129	|
 | Point B ($\sigma_{xx}/\sigma_0$)	|  0.00		| -0.029	|
-| Point B ($\sigma_{yy}/\sigma_0$)	| -1.00		|  1.079	|
+| Point B ($\sigma_{yy}/\sigma_0$)	| -1.00		| -1.079	|
 
 The stresses obtained from the Explicit Update Stress First simulation is shown below.
 
