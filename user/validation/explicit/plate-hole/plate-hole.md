@@ -1,6 +1,6 @@
 # Plate with a hole
 
-A plane strip (plane stress) of width 5 m, length 8 m a centred hole of radius 0.5m is subjected to uniform tension of $sigma_0$ = 100 Pa applied at the ends of the strip. Due to symmetry, a quarter of this plate is modelled.
+A plane strip (plane stress) of width 5 m, length 8 m a centred hole of radius 0.5m is subjected to uniform tension of $\sigma_0$ = 100 Pa applied at the ends of the strip. Due to symmetry, a quarter of this plate is modelled.
 
 ![Plate with a hole](plate-hole.svg)
 
@@ -14,7 +14,7 @@ lated for a range of plate geometries and are shown in the table below.
 ![Semi-analytical solution stress concentration](finite-width-plate-hole.png)
 > Howland's semi-analytical solution
 
-|R/W		 | Point A $\sigma_{xx}/\sigma_0$	| Point B $\sigma_{yy}/sigma_0$	|
+|R/W		 | Point A $\sigma_{xx}/\sigma_0$	| Point B $\sigma_{yy}/\sigma_0$	|
 |----------------|--------------------------------------|-------------------------------|
 |0		 | 3.00					| -1.00				|
 |0.1		 | 3.03					| -1.03				|
