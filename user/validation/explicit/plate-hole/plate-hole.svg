@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="535.99023mm"
-   height="291.25049mm"
-   viewBox="0 0 535.99023 291.25049"
+   width="531.21619mm"
+   height="301.44952mm"
+   viewBox="0 0 531.21618 301.44953"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
@@ -435,8 +435,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.53021057"
-     inkscape:cx="1921.4885"
-     inkscape:cy="870.72261"
+     inkscape:cx="1335.0943"
+     inkscape:cy="909.27014"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -458,15 +458,15 @@
     <inkscape:grid
        type="xygrid"
        id="grid962"
-       originx="41.18954"
-       originy="4.9944208" />
+       originx="50.714538"
+       originy="15.193456" />
     <sodipodi:guide
-       position="240.7994,369.20793"
+       position="250.32441,379.40698"
        orientation="1,0"
        id="guide6882"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="258.67491,129.37818"
+       position="268.19992,139.57722"
        orientation="0,1"
        id="guide9748"
        inkscape:locked="false" />
@@ -479,7 +479,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -487,7 +487,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1.292835,93.991499)">
+     transform="translate(10.817833,93.991499)">
     <path
        style="opacity:1;fill:#ffccaa;fill-opacity:0.68627451;fill-rule:nonzero;stroke:#ffccaa;stroke-width:6.37575531;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="M 3.1875,3.1875 V 756.51758 A 188.52479,188.52479 0 0 1 188.41211,941.69336 H 1508.623 V 3.1875 Z"

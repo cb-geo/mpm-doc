@@ -23,7 +23,53 @@ lated for a range of plate geometries and are shown in the table below.
 |0.4		 | 3.74					| -1.44				|
 |0.5		 | 4.32					| -1.58				|
 
+## MPM configuration
+
+
+### Analysis
+
+|Description		| value		|
+|-----------------------|---------------|
+|Type		 	| Explicit USF	|
+|Velocity update	| true		|
+|Total analysis time 	| 30 s		|
+|dt		 	| 1.0E-4	|
+|Gravity		| false		|
+
+### Mesh
+
+|Cell dimensions	| value		|
+|-----------------------|---------------|
+|x-length 		| 0.0625 $m$ 	|
+|y-length 		| 0.0625 $m$ 	|
+
+### Particles
+
+|Particle spacings	| value		|
+|-----------------------|---------------|
+|x-spacing 		| 0.015625 $m$ 	|
+|y-spacing 		| 0.015625 $m$ 	|
+|# material points /cell| 16		| 
+
+
+### Material
+
+|Description		| value		|
+|-----------------------|---------------|
+|Material	 	| Linear Elastic|
+|Young's modulus ($E$)	| 1.0E+6 $N/m^2$|
+|Poisson ratio ($\nu$)	| 0.0		|
+|Density ($kg/m^3$)	| 2000.0	|
+
 ## Results
+
+MPM Explicit USF approach with velocity update is performed.
+
+| Stress concentration factors		| Howland's	| MPM USF	|
+|---------------------------------------|---------------|---------------|
+| Point A ($\sigma_{xx}/\sigma_0$)	|  3.00		|  3.129	|
+| Point B ($\sigma_{xx}/\sigma_0$)	|  0.00		| -0.029	|
+| Point B ($\sigma_{yy}/\sigma_0$)	| -1.00		|  1.079	|
 
 The stresses obtained from the Explicit Update Stress First simulation is shown below.
 
