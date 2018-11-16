@@ -16,7 +16,9 @@
     * [HDF5 data](user/postprocess/hdf5.md)
   * Valdiation
     * Explicit
-      * [Uniaxial stress](user/validation/explicit/uniaxial-stress.md)
+      * [Uniaxial stress](user/validation/explicit/uniaxial-stress/uniaxial-stress.md)
+      * [Plate with a hole](user/validation/explicit/plate-hole/plate-hole.md)
+
 * Theory
 
   * [About](theory/about.md)
