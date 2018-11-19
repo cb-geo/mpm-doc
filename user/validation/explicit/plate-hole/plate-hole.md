@@ -15,12 +15,12 @@ $\tau_{r\theta}=-\frac{\sigma_0}{2}(1+2(\frac{a}{r})^2-3(\frac{a}{r}^4))sin2\the
 
 where _a_ is hole radius, _r_ and $\theta$ are radial coordinates and $\sigma_0$ is remote stress. The stress concentration factor, $K_t$ which is defined as the ratio of the maximum stress, $\sigma_{max}$ at hole to the remote stress, $\sigma_0$ for the infinite width plate is 3.
 
+![Fig. 2: Semi-analytical solution of stress concentration](finite-width-plate-hole.png)
+> Howland's semi-analytical solution
+
 For a finite width plate (see Fig. 2), the elastic stress state depends on the plate width (W) and the hole radius (R). The elastic stress state of a finite width plate with a circular hole is found by empirical relationships.
 
 We use the relationship proposed by Howland [2] to compute the elastic stress at the circular hole as shown in Fig. 1.  The stress ratios for a range of geometries (hole radius, _R_ and plate finite width, _2W_) are calculated in the table below. 
-
-![Semi-analytical solution stress concentration](finite-width-plate-hole.png)
-> Howland's semi-analytical solution
 
 > Table 1: Howland's semi-analytical solution
 
