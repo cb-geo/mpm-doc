@@ -89,6 +89,7 @@ The stresses obtained from the Explicit Update Stress First simulation is shown 
 ![Stress YY](plate-hole-stress-yy.png)
 > Stress-YY
 
+## References
 [1] Kirsch, 1989, Die Theorie der Elastizität und die Bedürfnisse der Festigkeitslehre. Zeitschrift des Vereines deutscher Ingenieure, 42, 797-807
 
-[2] Howland, R.C.J., 1930, On the Stresses in the Neighborhood of a Circular Hole in a Strip under Tension*, Trans. Roy. Soc London, Series A, vol.229, 49-59
+[2] Howland, R.C.J., 1930, On the Stresses in the Neighborhood of a Circular Hole in a Strip under Tension, Trans. Roy. Soc London, Series A, vol.229, 49-59
