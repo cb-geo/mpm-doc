@@ -61,18 +61,18 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 
 ### USF Results at 0.1s
 
-| Parameter				| Analytical for Fluid	| Newtonian	| Linear Elastic 	|
+| Parameter				| Analytical for Fluid (Solid)	| Newtonian	| Linear Elastic 	|
 |-----------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.244	| -1680.244 |
-|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.244	|     0.000|
+|$\sigma_{yy} (N/m^2)$			| -1677.510		    | -1680.244	| -1680.244 |
+|$\sigma_{xx} (N/m^2)$          | -1677.510 (0)		| -1680.244	|     0.000|
 
 
 
 ### USL Results at 0.1s
 
 
-| Parameter				| Analytical for Fluid	| Newtonian	| Linear Elastic 	|
+| Parameter				| Analytical for Fluid (Solid)	| Newtonian	| Linear Elastic 	|
 |---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1730.484		| -1680.182	| -1680.182  |
-|$\sigma_{xx} (N/m^2)$          | -1730.484		| -1680.182	| 	  0.000 |
+|$\sigma_{yy} (N/m^2)$			| -1677.510		    | -1680.182	| -1680.182  |
+|$\sigma_{xx} (N/m^2)$          | -1677.510 (0)		| -1680.182	| 	  0.000 |
 
