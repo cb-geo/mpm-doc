@@ -18,6 +18,8 @@
     * Explicit
       * [Uniaxial stress](user/validation/explicit/uniaxial-stress.md)
       * [Hydrostatic column](user/validation/explicit/hydrostatic-column.md)
+      * [Plate with a hole](user/validation/explicit/plate-hole/plate-hole.md)
+
 * Theory
 
   * [About](theory/about.md)
