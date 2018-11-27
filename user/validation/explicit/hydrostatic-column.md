@@ -15,27 +15,27 @@ The hydrostatic validation involves applying gravity loading to a column of mate
 
 ### Mesh
 
-|Cell dimensions	| value		|
-|-----------------------|---------------|
-|x-length 		| 0.01 $m$ 	|
-|y-length 		| 0.01 $m$ 	|
+|Cell dimensions	| Case 1   | Case 2   |  Case 3   |
+|-----------------------|---------------|---------------|---------------|
+|x-length 		| 0.01 $m$ 	| 0.005 $m$  | 0.0025 $m$  |
+|y-length 		| 0.01 $m$ 	| 0.005 $m$  | 0.0025 $m$  |
 
 ### Particles
 
-|Particle spacings	| value		|
-|-----------------------|---------------|
-|x-spacing 		| 0.002 $m$ 	|
-|y-spacing 		| 0.002 $m$ 	|
-|Particles per cell |  25  |
+|Particle spacings	| Case 1	| Case 2	|  Case 3   |
+|-----------------------|---------------|---------------|---------------|
+|x-spacing 		| 0.002 $m$ 	| 0.001 $m$ 	| 0.0005 $m$  |
+|y-spacing 		| 0.002 $m$ 	| 0.001 $m$ 	| 0.0005 $m$  |
+|Particles per cell |  25  |  25  |  25  |
 
 
 ### Analysis
 
-|Description		| value		|
-|-----------------------|---------------|
-|Total analysis time 	| 0.1 s		|
-|dt                     | 0.00001 s |
-|Gravity		| -9.81 $m/s^2$		|
+|Description		| Case 1		| Case 2		|  Case 3		|
+|-----------------------|---------------|---------------|---------------|
+|Total analysis time 	| 0.1 s		| 0.1 s		| 0.1 s		|
+|dt                     | 0.00001 s | 0.000005 s |0.0000025 s |
+|Gravity		| -9.81 $m/s^2$		| -9.81 $m/s^2$		| -9.81 $m/s^2$		|
 
 ### Material
 
@@ -55,24 +55,41 @@ The hydrostatic validation involves applying gravity loading to a column of mate
 
 ## Hydrostatic Analysis
 
-Analysis are carried out using MPM Explicit USF and USL algorithms using velocity update.
+Analysis are carried out using MPM Explicit USF and USL algorithms using velocity update. Note that the results converge with more refined mesh with smaller errors.
 
-## Results
+## Results for Newtonian Fluid
 
 ### USF Results at 0.1s
 
-| Parameter				| Analytical for Fluid (Solid)	| Newtonian	| Linear Elastic 	|
-|-----------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1677.510		    | -1680.244	| -1680.244 |
-|$\sigma_{xx} (N/m^2)$          | -1677.510 (0)		| -1680.244	|     0.000|
+| Parameter				| Analytical	| Case 1	| Case 2 	| Case 3 	|
+|-----------------------|---------------|---------------|---------------|---------------|
+|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.244	| -1724.627 | -1724.627 |
+|$\sigma_{xx} (N/m^2)$          | -1765.800 		| -1680.244	| -1724.627 | -1724.627 |
 
 
 
 ### USL Results at 0.1s
 
+| Parameter				| Analytical	| Case 1	| Case 2 	| Case 3 	|
+|-----------------------|---------------|---------------|---------------|---------------|
+|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.182	| -1724.594 | -1724.627 |
+|$\sigma_{xx} (N/m^2)$          | -1765.800 		| -1680.182	| -1724.594 | -1724.627 |
 
-| Parameter				| Analytical for Fluid (Solid)	| Newtonian	| Linear Elastic 	|
-|---------------------------------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1677.510		    | -1680.182	| -1680.182  |
-|$\sigma_{xx} (N/m^2)$          | -1677.510 (0)		| -1680.182	| 	  0.000 |
 
+## Results for Linear Elastic
+
+### USF Results at 0.1s
+
+| Parameter				| Analytical 	| Case 1	| Case 2 	| Case 3 	|
+|-----------------------|---------------|---------------|---------------|---------------|
+|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.244	| -1724.627 | -1724.627 |
+|$\sigma_{xx} (N/m^2)$          |     0.000		    |     0.000	|    -2.327E-9 | -1724.627 |
+
+
+
+### USL Results at 0.1s
+
+| Parameter				| Analytical 	| Case 1	| Case 2 	| Case 3 	|
+|-----------------------|---------------|---------------|---------------|---------------|
+|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.182	| -1724.594 | -1724.627 |
+|$\sigma_{xx} (N/m^2)$          |     0.000  		|     0.000	|    -1.191E-9 | -1724.627 |
