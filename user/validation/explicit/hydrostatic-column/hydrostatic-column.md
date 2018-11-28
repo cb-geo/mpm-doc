@@ -66,8 +66,6 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 |$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.244	| -1724.627 | -1724.627 |
 |$\sigma_{xx} (N/m^2)$          | -1765.800 		| -1680.244	| -1724.627 | -1724.627 |
 
-
-
 ### USL Results at 0.1s
 
 | Parameter				| Analytical	| Case 1	| Case 2 	| Case 3 	|
@@ -85,8 +83,6 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 |$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.244	| -1724.627 | -1724.627 |
 |$\sigma_{xx} (N/m^2)$          |     0.000		    |     0.000	|    -2.327E-9 | -1724.627 |
 
-
-
 ### USL Results at 0.1s
 
 | Parameter				| Analytical 	| Case 1	| Case 2 	| Case 3 	|
@@ -94,6 +90,9 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 |$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.182	| -1724.594 | -1724.627 |
 |$\sigma_{xx} (N/m^2)$          |     0.000  		|     0.000	|    -1.191E-9 | -1724.627 |
 
+
+## Results Animation
+
 ![results](results.gif)
-*Stress in vertical direction results with time for Linear Elastic model*
+*Stress in vertical direction results with time for USF Linear Elastic model*
 
