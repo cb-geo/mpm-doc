@@ -95,6 +95,6 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 
 ## Results Animation
 
-![results](results.gif)
+![animation](animation.gif)
 *Stress in vertical direction results with time for USF Linear Elastic model*
 
