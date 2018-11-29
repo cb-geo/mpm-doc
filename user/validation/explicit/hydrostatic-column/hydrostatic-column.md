@@ -1,7 +1,5 @@
 # Hydrostatic Column
 
-
-
 ## Hydrostatic Analytical Solution
 
 The hydrostatic validation involves applying gravity loading to a column of material restrained in both lateral directions and along the bottom plane. The Newtonian fluid model will yield hydrostatic pressures for all normal stress directions ($\sigma_{xx}$, $\sigma_{yy}$, $\sigma_{zz}$). The Linear Elastic material will yield static gravity driven stress in vertical direction while the horizontal stress depends on the poisson's ratio.
@@ -33,7 +31,7 @@ The hydrostatic validation involves applying gravity loading to a column of mate
 
 |Description		| Case 1		| Case 2		|  Case 3		|
 |-----------------------|---------------|---------------|---------------|
-|Total analysis time 	| 0.1 s		| 0.1 s		| 0.1 s		|
+|Total analysis time 	| 0.2 s		| 0.2 s		| 0.2 s		|
 |dt                     | 0.00001 s | 0.000005 s |0.0000025 s |
 |Gravity		| -9.81 $m/s^2$		| -9.81 $m/s^2$		| -9.81 $m/s^2$		|
 
@@ -59,37 +57,41 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 
 ## Results for Newtonian Fluid
 
-### USF Results at 0.1s
+### USF Results at 0.2s
 
 | Parameter				| Analytical	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.244	| -1724.627 | -1741.565 |
-|$\sigma_{xx} (N/m^2)$          | -1765.800 		| -1680.244	| -1724.627 | -1741.565 |
+|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.244	| -1724.583 | -1746.791 |
+|$\sigma_{xx} (N/m^2)$          | -1765.800 		| -1680.244	| -1724.583 | -1746.791 |
 
-### USL Results at 0.1s
+### USL Results at 0.2s
 
 | Parameter				| Analytical	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.182	| -1724.594 | -1741.351 |
-|$\sigma_{xx} (N/m^2)$          | -1765.800 		| -1680.182	| -1724.594 | -1741.351 |
+|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.182	| -1724.550 | -1746.774 |
+|$\sigma_{xx} (N/m^2)$          | -1765.800 		| -1680.182	| -1724.550 | -1746.774 |
 
 
 ## Results for Linear Elastic
 
-### USF Results at 0.1s
+### USF Results at 0.2s
 
 | Parameter				| Analytical 	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.244	| -1724.627 | -1741.565 |
-|$\sigma_{xx} (N/m^2)$          |     0.000		    |     0.000	|    -2.327E-9 |  0.000 |
+|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.244	| -1724.583 | -1746.791 |
+|$\sigma_{xx} (N/m^2)$          |     0.000		    |     0.000	|     0.000 |  0.000 |
 
-### USL Results at 0.1s
+### USL Results at 0.2s
 
 | Parameter				| Analytical 	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|---------------|---------------|---------------|
-|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.182	| -1724.594 | -1741.351 |
-|$\sigma_{xx} (N/m^2)$          |     0.000  		|     0.000	|    -1.191E-9 |  0.000 |
+|$\sigma_{yy} (N/m^2)$			| -1765.800		    | -1680.182	| -1724.550 | -1746.774 |
+|$\sigma_{xx} (N/m^2)$          |     0.000  		|     0.000	|     0.000 |  0.000 |
 
+
+## Plot over Time to show Convergence
+![convergence](convergence.png)
+*There are some oscillations that finally converge*
 
 ## Results Animation
 
