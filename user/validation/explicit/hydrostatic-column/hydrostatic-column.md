@@ -89,11 +89,11 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 |$\sigma_{xx} (N/m^2)$  |     0.000  	|     0.000	|     0.000 |  0.000    |
 
 
-## Plot over Time to show Convergence
+## Plot over time to show convergence
 ![convergence](convergence.png)
 *There are some oscillations that finally converge*
 
-## Results Image 
+## Results image 
 
 ![result-image](result-image.png)
 *Stress in vertical direction results at 0.2 seconds for USF Linear Elastic model*
