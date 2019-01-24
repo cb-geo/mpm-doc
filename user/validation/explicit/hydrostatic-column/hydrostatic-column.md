@@ -1,12 +1,12 @@
 # Hydrostatic column
 
-## Hydrostatic Analytical Solution
+## Hydrostatic analytical solution
 
-The hydrostatic validation involves applying gravity loading to a column of material restrained in both lateral directions and along the bottom plane. The Newtonian fluid model will yield hydrostatic pressures for all normal stress directions ($\sigma_{xx}$, $\sigma_{yy}$, $\sigma_{zz}$). The Linear Elastic material will yield static gravity driven stress in vertical direction while the horizontal stress depends on the poisson's ratio.
+The hydrostatic validation involves applying gravity loading to a column of material restrained in both lateral components and along the bottom plane. The Newtonian fluid model will yield hydrostatic pressures for all normal stress directions ($\sigma_{xx}$, $\sigma_{yy}$, $\sigma_{zz}$). The linear elastic material will yield geo-static stresses in the vertical direction and the horizontal stresses depend on the Poisson's ratio.
 
 
 ![hydrostatic column](hydrostatic-column.png)
-*Hydrostatic column with a width `w` of 0.2 m and height `h` of 0.1 m. Restrained in both the lateral directions and along the bottom plane*
+> Hydrostatic column with a width `w` of 0.2 m and height `h` of 0.1 m. Restrained in both the lateral directions and along the bottom plane
 
 
 ## MPM configuration
@@ -51,13 +51,13 @@ The hydrostatic validation involves applying gravity loading to a column of mate
 |Young's modulus ($E$)	 | 1000000 $N/m^2$	|
 |Poisson's ratio ($\nu$) |  0.0             |
 
-## Hydrostatic Analysis
+## Hydrostatic analysis
 
 Analysis are carried out using MPM Explicit USF and USL algorithms using velocity update. Note that the results converge with more refined mesh with smaller errors.
 
-## Results for Newtonian Fluid
+## Results (Newtonian Fluid)
 
-### USF Results at 0.2s
+### USF results at t = 0.2s
 
 | Parameter				| Analytical	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|-----------|-----------|-----------|
@@ -72,16 +72,16 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 |$\sigma_{xx} (N/m^2)$  | -1765.800 	| -1680.182	| -1724.550 | -1746.774 |
 
 
-## Results for Linear Elastic
+## Results (Linear Elastic)
 
-### USF Results at 0.2s
+### USF Results at t = 0.2s
 
 | Parameter				| Analytical 	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|-----------|-----------|-----------|
 |$\sigma_{yy} (N/m^2)$	| -1765.800	    | -1680.244	| -1724.583 | -1746.791 |
 |$\sigma_{xx} (N/m^2)$  |     0.000	    |     0.000	|     0.000 |  0.000    |
 
-### USL Results at 0.2s
+### USL Results at t = 0.2s
 
 | Parameter				| Analytical 	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|-----------|-----------|-----------|
@@ -91,10 +91,10 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 
 ## Plot over time to show convergence
 ![convergence](convergence.png)
-*There are some oscillations that finally converge*
+> There are some oscillations that finally converge
 
 ## Results image 
 
 ![result-image](result-image.png)
-*Stress in vertical direction results at 0.2 seconds for USF Linear Elastic model*
+> Vertical stresses component results at t = 0.2s for USF linear elastic model
 
