@@ -64,7 +64,7 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 |$\sigma_{yy} (N/m^2)$	| -1765.800		| -1680.244	| -1724.583 | -1746.791 |
 |$\sigma_{xx} (N/m^2)$  | -1765.800 	| -1680.244	| -1724.583 | -1746.791 |
 
-### USL Results at t = 0.2s
+### USL results at t = 0.2s
 
 | Parameter				| Analytical	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|-----------|-----------|-----------|
@@ -74,14 +74,14 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 
 ## Results (Linear Elastic)
 
-### USF Results at t = 0.2s
+### USF results at t = 0.2s
 
 | Parameter				| Analytical 	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|-----------|-----------|-----------|
 |$\sigma_{yy} (N/m^2)$	| -1765.800	    | -1680.244	| -1724.583 | -1746.791 |
 |$\sigma_{xx} (N/m^2)$  |     0.000	    |     0.000	|     0.000 |  0.000    |
 
-### USL Results at t = 0.2s
+### USL results at t = 0.2s
 
 | Parameter				| Analytical 	| Case 1	| Case 2 	| Case 3 	|
 |-----------------------|---------------|-----------|-----------|-----------|
