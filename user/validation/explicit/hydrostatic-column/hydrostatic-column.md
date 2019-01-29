@@ -95,6 +95,6 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 
 ## Results image 
 
-![result-image](result-image.png)
+![linear-elastic-stresses](linear-elastic-stresses.png)
 > Vertical stresses component results at t = 0.2s for USF linear elastic model
 
