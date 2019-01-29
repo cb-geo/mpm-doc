@@ -91,7 +91,7 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 
 ## Plot over time to show convergence
 ![convergence](convergence.png)
-> There are some oscillations that finally converge
+> Plot of vertical stresses with time showing convergence of stress osciallations
 
 ## Results image 
 
