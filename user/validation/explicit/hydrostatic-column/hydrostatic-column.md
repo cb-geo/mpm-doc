@@ -89,7 +89,6 @@ Analysis are carried out using MPM Explicit USF and USL algorithms using velocit
 |$\sigma_{xx} (N/m^2)$  |     0.000  	|     0.000	|     0.000 |  0.000    |
 
 
-## Plot over time to show convergence
 ![convergence](convergence.png)
 > Plot of vertical stresses with time showing convergence of stress osciallations
 
