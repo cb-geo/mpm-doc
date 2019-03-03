@@ -12,6 +12,8 @@
     * [ASCII Mesh/Particles](user/preprocess/ascii-mesh-particles.md)
   * Run MPM
     * [Usage](user/run/usage.md)
+    * HPCS
+	* [Lonestar 5](user/run/hpc/tacc.md)
   * Postprocess
     * [HDF5 data](user/postprocess/hdf5.md)
   * Validation
@@ -39,4 +41,3 @@
 
   * [Overview](code/overview.md)
   * [Material](code/material.md)
-  * [Lonestar 5](code/tacc.md)
