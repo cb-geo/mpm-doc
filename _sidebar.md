@@ -14,7 +14,7 @@
     * [Usage](user/run/usage.md)
   * Postprocess
     * [HDF5 data](user/postprocess/hdf5.md)
-  * Valdiation
+  * Validation
     * Explicit
       * [Uniaxial stress](user/validation/explicit/uniaxial-stress/uniaxial-stress.md)
       * [Hydrostatic column](user/validation/explicit/hydrostatic-column/hydrostatic-column.md)
@@ -38,3 +38,5 @@
 * Developer
 
   * [Overview](code/overview.md)
+  * [Material](code/material.md)
+  * [Lonestar 5](code/tacc.md)
