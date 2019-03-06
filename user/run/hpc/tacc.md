@@ -1,6 +1,6 @@
 # Lonestar 5
 
-Lonestar 5 is a high performance computing system deployed at TACC (Texas Advanced Computing Center). More information about the system configuration and usage can be accessed in the [Lonestar 5 User Guide](https://portal.tacc.utexas.edu/user-guides/lonestar5).
+Lonestar 5 (LS5) is a high performance computing system deployed at TACC (Texas Advanced Computing Center). More information about the system configuration and usage can be accessed in the [Lonestar 5 User Guide](https://portal.tacc.utexas.edu/user-guides/lonestar5).
 
 ## Accessing the system
 
@@ -24,6 +24,19 @@ module load boost hdf5
 wget http://bitbucket.org/eigen/eigen/get/3.3.7.zip
 unzip 3.3.7.zip
 mv eigen-eigen* eigen
+```
+## Cloning files to LS5
+
+The `git clone` command can be used directly in the login node to clone the mpm repository into the LS5.
+
+```shell
+git clone https://github.com/cb-geo/mpm.git
+```
+
+To clone the mpm benchmark repository:
+
+```shell
+https://github.com/cb-geo/mpm-benchmarks.git
 ```
 
 ## Compile on LS5
