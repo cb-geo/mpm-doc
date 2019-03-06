@@ -39,6 +39,17 @@ To clone the mpm benchmark repository:
 https://github.com/cb-geo/mpm-benchmarks.git
 ```
 
+## Transfering files to LS5
+
+To transfer files to a local machine to a login node, the user can use either `rsync` or `scp`. These commands must be used locally, for example:
+
+```shell
+rsync filename userid@ls5.tacc.utexas.edu:/path/to/project/directory/
+scp filename username@ls5.tacc.utexas.edu:/path/to/project/directory/
+```
+
+For more information, visit [Lonestar 5 GUide - Transferring Files](https://portal.tacc.utexas.edu/user-guides/lonestar5#managing-transferring).
+
 ## Compile on LS5
 
 To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
