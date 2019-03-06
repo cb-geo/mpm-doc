@@ -12,9 +12,11 @@
     * [ASCII Mesh/Particles](user/preprocess/ascii-mesh-particles.md)
   * Run MPM
     * [Usage](user/run/usage.md)
+    * HPCS
+	* [Lonestar 5](user/run/hpc/tacc.md)
   * Postprocess
     * [HDF5 data](user/postprocess/hdf5.md)
-  * Valdiation
+  * Validation
     * Explicit
       * [Uniaxial stress](user/validation/explicit/uniaxial-stress/uniaxial-stress.md)
       * [Hydrostatic column](user/validation/explicit/hydrostatic-column/hydrostatic-column.md)
@@ -38,3 +40,4 @@
 * Developer
 
   * [Overview](code/overview.md)
+  * [Material](code/material.md)
