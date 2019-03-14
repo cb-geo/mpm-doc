@@ -20,12 +20,12 @@ Please enable [2FA (Two-factor authentication)](https://portal.tacc.utexas.edu/t
 Certain prerequisites such as `boost` and `hdf5` are available on TACC, and can be accessed using `module load` command. Additional dependency of `eigen` must be installed locally:
 
 ```shell
-module load boost hdf5
+module load boost hdf5 swr/18.3.1
 wget http://bitbucket.org/eigen/eigen/get/3.3.7.zip
 unzip 3.3.7.zip
 mv eigen-eigen* eigen
 ```
-## Cloning files to LS5
+## Get the code to LS5
 
 The `git clone` command can be used directly in the login node to clone the mpm repository into the LS5.
 
@@ -36,26 +36,18 @@ git clone https://github.com/cb-geo/mpm.git
 To clone the mpm benchmark repository:
 
 ```shell
-https://github.com/cb-geo/mpm-benchmarks.git
+git clone https://github.com/cb-geo/mpm-benchmarks.git
 ```
 
-## Transfering files to LS5
 
-To transfer files to a local machine to a login node, the user can use either `rsync` or `scp`. These commands must be used locally, for example:
-
-```shell
-rsync filename userid@ls5.tacc.utexas.edu:/path/to/project/directory/
-scp filename username@ls5.tacc.utexas.edu:/path/to/project/directory/
-```
-
-For more information, visit [Lonestar 5 GUide - Transferring Files](https://portal.tacc.utexas.edu/user-guides/lonestar5#managing-transferring).
 
 ## Compile on LS5
 
 To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
 
 ```shell
-cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen ..
+mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen -DVTK_DIR=/home1/01197/semeraro/VTK-8.2.0/Install/lib64/cmake/vtk-8.2/ ..
+
 make -j
 ```
 ## Running the code
@@ -99,6 +91,17 @@ sbatch submission.txt
 ```
 
 The list of submitted jobs can be viewed with `showq` (or `showq -u` if only a list of the user`s submitted jobs are required).
+
+## Transfering files to LS5
+
+To transfer files to a local machine to a login node, the user can use either `rsync` or `scp`. These commands must be used locally, for example:
+
+```shell
+rsync filename userid@ls5.tacc.utexas.edu:/path/to/project/directory/
+scp filename username@ls5.tacc.utexas.edu:/path/to/project/directory/
+```
+
+For more information, visit [Lonestar 5 GUide - Transferring Files](https://portal.tacc.utexas.edu/user-guides/lonestar5#managing-transferring).
 
 ## Mounting a remote directory
 
