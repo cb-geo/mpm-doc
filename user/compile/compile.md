@@ -29,13 +29,7 @@ dnf install -y boost boost-devel clang cmake cppcheck eigen3-devel findutils gcc
 ### Ubuntu 
 > 18.04
 
-```shell
-sudo apt-get install -y cmake gcc git libboost-all-dev libeigen3-dev libhdf5-serial-dev libopenmpi-dev libtbb-dev libvtk7-dev
-```
-
-### Ubuntu installation
-
-Please run the following commands to install dependencies:
+Please run the following commands to install any updates:
 
 ```
 sudo apt-get update
@@ -46,15 +40,24 @@ sudo apt-get install
 sudo apt-get autoremove
 
 ```
+
+To install dependencies
+
+```shell
+sudo apt-get install -y cmake gcc git libboost-all-dev libeigen3-dev libhdf5-serial-dev libopenmpi-dev libtbb-dev libvtk7-dev
 ```
 
-### Docker
+## Get the code
 
-Alternatively the [CB-Geo MPM docker image](/docker) can be also used, which comes pre-packaged with relevant libraries.
+* Download the `mpm` code repository using git clone.
+
+```shell
+git clone https://github.com/cb-geo/mpm
+```
 
 ## Compile
 
-0. Run CMake to create make files. `mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ ..`. Here `..` refers to the path to the `CMakeLists.txt` file.
+0. Navigate to the `mpm` repository, which was just cloned (`cd mpm`). Then run `CMake` to create make files. `mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ ..`. Here `..` refers to the path to the `CMakeLists.txt` file.
 
 1. Run `make clean && make -jN` (where N is the number of cores).
 
