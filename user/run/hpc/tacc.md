@@ -89,6 +89,7 @@ To submit a job, the user must first create a file, e.g `submission.txt`, with t
 #SBATCH --mail-type=end     # email me when the job finishes
 
 # run the executable named a.out
+module load boost hdf5 swr/18.3.1
 ibrun ./mpm -f $WORK/benchmarks/2d/
 ```
 
@@ -100,6 +101,8 @@ sbatch submission.txt
 
 The list of submitted jobs can be viewed with `showq` (or `showq -u` if only a list of the user`s submitted jobs are required).
 
+The `module load` command must be in the job submission script in order to load the libraries in the computer node as well.
+
 ## Mounting a remote directory
 
 Whenever the output files need to be accessed from the local machine, it is necessary to mount a remote directory that can access the files in the login node the user has been assigned to. This is done with:
@@ -109,7 +112,3 @@ localhost$ sshfs taccuserid@ls5.tacc.utexas.edu:/path/to/files/ ~/path/to/local/
 ```
 
 Unmounting the remote directory can be done with `fusermount -u ~/path/to/local/directory/`.
-
-<aside class="notice">
-To view the results, the hdf5 files must be used. VTK files cannot be generated in Lonestar 5. 
-</aside>
