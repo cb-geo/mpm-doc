@@ -37,9 +37,11 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "check_duplicates": false,
     "cell_type": "ED3H8",
     "generate_particles_cells": 1,
-    "material_id": 1,
     "mesh_reader": "Ascii3D",
     "node_type": "N3D",
+  },
+  "particle": {
+    "material_id": 0,
     "particle_type": "P3D"
   },
   "analysis": {
