@@ -20,7 +20,7 @@ Please enable [2FA (Two-factor authentication)](https://portal.tacc.utexas.edu/t
 Certain prerequisites such as `boost` and `hdf5` are available on TACC, and can be accessed using `module load` command. Additional dependency of `eigen` must be installed locally:
 
 ```shell
-module load boost hdf5 swr/18.3.3
+module load boost hdf5 vtk
 export LD_LIBRARY_PATH=$SWR_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
 wget http://bitbucket.org/eigen/eigen/get/3.3.7.zip
 unzip 3.3.7.zip
@@ -47,7 +47,7 @@ git clone https://github.com/cb-geo/mpm-benchmarks.git
 To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
 
 ```shell
-mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen -DVTK_DIR=/home1/01197/semeraro/VTK-8.2.0/Install/lib64/cmake/vtk-8.2/ ..
+mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen ..
 
 make -j
 ```
@@ -69,20 +69,19 @@ To submit a job, the user must first create a file, e.g `submission.txt`, with t
 
 ```
 #!/bin/bash
-#SBATCH -J mpm            # job name
-#SBATCH -o mpm.o%j        # output and error file name (%j expands to jobID)
-#SBATCH -N 1              # number of nodes requested
-#SBATCH -n 1               # total number of mpi tasks requested
-#SBATCH -p development      # queue (partition) -- normal, development, etc.
-#SBATCH -t 01:30:00         # run time (hh:mm:ss) - 1.5 hours
-
+#SBATCH -J mpm        # job name
+#SBATCH -o mpm.o%j   # output and error file name (%j expands to jobID)
+#SBATCH -N 4              # number of nodes requested
+#SBATCH -n 4              # total number of mpi tasks requested
+#SBATCH -p normal         # queue (partition) -- normal, development, etc.
+#SBATCH -t 10:00:00       # run time (hh:mm:ss) - 10 hours
 # Slurm email notifications are now working on Lonestar 5
-#SBATCH --mail-user=userid@tacc.utexas.edu
+#SBATCH --mail-user=userid@utexas.edu
 #SBATCH --mail-type=begin   # email me when the job starts
 #SBATCH --mail-type=end     # email me when the job finishes
-
 # run the executable named a.out
-ibrun ./mpm -f $WORK/benchmarks/2d/
+module load boost hdf5 vtk
+ibrun ./mpm -f $WORK/mpm/benchmarks/3d/3d_uniaxial_stress/ -i mpm-explicit-usf.json
 ```
 
 Then, a job can be submitted by using the following command in the login node:
