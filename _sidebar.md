@@ -13,7 +13,7 @@
   * Run MPM
     * [Usage](user/run/usage.md)
     * HPCS
-	* [Lonestar 5](user/run/hpc/tacc.md)
+	* [Lonestar 5](user/run/hpc/tacc-ls5.md)
   * Postprocess
     * [HDF5 data](user/postprocess/hdf5.md)
   * Validation
