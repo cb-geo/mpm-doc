@@ -11,7 +11,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "particles": "particles-3d.txt",
     "velocity_constraints": "velocity-constraints.txt",
     "nodal_tractions": "nodal-tractions.txt",
-    "particles_volumes" : "particles-volumes.txt",
+    "particles_volumes": "particles-volumes.txt",
     "particles_tractions": "particles-tractions.txt",
     "particles_stresses": "particles-stresses.txt",
     "particles_cells": "particles-cells.txt"
@@ -38,7 +38,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "cell_type": "ED3H8",
     "generate_particles_cells": 1,
     "mesh_reader": "Ascii3D",
-    "node_type": "N3D",
+    "node_type": "N3D"
   },
   "particle": {
     "material_id": 0,
@@ -46,14 +46,14 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   },
   "analysis": {
     "type": "MPMExplicitUSF3D",
-    "velocity_update", true,
+    "velocity_update": true,
     "dt": 1.0E-5,
     "uuid": "usf-axial-loading-5cb93af"
     "nsteps": 10,
-    "resume" : {
+    "resume": {
       "resume": true,
       "uuid": "usf-axial-loading-5cb93af",
-      "step" : 5
+      "step": 5
     },
     "gravity": [0.0, 0.0, -9.81]
   },
