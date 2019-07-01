@@ -48,7 +48,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "type": "MPMExplicitUSF3D",
     "velocity_update": true,
     "dt": 1.0E-5,
-    "uuid": "usf-axial-loading-5cb93af"
+    "uuid": "usf-axial-loading-5cb93af",
     "nsteps": 10,
     "resume": {
       "resume": true,
