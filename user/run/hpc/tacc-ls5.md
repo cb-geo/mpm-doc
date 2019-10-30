@@ -26,6 +26,17 @@ wget http://bitbucket.org/eigen/eigen/get/3.3.7.zip
 unzip 3.3.7.zip
 mv eigen-eigen* eigen
 ```
+
+```shell
+# METIS and PARMETIS
+module load metis/5.1.0
+
+wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz && \
+    tar -xf parmetis-4.0.3.tar.gz && \
+    cd parmetis-4.0.3/ && \
+    make config prefix=$HOME/parmetis && \
+    make install
+```
 ## Get the code to LS5
 
 The `git clone` command can be used directly in the login node to clone the mpm repository into the LS5.
@@ -47,7 +58,7 @@ git clone https://github.com/cb-geo/mpm-benchmarks.git
 To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
 
 ```shell
-mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen ..
+mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen -DPARMETIS_DIR=$HOME/parmetis ..
 
 make -j
 ```
