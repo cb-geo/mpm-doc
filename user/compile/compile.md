@@ -14,6 +14,7 @@ The following additional packages are required to compile the MPM code.
 * [MPI](https://www.open-mpi.org/)
 * [VTK](https://www.vtk.org/)
 
+
 ### Fedora (Recommended)
 > 28
 
@@ -46,6 +47,24 @@ To install dependencies
 ```shell
 sudo apt-get install -y cmake gcc git libboost-all-dev libeigen3-dev libhdf5-serial-dev libopenmpi-dev libtbb-dev libvtk7-dev
 ```
+
+### METIS/ParMETIS installation
+
+```shell
+# METIS and PARMETIS
+wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz && \
+    tar -xf parmetis-4.0.3.tar.gz && \
+    cd parmetis-4.0.3/ && mkdir -p ~/workspace/parmetis && \
+    make config shared=1 cc=mpicc cxx=mpicxx prefix=/path/to/parmetis/installation/ && \
+    make install
+
+wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz && \
+    tar -xf metis-5.1.0.tar.gz && \
+    cd metis-5.1.0/ && mkdir -p ~/workspace/metis && \
+    make config shared=1 cc=mpicc cxx=mpic++ prefix=~/path/to/metis/installation/ && \
+    make install 
+```
+
 
 ## Get the code
 
@@ -83,8 +102,13 @@ Compile with OpenMPI:
 ```
 mkdir build && cd build 
 export CXX_COMPILER=mpicxx
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=mpicxx -DCMAKE_EXPORT_COMPILE_COMMANDS=On ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=mpicxx ..
 make -jN
+```
+
+Additionally, you may need to specify path to METIS / ParMETIS if it is not in the system location.
+```
+-DCMAKE_EXPORT_COMPILE_COMMANDS=On -DMETIS_DIR=/path/to/metis/ -DPARMETIS_DIR=/path/to/parmetis/
 ```
 
 ### Run with MPI
