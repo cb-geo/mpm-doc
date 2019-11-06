@@ -14,7 +14,8 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "particles_volumes": "particles-volumes.txt",
     "particles_tractions": "particles-tractions.txt",
     "particles_stresses": "particles-stresses.txt",
-    "particles_cells": "particles-cells.txt"
+    "particles_cells": "particles-cells.txt",
+    "entity_sets": "entity_sets.json"
   },
   "materials": [
     {
@@ -43,6 +44,16 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   "particle": {
     "material_id": 0,
     "particle_type": "P3D"
+    "particle_sets": [
+      {
+        "set_id": [0,1],
+        "material_id": 0
+      },
+      {
+        "set_id": [2,3],
+        "material_id": 1
+      }
+    ]
   },
   "analysis": {
     "type": "MPMExplicitUSF3D",
@@ -75,7 +86,8 @@ The `input_files` object define the location of various optional and required in
     "particles_volumes" : "particles-volumes.txt",
     "particles_tractions": "particles-tractions.txt",
     "particles_stresses": "particles-stresses.txt",
-    "particles_cells": "particles-cells.txt"
+    "particles_cells": "particles-cells.txt",
+    "entity_sets": "entity_sets.json"
   }
 ```
 
@@ -88,8 +100,30 @@ The `input_files` object define the location of various optional and required in
 |particles_tractions (optional) 	| Traction applied on the particles	|
 |particles_stresses (optional) 		| Initial stresses of the particles	|
 |particles_cells (optional) 		| Initial guess of particle location	|
+|entity_sets (optional)                 | Sets of particles or sets of nodes    |
 
+### Particle
 
+The `particle` object defines the type of particle, and the material of the particles. If these particles are divided into sets, then the materials must also be assigned to the sets separately by associating a vector of set ids to a material id as indicated below within `particle_sets`.
+
+```
+  "particle": {
+    "material_id": 0,
+    "particle_type": "P3D"
+    "particle_sets": [
+      {
+        "set_id": [0,1],
+        "material_id": 0
+      },
+      {
+        "set_id": [2,3],
+        "material_id": 1
+      }
+    ]
+  },
+```
+
+An initial `material_id` must still be assigned outside of `particle_sets`.
 
 ### Analysis
 
