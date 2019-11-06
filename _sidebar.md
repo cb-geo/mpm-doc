@@ -10,6 +10,7 @@
   * Preprocess
     * [Input JSON](user/preprocess/input.md)
     * [ASCII Mesh/Particles](user/preprocess/ascii-mesh-particles.md)
+    * [Entity Sets](user/preprocess/entity-sets.md)
   * Run MPM
     * [Usage](user/run/usage.md)
     * HPCS
