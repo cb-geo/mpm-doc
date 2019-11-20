@@ -23,7 +23,7 @@ Please run the following command:
 ```shell
 dnf install -y boost boost-devel clang cmake cppcheck eigen3-devel findutils gcc gcc-c++ \
                git hdf5 hdf5-devel hdf5-openmpi hdf5-openmpi-devel kernel-devel lcov\
-               make openmpi openmpi-devel sqlite sqlite-devel tar tbb tbb-devel valgrind vim \
+               make ninja-build openmpi openmpi-devel sqlite sqlite-devel tar tbb tbb-devel valgrind vim \
                voro++ voro++-devel vtk vtk-devel wget
 ```
 
@@ -45,10 +45,10 @@ sudo apt-get autoremove
 To install dependencies
 
 ```shell
-sudo apt-get install -y cmake gcc git libboost-all-dev libeigen3-dev libhdf5-serial-dev libopenmpi-dev libtbb-dev libvtk7-dev
+sudo apt-get install -y cmake gcc git libboost-all-dev libeigen3-dev libhdf5-serial-dev libopenmpi-dev libtbb-dev libvtk7-dev ninja-build
 ```
 
-### METIS/ParMETIS installation
+### METIS/ParMETIS installation [optional]
 
 ```shell
 # METIS and PARMETIS
@@ -84,6 +84,12 @@ git clone https://github.com/cb-geo/mpm
 
 0. Run `./mpmtest -s` (for a verbose output) or `ctest -VV`.
 
+## Compile using Ninja build system
+
+0. Run `mkdir build && cd build && cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ ..`.
+
+1. Run `ninja`
+
 
 ## Compile with MPI (Running on a cluster)
 
@@ -102,7 +108,7 @@ Compile with OpenMPI:
 ```
 mkdir build && cd build 
 export CXX_COMPILER=mpicxx
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=mpicxx ..
+cmake -DCMAKE_BUILD_TYPE=Release ..
 make -jN
 ```
 
@@ -110,6 +116,16 @@ Additionally, you may need to specify path to METIS / ParMETIS if it is not in t
 ```
 -DCMAKE_EXPORT_COMPILE_COMMANDS=On -DMETIS_DIR=/path/to/metis/ -DPARMETIS_DIR=/path/to/parmetis/
 ```
+
+It will look like
+
+```
+mkdir build && cd build 
+export CXX_COMPILER=mpicxx
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=On -DMETIS_DIR=/path/to/metis/ -DPARMETIS_DIR=/path/to/parmetis/ ..
+make -jN
+```
+
 
 ### Run with MPI
 
