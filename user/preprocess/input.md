@@ -66,7 +66,8 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
       "uuid": "usf-axial-loading-5cb93af",
       "step": 5
     },
-    "gravity": [0.0, 0.0, -9.81]
+    "gravity": [0.0, 0.0, -9.81],
+    "pressure_smoothing" : false
   },
   "post_processing": {
     "output_steps": 5,
