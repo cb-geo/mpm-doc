@@ -56,7 +56,8 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     ]
   },
   "analysis": {
-    "type": "MPMExplicitUSF3D",
+    "type": "MPMExplicit3D",
+    "stress_update": "usf",
     "velocity_update": true,
     "dt": 1.0E-5,
     "uuid": "usf-axial-loading-5cb93af",
@@ -131,7 +132,8 @@ The `analysis` object defines the type of analysis, number of steps, time-step, 
 
 ```
   "analysis": {
-    "type": "MPMExplicitUSF3D",
+    "type": "MPMExplicit3D",
+    "stress_update": "usf",
     "velocity_update", true,
     "dt": 1.0E-5,
     "nsteps": 10,
@@ -149,13 +151,12 @@ The CB-Geo MPM currently supports 2D and 3D explicit analysis. An analysis optio
 
 Supported analyses are:
 
-|Analysis		| Description				|
-|-----------------------|---------------------------------------|
-|MPMExplicitUSF2D	| Explicit 2D MPM Update Stress First	|
-|MPMExplicitUSF3D	| Explicit 3D MPM Update Stress First	|
-|MPMExplicitUSL2D 	| Explicit 2D MPM Update Stress Last	|
-|MPMExplicitUSL3D 	| Explicit 3D MPM Update Stress Last	|
+|Analysis       | Description   	|
+|---------------|-----------------------|
+|MPMExplicit2D	| Explicit 2D MPM	|
+|MPMExplicit3D	| Explicit 3D MPM	|
 
+Stress update defines the type of stress update used in the algorithm: "usf", "usl" and "musl".
 
 #### Velocity update [optional]
 
