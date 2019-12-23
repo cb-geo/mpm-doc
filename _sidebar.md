@@ -12,9 +12,8 @@
     * [ASCII Mesh/Particles](user/preprocess/ascii-mesh-particles.md)
     * [Entity Sets](user/preprocess/entity-sets.md)
   * Run MPM
-    * [Usage](user/run/usage.md)
-    * HPCS
-	* [Lonestar 5](user/run/hpc/tacc-ls5.md)
+    * [Locally](user/run/local.md)
+    * [TACC Lonestar 5](user/run/hpc/tacc-ls5.md)
   * Postprocess
     * [HDF5 data](user/postprocess/hdf5.md)
     * [VTK](user/postprocess/vtk.md)

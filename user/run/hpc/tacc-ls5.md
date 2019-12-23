@@ -77,10 +77,10 @@ To submit a job, the user must first create a file, e.g `submission.txt`, with t
 #!/bin/bash
 #SBATCH -J mpm        # job name
 #SBATCH -o mpm.o%j   # output and error file name (%j expands to jobID)
-#SBATCH -N 2              # number of nodes requested
-#SBATCH -n 2              # total number of mpi tasks requested
+#SBATCH -N 4              # number of nodes requested
+#SBATCH -n 8              # total number of mpi tasks requested
 #SBATCH -p normal         # queue (partition) -- normal, development, etc.
-#SBATCH -t 00:10:00       # run time (hh:mm:ss) - 10 minutes
+#SBATCH -t 01:00:00       # run time (hh:mm:ss) - 1 hour
 # Slurm email notifications
 #SBATCH --mail-user=userid@utexas.edu
 #SBATCH --mail-type=begin   # email me when the job starts
@@ -99,6 +99,8 @@ sbatch submission.txt
 ```
 
 The list of submitted jobs can be viewed with `showq` (or `showq -u` if only a list of the user`s submitted jobs are required).
+
+> When running using MPI, the recommendation is to use twice the number of MPI tasks corresponding to the number of nodes (for e.g., set N = 4 and n = 8).
 
 ## Transfering files to LS5
 
