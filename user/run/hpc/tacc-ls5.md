@@ -19,7 +19,10 @@ Please enable [2FA (Two-factor authentication)](https://portal.tacc.utexas.edu/t
 
 Certain prerequisites such as `boost` and `hdf5` are available on TACC, and can be accessed using `module load` command. Additional dependency of `eigen` must be installed locally:
 
+> Eigen
+
 ```shell
+cd $HOME
 module load boost hdf5 vtk
 export LD_LIBRARY_PATH=$SWR_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
 wget http://bitbucket.org/eigen/eigen/get/3.3.7.zip
@@ -27,11 +30,13 @@ unzip 3.3.7.zip
 mv eigen-eigen* eigen
 ```
 
+> KaHIP for domain decomposition
+
 ```shell
-# METIS and PARMETIS
-module load metis/5.1.0
-module load pmetis/4.0.3
+cd $HOME && git clone https://github.com/schulzchristian/KaHIP && \
+   cd KaHIP && sh ./compile_withcmake.sh
 ```
+
 ## Get the code to LS5
 
 The `git clone` command can be used directly in the login node to clone the mpm repository into the LS5.
@@ -53,7 +58,7 @@ git clone https://github.com/cb-geo/mpm-benchmarks.git
 To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
 
 ```shell
-mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen -DPARMETIS_DIR=$TACC_PMETIS_DIR ..
+mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen -DKAHIP_ROOT=$HOME/KaHIP ..
 
 make -j
 ```
@@ -87,8 +92,6 @@ To submit a job, the user must first create a file, e.g `submission.txt`, with t
 #SBATCH --mail-type=end     # email me when the job finishes
 # run the executable named a.out
 module load boost hdf5 vtk
-module load metis/5.1.0
-module load pmetis/4.0.3
 ibrun ./mpm -f $WORK/mpm/benchmarks/2d/hydrostatic_column/
 ```
 
