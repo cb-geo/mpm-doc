@@ -55,6 +55,33 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
       }
     ]
   },
+  "external_loading_conditions": {
+    "concentrated_nodal_forces": [
+      {
+        "nset_id": -1,
+        "math_function_id": 0,
+        "dir": 1,
+        "force": 10.5
+      }
+    ],
+    "gravity": [0.0, -9.81],
+    "particle_surface_traction": [
+      {
+        "pset_id": -1,
+        "dir": 1,
+        "math_function_id": 0,
+        "traction": 10.5
+      }
+    ]
+  },
+  "math_functions": [
+    {
+      "id": 0,
+      "type": "Linear",
+      "xvalues": [0.0, 0.5, 1.0],
+      "fxvalues": [0.0, 1.0, 1.0],
+    }
+  ],
   "analysis": {
     "type": "MPMExplicit3D",
     "stress_update": "usf",
@@ -67,7 +94,6 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
       "uuid": "usf-axial-loading-5cb93af",
       "step": 5
     },
-    "gravity": [0.0, 0.0, -9.81],
     "pressure_smoothing" : false
   },
   "post_processing": {
@@ -139,7 +165,6 @@ The `analysis` object defines the type of analysis, number of steps, time-step, 
     "dt": 1.0E-5,
     "nsteps": 10,
     "uuid": "usf-axial-loading-5cb93af",
-    "gravity": [0.0, -9.81, 0.0],
     "resume" : {
       "resume": true,
       "uuid": "usf-axial-loading-5cb93af",
@@ -165,6 +190,53 @@ Stress update defines the type of stress update used in the algorithm: "usf", "u
 |usl            | Update Stress Last   	|
 |musl           | Modified Update Stress Last   |
 
+
+### Loading and Boundary conditions
+
+The `external_loading_condition` loading specifies gravity, concentrate nodal forces and particle tractions. 
+
+```
+  "external_loading_conditions": {
+    "concentrated_nodal_forces": [
+      {
+        "nset_id": -1,
+        "math_function_id": 0,
+        "dir": 1,
+        "force": 10.5
+      }
+    ],
+    "gravity": [0.0, -9.81],
+    "particle_surface_traction": [
+      {
+        "pset_id": -1,
+        "dir": 1,
+        "math_function_id": 0,
+        "traction": 10.5
+      }
+    ]
+  }
+```
+
+Both `concentrated_nodal_forces` and `particle_surfacce_traction` use [`entity_sets`](./entity_sets) to apply forces on a set of nodes and particles. The loading can be time-varying. The time-variation of the load can be specified using a math function. 
+
+#### Math functions
+
+Math functions are useful to define how a certain load varies with time. A typical math function is shown below.
+
+```
+  "math_functions": [
+    {
+      "id": 0,
+      "type": "Linear",
+      "xvalues": [0.0, 0.5, 1.0, 1.5],
+      "fxvalues": [0.0, 1.0, 1.0, 0.0],
+    }
+  ]
+```
+
+This is a linear function with x and corresponding f(x) values. The function varies as shown in the figure. If used with a traction, the value of traction at different times will be computed as the defined math function.
+
+![x_fx](x_fx.png)
 
 #### Velocity update [optional]
 
