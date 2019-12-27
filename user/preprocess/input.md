@@ -12,7 +12,6 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "velocity_constraints": "velocity-constraints.txt",
     "nodal_tractions": "nodal-tractions.txt",
     "particles_volumes": "particles-volumes.txt",
-    "particles_tractions": "particles-tractions.txt",
     "particles_stresses": "particles-stresses.txt",
     "particles_cells": "particles-cells.txt",
     "entity_sets": "entity_sets.json"
@@ -58,7 +57,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   "external_loading_conditions": {
     "concentrated_nodal_forces": [
       {
-        "nset_id": -1,
+        "nset_id": 0,
         "math_function_id": 0,
         "dir": 1,
         "force": 10.5
@@ -67,7 +66,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "gravity": [0.0, -9.81],
     "particle_surface_traction": [
       {
-        "pset_id": -1,
+        "pset_id": 1,
         "dir": 1,
         "math_function_id": 0,
         "traction": 10.5
@@ -199,7 +198,7 @@ The `external_loading_condition` loading specifies gravity, concentrate nodal fo
   "external_loading_conditions": {
     "concentrated_nodal_forces": [
       {
-        "nset_id": -1,
+        "nset_id": 0,
         "math_function_id": 0,
         "dir": 1,
         "force": 10.5
@@ -208,7 +207,7 @@ The `external_loading_condition` loading specifies gravity, concentrate nodal fo
     "gravity": [0.0, -9.81],
     "particle_surface_traction": [
       {
-        "pset_id": -1,
+        "pset_id": 1,
         "dir": 1,
         "math_function_id": 0,
         "traction": 10.5
@@ -217,7 +216,7 @@ The `external_loading_condition` loading specifies gravity, concentrate nodal fo
   }
 ```
 
-Both `concentrated_nodal_forces` and `particle_surfacce_traction` use [`entity_sets`](./entity_sets) to apply forces on a set of nodes and particles. The loading can be time-varying. The time-variation of the load can be specified using a math function. 
+Both `concentrated_nodal_forces` and `particle_surfacce_traction` use [`entity_sets`](./entity_sets) to apply forces on a set of nodes and particles. The loading can be time-varying. The time-variation of the load can be specified using a math function. Setting the `nset_id` or `pset_id` to `-1` will apply the loading to all the nodes and particles. 
 
 #### Math functions
 
