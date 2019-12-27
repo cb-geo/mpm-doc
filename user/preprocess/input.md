@@ -6,16 +6,6 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
 ```JSON
 {
   "title": "Example JSON Input for 3D MPM",
-  "input_files": {
-    "mesh": "mesh-3d.txt",
-    "particles": "particles-3d.txt",
-    "velocity_constraints": "velocity-constraints.txt",
-    "nodal_tractions": "nodal-tractions.txt",
-    "particles_volumes": "particles-volumes.txt",
-    "particles_stresses": "particles-stresses.txt",
-    "particles_cells": "particles-cells.txt",
-    "entity_sets": "entity_sets.json"
-  },
   "materials": [
     {
       "id": 0,
@@ -33,27 +23,44 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     }
   ],
   "mesh": {
+    "mesh": "mesh-3d.txt",
+    "entity_sets": "entity_sets.json",
+    "boundary_conditions": {
+       "velocity_constraints": "velocity-constraints.txt"
+    },
+    "particles_volumes": "particles-volumes.txt",
+    "particles_stresses": "particles-stresses.txt",
+    "particles_cells": "particles-cells.txt",
     "isoparametric": false,
     "check_duplicates": false,
     "cell_type": "ED3H8",
-    "generate_particles_cells": 1,
-    "mesh_reader": "Ascii3D",
+    "io_type": "Ascii3D",
     "node_type": "N3D"
   },
-  "particle": {
-    "material_id": 0,
-    "particle_type": "P3D"
-    "particle_sets": [
-      {
-        "set_id": [0,1],
-        "material_id": 0
+  "particles": [
+    {
+      "generator": {
+        "check_duplicates": true,
+        "location": "particles.txt",
+        "io_type": "Ascii2D",
+        "particle_type": "P2D",
+        "material_id": 1,
+        "type": "file"
       },
-      {
-        "set_id": [2,3],
-        "material_id": 1
-      }
-    ]
-  },
+      "set_id": 0
+    },
+    {
+      "generator": {
+        "check_duplicates": true,
+        "cset_id": -1,
+        "particle_type": "P2D",
+        "material_id": 1,
+        "nparticles_per_dir": 2,
+        "type": "gauss"
+      },
+      "set_id": 1
+    }
+  ],
   "external_loading_conditions": {
     "concentrated_nodal_forces": [
       {
@@ -102,52 +109,80 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   }
 }
 ```
-### Input files
+### Mesh
 
-The `input_files` object define the location of various optional and required input files:
+The `mesh` object define the mesh (node and cells) and boundary conditions. The option `isoparametric` is used for unstructured (non-prismatic) elements. The element type is defined using `cell_type`. 
 ```
-  "input_files": {
+  "mesh": {
     "mesh": "mesh-3d.txt",
-    "particles": "particles-3d.txt",
-    "velocity_constraints": "velocity-constraints.txt",
-    "particles_volumes" : "particles-volumes.txt",
-    "particles_tractions": "particles-tractions.txt",
+    "entity_sets": "entity_sets.json",
+    "boundary_conditions": {
+       "velocity_constraints": "velocity-constraints.txt"
+    },
+    "particles_volumes": "particles-volumes.txt",
     "particles_stresses": "particles-stresses.txt",
     "particles_cells": "particles-cells.txt",
-    "entity_sets": "entity_sets.json"
+    "isoparametric": false,
+    "check_duplicates": false,
+    "cell_type": "ED3H8",
+    "io_type": "Ascii3D",
+    "node_type": "N3D"
   }
 ```
+
+|Cell type				| Description				|
+|---------------------------------------|---------------------------------------|
+|ED2T2					| 2D Triangle 3-noded element		|
+|ED2T6					| 2D Triangle 3-noded element		|
+|ED2Q4					| 2D Quadrilateral 4-noded element	|
+|ED2Q8					| 2D Quadrilateral 8-noded element	|
+|ED2Q9					| 2D Quadrilateral 9-noded element	|
+|ED2Q16G				| 2D GIMP Quadrilateral 4-noded element |
+|ED3H8					| 3D Hexahedron 8-noded element	|
+|ED3H20				| 3D Hexahedron 20-noded element	|
+|ED3H64				| 3D GIMP Hexahedron 64-noded element	|
+
+> Input files
 
 |File					| Description				|
 |---------------------------------------|---------------------------------------|
 |mesh					| Nodal coordinates and cell node ids	|
-|particles				| Particle coordinates			|
 |velocity_constraints (optional) 	| Velocity constraints on the nodes	|
 |particles_volumes (optional) 		| Particle volumes			|
 |particles_tractions (optional) 	| Traction applied on the particles	|
-|particles_stresses (optional) 		| Initial stresses of the particles	|
+|particles_stresses (optional) 	| Initial stresses of the particles	|
 |particles_cells (optional) 		| Initial guess of particle location	|
 |entity_sets (optional)                 | Sets of particles or sets of nodes    |
 
-### Particle
+### Particles
 
-The `particle` object defines the type of particle, and the material of the particles. If these particles are divided into sets, then the materials must also be assigned to the sets separately by associating a vector of set ids to a material id as indicated below within `particle_sets`.
+The `particles` object defines the type of particles, and the material of each particle. If these particles are divided into sets, then the materials must also be assigned to the sets separately by associating a vector of set ids to a material id as indicated below within `entity_sets`. Particles can be generated from a file or at Gauss points in a cell. To read particles from a file choose type as `file`. To generate at Gauss points use `gauss`. With Gauss point generator, the number of partices in each direction is specified using `nparticles_per_dir` option. Particles can be generated only in a selected subset of cells using the `cset_id`, which is a cell set defined in `entity_sets`. A `cset_id` of `-1` will generate particles in all the cells.
 
 ```
-  "particle": {
-    "material_id": 0,
-    "particle_type": "P3D"
-    "particle_sets": [
-      {
-        "set_id": [0,1],
-        "material_id": 0
+  "particles": [
+    {
+      "generator": {
+        "check_duplicates": true,
+        "location": "particles.txt",
+        "io_type": "Ascii2D",
+        "particle_type": "P2D",
+        "material_id": 1,
+        "type": "file"
       },
-      {
-        "set_id": [2,3],
-        "material_id": 1
-      }
-    ]
-  },
+      "set_id": 0
+    },
+    {
+      "generator": {
+        "check_duplicates": true,
+        "cset_id": -1,
+        "particle_type": "P2D",
+        "material_id": 1,
+        "nparticles_per_dir": 2,
+        "type": "gauss"
+      },
+      "set_id": 1
+    }
+  ]
 ```
 
 An initial `material_id` must still be assigned outside of `particle_sets`.
