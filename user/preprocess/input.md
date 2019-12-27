@@ -109,7 +109,8 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   }
 }
 ```
-### Mesh
+
+## Mesh
 
 The `mesh` object define the mesh (node and cells) and boundary conditions. The option `isoparametric` is used for unstructured (non-prismatic) elements. The element type is defined using `cell_type`. 
 ```
@@ -154,7 +155,7 @@ The `mesh` object define the mesh (node and cells) and boundary conditions. The 
 |particles_cells (optional) 		| Initial guess of particle location	|
 |entity_sets (optional)                 | Sets of particles or sets of nodes    |
 
-### Particles
+## Particles
 
 The `particles` object defines the type of particles, and the material of each particle. If these particles are divided into sets, then the materials must also be assigned to the sets separately by associating a vector of set ids to a material id as indicated below within `entity_sets`. Particles can be generated from a file or at Gauss points in a cell. To read particles from a file choose type as `file`. To generate at Gauss points use `gauss`. With Gauss point generator, the number of partices in each direction is specified using `nparticles_per_dir` option. Particles can be generated only in a selected subset of cells using the `cset_id`, which is a cell set defined in `entity_sets`. A `cset_id` of `-1` will generate particles in all the cells.
 
@@ -187,7 +188,7 @@ The `particles` object defines the type of particles, and the material of each p
 
 An initial `material_id` must still be assigned outside of `particle_sets`.
 
-### Analysis
+## Analysis
 
 The `analysis` object defines the type of analysis, number of steps, time-step, and an optional resume support.
 
@@ -224,8 +225,15 @@ Stress update defines the type of stress update used in the algorithm: "usf", "u
 |usl            | Update Stress Last   	|
 |musl           | Modified Update Stress Last   |
 
+### Velocity update [optional]
 
-### Loading and Boundary conditions
+In explicit code, the `velocity_update` flag allows to switch between updating particle velocity based on nodal acceleration (default, when `velocity_update` is set to `false`) and to use nodal velocity when set to `true`.
+
+### Resume [optional]
+
+The CB-Geo mpm code allows for an optional resume at a check-point support. To resume an analysis at a give time-step, please set the option `resume` to `true`, the analysis `uuid` to which to resume from has to be assigned, and the `step` from which to resume. 
+
+## Loading
 
 The `external_loading_condition` loading specifies gravity, concentrate nodal forces and particle tractions. 
 
@@ -253,7 +261,7 @@ The `external_loading_condition` loading specifies gravity, concentrate nodal fo
 
 Both `concentrated_nodal_forces` and `particle_surfacce_traction` use [`entity_sets`](./entity_sets) to apply forces on a set of nodes and particles. The loading can be time-varying. The time-variation of the load can be specified using a math function. Setting the `nset_id` or `pset_id` to `-1` will apply the loading to all the nodes and particles. 
 
-#### Math functions
+### Math functions
 
 Math functions are useful to define how a certain load varies with time. A typical math function is shown below.
 
@@ -271,12 +279,3 @@ Math functions are useful to define how a certain load varies with time. A typic
 This is a linear function with x and corresponding f(x) values. The function varies as shown in the figure. If used with a traction, the value of traction at different times will be computed as the defined math function.
 
 ![x_fx](x_fx.png)
-
-#### Velocity update [optional]
-
-In explicit code, the `velocity_update` flag allows to switch between updating particle velocity based on nodal acceleration (default, when `velocity_update` is set to `false`) and to use nodal velocity when set to `true`.
-
-#### Resume [optional]
-
-The CB-Geo mpm code allows for an optional resume at a check-point support. To resume an analysis at a give time-step, please set the option `resume` to `true`, the analysis `uuid` to which to resume from has to be assigned, and the `step` from which to resume. 
-
