@@ -259,6 +259,8 @@ The `external_loading_condition` loading specifies gravity, concentrate nodal fo
   }
 ```
 
+A load without a math function will be applied as a static load. Use math functions for time-varying loads.
+
 Both `concentrated_nodal_forces` and `particle_surfacce_traction` use [`entity_sets`](./entity_sets) to apply forces on a set of nodes and particles. The loading can be time-varying. The time-variation of the load can be specified using a math function. Setting the `nset_id` or `pset_id` to `-1` will apply the loading to all the nodes and particles. 
 
 ### Math functions
