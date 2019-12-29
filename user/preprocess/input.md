@@ -6,27 +6,31 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
 ```JSON
 {
   "title": "Example JSON Input for 3D MPM",
-  "materials": [
-    {
-      "id": 0,
-      "density": 1000.0,
-      "poisson_ratio": 0.495,
-      "type": "LinearElastic3D",
-      "youngs_modulus": 1.0E+08
-    },
-    {
-      "id": 1,
-      "density": 2300.0,
-      "poisson_ratio": 0.25,
-      "type": "LinearElastic3D",
-      "youngs_modulus": 1.5E+06
-    }
-  ],
   "mesh": {
     "mesh": "mesh-3d.txt",
     "entity_sets": "entity_sets.json",
     "boundary_conditions": {
-       "velocity_constraints": "velocity-constraints.txt"
+        "velocity_constraints": [
+            {
+                "nset_id" : 0,
+                "dir": 0,
+                "velocity": 0.00
+            },
+            {
+                "nset_id" : 1,
+                "dir": 1,
+                "velocity": 0.00
+            }
+        ],
+        "friction_constraints": [
+            {
+                "nset_id" : 1,
+                "dir": 1,
+                "sign_n": -1,
+                "friction": 0.5
+            }
+        ],
+        "nodal_euler_angles": "nodal-euler-angles.txt"
     },
     "particles_volumes": "particles-volumes.txt",
     "particles_stresses": "particles-stresses.txt",
@@ -59,6 +63,22 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
         "type": "gauss"
       },
       "set_id": 1
+    }
+  ],
+  "materials": [
+    {
+      "id": 0,
+      "density": 1000.0,
+      "poisson_ratio": 0.495,
+      "type": "LinearElastic3D",
+      "youngs_modulus": 1.0E+08
+    },
+    {
+      "id": 1,
+      "density": 2300.0,
+      "poisson_ratio": 0.25,
+      "type": "LinearElastic3D",
+      "youngs_modulus": 1.5E+06
     }
   ],
   "external_loading_conditions": {
@@ -281,3 +301,41 @@ Math functions are useful to define how a certain load varies with time. A typic
 This is a linear function with x and corresponding f(x) values. The function varies as shown in the figure. If used with a traction, the value of traction at different times will be computed as the defined math function.
 
 ![x_fx](x_fx.png)
+
+
+## Boundary conditions
+
+Velocity and friction constraints can be specified on the nodes. Velocity constraints can also be specified on particles as well. The `nodal_euler_angles` are used for non-cartesian boundaries.
+
+```
+    "boundary_conditions": {
+        "velocity_constraints": [
+            {
+                "nset_id" : 0,
+                "dir": 0,
+                "velocity": 0.00
+            },
+            {
+                "nset_id" : 1,
+                "dir": 1,
+                "velocity": 0.00
+            }
+        ],
+        "friction_constraints": [
+            {
+                "nset_id" : 1,
+                "dir": 1,
+                "sign_n": -1,
+                "friction": 0.5
+            }
+        ],
+        "nodal_euler_angles": "nodal-euler-angles.txt",
+        "particle_velocity_constraints": [
+            {
+                "pset_id" : 0,
+                "dir": 0,
+                "velocity": 0.00
+            }
+        ],
+    },
+```
