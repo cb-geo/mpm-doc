@@ -113,6 +113,10 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "stress_update": "usf",
     "velocity_update": true,
     "dt": 1.0E-5,
+    "damping": {
+      "type": "Cundall",
+      "damping_ratio": 0.05
+    },
     "uuid": "usf-axial-loading-5cb93af",
     "nsteps": 10,
     "resume": {
@@ -125,6 +129,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   "post_processing": {
     "output_steps": 5,
     "vtk": ["stresses", "strains", "velocities"],
+    "vtk_statevars": ["pdstrain"],
     "path": "results/"
   }
 }
@@ -252,6 +257,18 @@ In explicit code, the `velocity_update` flag allows to switch between updating p
 ### Resume [optional]
 
 The CB-Geo mpm code allows for an optional resume at a check-point support. To resume an analysis at a give time-step, please set the option `resume` to `true`, the analysis `uuid` to which to resume from has to be assigned, and the `step` from which to resume. 
+
+
+### Damping [optional]
+
+Cundall damping can be specified in the analysis option. A 5% damping is applied to the analysis using the following configuration:
+
+```
+    "damping": {
+      "type": "Cundall",
+      "damping_ratio": 0.05
+    },
+```
 
 ## Loading
 
