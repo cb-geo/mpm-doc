@@ -17,6 +17,7 @@
   * Postprocess
     * [HDF5 data](user/postprocess/hdf5.md)
     * [VTK](user/postprocess/vtk.md)
+    * [Rendering](user/postprocess/render.md)
   * Validation
     * Explicit
       * [Uniaxial stress](user/validation/explicit/uniaxial-stress/uniaxial-stress.md)
