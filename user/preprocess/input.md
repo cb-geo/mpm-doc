@@ -320,6 +320,44 @@ This is a linear function with x and corresponding f(x) values. The function var
 ![x_fx](x_fx.png)
 
 
+### ASCII loading conditions
+> Warning: ASCII loading conditions do not support math functions
+
+Loading conditions on the nodes can also be specified through an ASCII file. The JSON configuration for the boundary
+condition is:
+
+```
+    "external_loading_conditions": {
+        "concentrated_nodal_forces": {
+               "file": "nodal-tractions.txt"
+        }
+    }
+```
+
+#### Concentrated nodal forces
+
+Concentrated nodal forces can be specified in the following format:
+
+```
+n_0     d_0     f_0
+n_1     d_1     f_1
+...
+...
+n_i     d_i     f_i
+...
+...
+n_n     d_n     f_n
+```
+
+where, 
+
+`n_i` is the node number.
+
+`d_i` is the direction number `(0|1|2)` that corresponds to a cartesian direction, typically `(x|y|z)`.
+
+`f_i` is the force at node `n_i` in direction `d_i`.
+
+
 ## Boundary conditions
 
 Velocity and friction constraints can be specified on the nodes. Velocity constraints can also be specified on particles as well. The `nodal_euler_angles` are used for non-cartesian boundaries.
@@ -356,3 +394,79 @@ Velocity and friction constraints can be specified on the nodes. Velocity constr
         ],
     },
 ```
+
+### Ascii boundary conditions
+> Warning: ASCII boundary conditions do not support math functions
+
+Boundary conditions on the nodes can be specified through as ASCII file. The JSON configuration for the boundary
+condition is:
+
+```
+    "boundary_conditions": {
+        "velocity_constraints": [
+            {
+                "file" : "velocity-constraints.txt"
+            }
+        ],
+        "friction_constraints": [
+            {
+                "file" : "friction-constraints.txt"
+            }
+        ],
+    },
+    "external_loading_conditions": {
+        "concentrated_nodal_forces": {
+               "file": "nodal-tractions.txt"
+        }
+    }
+```
+
+#### Velocity constraints
+
+Velocity constraints at each node can be specified in the following format:
+
+```
+n_0     d_0     v_0
+n_1     d_1     v_1
+...
+...
+n_i     d_i     v_i
+...
+...
+n_n     d_n     v_n
+```
+
+where, 
+
+`n_i` is the node number.
+
+`d_i` is the direction number `(0|1|2)` that corresponds to a cartesian direction, typically `(x|y|z)`.
+
+`v_i` is the specified velocity in direction `d_i`.
+
+
+#### Friction constraints
+
+Friction constraints at each node can be specified in the following format:
+
+```
+n_0     d_0	s_0	f_0
+n_1     d_1     s_1	f_1
+...
+...
+n_i     d_i     s_i	f_i
+...
+...
+n_n     d_n     s_n	f_n
+```
+
+where, 
+
+`n_i` is the node number.
+
+`d_i` is the direction number `(0|1|2)` that corresponds to a cartesian direction, typically `(x|y|z)`.
+
+`s_i` is the sign of the normal vector to the plane where friction is acting (+1/-1)
+
+`f_i` is the friction coefficient.
+
