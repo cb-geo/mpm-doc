@@ -415,9 +415,11 @@ condition is:
         ],
     },
     "external_loading_conditions": {
-        "concentrated_nodal_forces": {
+        "concentrated_nodal_forces": [
+          {
                "file": "nodal-tractions.txt"
-        }
+          }
+        ]
     }
 ```
 
