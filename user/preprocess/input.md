@@ -360,7 +360,7 @@ where,
 
 ## Boundary conditions
 
-Velocity and friction constraints can be specified on the nodes. Velocity constraints can also be specified on particles as well. The `nodal_euler_angles` are used for non-cartesian boundaries.
+Velocity and friction constraints can be specified on the nodes. Velocity constraints can also be specified on particles as well.
 
 ```
     "boundary_conditions": {
@@ -394,6 +394,29 @@ Velocity and friction constraints can be specified on the nodes. Velocity constr
         ],
     },
 ```
+
+The `nodal_euler_angles` are used for non-cartesian boundaries and has the following format:
+``` ```
+n_0     alpha_0     beta_0    gamma_0 n_0     alpha_0     beta_0    gamma_0
+n_1     alpha_1     beta_1    gamma_1 n_1     alpha_1     beta_1    gamma_1
+... ...
+... ...
+n_i     alpha_i     beta_i    gamma_i n_i     alpha_i     beta_i    gamma_i
+... ...
+... ...
+n_n     alpha_n     beta_n    gamma_n n_n     alpha_n     beta_n    gamma_n
+``` ```
+where,  where, 
+`n_i` is the node number. `n_i` is the node number.
+
+
+`alpha_i`, `beta_i` and `gamma_i` are the three Euler angles defined on [this page](https://mpm.cb-geo.com/#/theory/geometry/rotation-matrices).  `alpha_i`, `beta_i` and `gamma_i` are the three Euler angles defined on [this page](https://mpm.cb-geo.com/#/theory/geometry/rotation-matrices).
+
+These nodal Euler angles would be used to compute transformation matrix, which would be stored as a private variable in `node`. The application of these non-cartesian boundaries involve the following process:
+1. Compute the velocity and acceleration on a given node, using global coordinate system.
+1. Transform both velocity and acceleration into the local coordinate using the transformation matrix.
+1. Apply boundary conditions (both velocity and friction constraints).
+1. Transform back to the global coordinate.
 
 ### Ascii boundary conditions
 > Warning: ASCII boundary conditions do not support math functions
