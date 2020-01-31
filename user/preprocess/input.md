@@ -396,19 +396,18 @@ Velocity and friction constraints can be specified on the nodes. Velocity constr
 ```
 
 The `nodal_euler_angles` are used for non-cartesian boundaries and has the following format:
-``` ```
-n_0     alpha_0     beta_0    gamma_0 n_0     alpha_0     beta_0    gamma_0
-n_1     alpha_1     beta_1    gamma_1 n_1     alpha_1     beta_1    gamma_1
-... ...
-... ...
-n_i     alpha_i     beta_i    gamma_i n_i     alpha_i     beta_i    gamma_i
-... ...
-... ...
-n_n     alpha_n     beta_n    gamma_n n_n     alpha_n     beta_n    gamma_n
-``` ```
-where,  where, 
-`n_i` is the node number. `n_i` is the node number.
-
+```
+n_0     alpha_0     beta_0    gamma_0 n_0 
+n_1     alpha_1     beta_1    gamma_1 n_1 
+... 
+... 
+n_i     alpha_i     beta_i    gamma_i n_i 
+... 
+... 
+n_n     alpha_n     beta_n    gamma_n n_n 
+``` 
+where,
+`n_i` is the node number.
 
 `alpha_i`, `beta_i` and `gamma_i` are the three Euler angles defined on [this page](https://mpm.cb-geo.com/#/theory/geometry/rotation-matrices). In 2D, `gamma_i` is set to zero as there is no rotation in respect to the z-axis.
 
