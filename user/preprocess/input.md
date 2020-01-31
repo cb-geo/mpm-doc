@@ -410,7 +410,7 @@ where,  where,
 `n_i` is the node number. `n_i` is the node number.
 
 
-`alpha_i`, `beta_i` and `gamma_i` are the three Euler angles defined on [this page](https://mpm.cb-geo.com/#/theory/geometry/rotation-matrices).  `alpha_i`, `beta_i` and `gamma_i` are the three Euler angles defined on [this page](https://mpm.cb-geo.com/#/theory/geometry/rotation-matrices).
+`alpha_i`, `beta_i` and `gamma_i` are the three Euler angles defined on [this page](https://mpm.cb-geo.com/#/theory/geometry/rotation-matrices). In 2D, `gamma_i` is set to zero as there is no rotation in respect to the z-axis.
 
 These nodal Euler angles would be used to compute transformation matrix, which would be stored as a private variable in `node`. The application of these non-cartesian boundaries involve the following process:
 1. Compute the velocity and acceleration on a given node, using global coordinate system.
