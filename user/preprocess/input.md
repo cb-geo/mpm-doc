@@ -105,7 +105,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
       "id": 0,
       "type": "Linear",
       "xvalues": [0.0, 0.5, 1.0],
-      "fxvalues": [0.0, 1.0, 1.0],
+      "fxvalues": [0.0, 1.0, 1.0]
     }
   ],
   "analysis": {
