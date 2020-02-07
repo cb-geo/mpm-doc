@@ -2,8 +2,8 @@
 
 To compile the CB-Geo MPM code please make sure you have the following packages. The CB-Geo MPM code is written in C++14 and compiles successfully on GCC 8.x and Clang 6.x.
 
-## Prerequisites
-The following additional packages are required to compile the MPM code.
+### Prerequisite packages
+> The following prerequisite packages can be found in the docker image:
 
 * [Boost](http://www.boost.org/)
 * [Eigen](http://eigen.tuxfamily.org/)
@@ -17,50 +17,51 @@ The following additional packages are required to compile the MPM code.
 * [Partio](https://github.com/wdas/partio)
 * [VTK](https://www.vtk.org/)
 
-
-### Fedora (Recommended)
-> 28
+### Fedora installation
 
 Please run the following command:
 
 ```shell
 dnf install -y boost boost-devel clang clang-analyzer clang-tools-extra cmake cppcheck dnf-plugins-core \
-               eigen3-devel findutils freeglut freeglut-devel gcc gcc-c++ git hdf5 hdf5-devel \
-               kernel-devel lcov libnsl make ninja-build openmpi openmpi-devel tar tbb tbb-devel \
-               valgrind vim vtk vtk-devel wget
+                   eigen3-devel findutils freeglut freeglut-devel gcc gcc-c++ git hdf5 hdf5-devel \
+                   kernel-devel lcov libnsl make ninja-build openmpi openmpi-devel tar tbb tbb-devel \
+                   valgrind vim vtk vtk-devel wget
 ```
 
-### Ubuntu 
-> 18.04
+### Ubuntu installation
 
-Please run the following commands to install any updates:
+Please run the following commands to install dependencies:
 
 ```
-sudo apt-get update
-sudo apt-get upgrade
-
-sudo apt-get install 
-
-sudo apt-get autoremove
+sudo apt-get install -y gcc git libboost-all-dev libeigen3-dev libhdf5-serial-dev libopenmpi-dev \
+                        libtbb-dev
 
 ```
 
-To install dependencies
-
-```shell
-sudo apt-get install -y cmake gcc git libboost-all-dev libeigen3-dev libhdf5-serial-dev libopenmpi-dev libtbb-dev libvtk7-dev ninja-build
+To install other dependencies:
+> CMake 3.15
+```
+sudo apt-get install software-properties-common
+sudo apt-add-repository 'deb https://apt.kitware.com/ubuntu/ bionic main'
+sudo apt update
+sudo apt upgrade
 ```
 
-### KaHIP installation for domain decomposition [optional]
-> Required if you are using MPI
-
-```shell
-cd ~/workspace/ && git clone https://github.com/schulzchristian/KaHIP && \
-   cd KaHIP && sh ./compile_withcmake.sh
+> OpenGL and X11:Xt
+```
+sudo apt-get install freeglut3-dev libxt-dev
 ```
 
+> VTK
+```
+git clone https://gitlab.kitware.com/vtk/vtk.git VTK
+cd VTK && mkdir build && cd build/
+cmake -DCMAKE_BUILD_TYPE:STRING=Release ..
+make -j
+sudo make install
+```
 
-### Partio for Houdini SFX Visualization [optional]
+### Partio for Houdini SFX Visualization
 
 ```shell
 sudo dnf install -y libnsl freeglut freeglut-devel
@@ -70,35 +71,33 @@ mkdir -p ~/workspace && cd ~/workspace/ && git clone https://github.com/wdas/par
 
 Houdini supported (*.bgeo) files will be generated. These can be rendered using the non-commercial [Houdini Apprentice](https://www.sidefx.com/download/).
 
-
-## Get the code
-
-* Download the `mpm` code repository using git clone.
+### KaHIP installation for domain decomposition
 
 ```shell
-git clone https://github.com/cb-geo/mpm
+cd ~/workspace/ && git clone https://github.com/schulzchristian/KaHIP && \
+   cd KaHIP && sh ./compile_withcmake.sh
 ```
 
 ## Compile
+> See https://mpm-doc.cb-geo.com/ for more detailed instructions. 
 
-0. Navigate to the `mpm` repository, which was just cloned (`cd mpm`). Then run `CMake` to create make files. `mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ ..`. Here `..` refers to the path to the `CMakeLists.txt` file.
+0. Run `mkdir build && cd build && cmake -DCMAKE_CXX_COMPILER=g++ ..`.
 
 1. Run `make clean && make -jN` (where N is the number of cores).
 
-### Run tests
+> To compile without KaHIP partitioning use `cmake -DNO_KAHIP=True ..`
 
-0. Run `./mpmtest -s` (for a verbose output) or `ctest -VV`.
+### Compile mpm or mpmtest
 
-## Compile using Ninja build system
+* To compile either `mpm` or `mpmtest` alone, run `make mpm -jN` or `make mpmtest -jN` (where N is the number of cores).
 
-0. Run `mkdir build && cd build && cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++ ..`.
+### Compile without tests [Editing CMake options]
 
-1. Run `ninja`
-
+To compile without tests run: `mkdir build && cd build && cmake -DMPM_BUILD_TESTING=Off  -DCMAKE_CXX_COMPILER=g++ ..`.
 
 ## Compile with MPI (Running on a cluster)
 
-The CB-Geo MPM code can be compiled with `MPI` to distribute the workload across compute nodes in a cluster.
+The CB-Geo mpm code can be compiled with `MPI` to distribute the workload across compute nodes in a cluster.
 
 Additional steps to load `OpenMPI` on Fedora:
 
@@ -108,44 +107,22 @@ export MODULEPATH=$MODULEPATH:/usr/share/modulefiles
 module load mpi/openmpi-x86_64
 ```
 
-Compile with OpenMPI:
+Compile with OpenMPI (with halo exchange):
 
 ```
 mkdir build && cd build 
 export CXX_COMPILER=mpicxx
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -DCMAKE_BUILD_TYPE=Release -DKAHIP_ROOT=~/workspace/KaHIP/ -DHALO_EXCHANGE=On ..
 make -jN
 ```
 
-Additionally, you need to specify path to KaHIP if it is not in the system location.
-```
--DCMAKE_EXPORT_COMPILE_COMMANDS=On -DKAHIP_ROOT=/path/to/kahip/
-```
+To enable halo exchange set `-DHALO_EXCHANGE=On` in `CMake`. Halo exchange is a better MPI communication protocol, however, use this only for larger number of MPI tasks (> 4).
 
-It will look like
+### Compile with Ninja build system [Alternative to Make]
 
-```
-mkdir build && cd build 
-export CXX_COMPILER=mpicxx
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_EXPORT_COMPILE_COMMANDS=On -DKAHIP_ROOT=/path/to/kahip/ ..
-make -jN
-```
+0. Run `mkdir build && cd build && cmake -GNinja -DCMAKE_CXX_COMPILER=g++ ..`.
 
-
-### Run with MPI
-
-To run the CB-Geo MPM code on a cluster with MPI:
-
-```
-mpirun -N <#-MPI-tasks> ./mpm -f /path/to/input-dir/ -i mpm.json
-```
-
-For example to run the code on 4 compute nodes:
-
-```
-mpirun -N 4 ./mpm -f ~/benchmarks/3d/uniaxial-stress -i mpm.json
-```
-
+1. Run `ninja`
 
 ### Compile with Partio viz support
 
