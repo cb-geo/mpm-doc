@@ -37,7 +37,7 @@
       * [Update Stress Last](theory/usl.md)
   * Material
     * [Bingham](theory/material/bingham.md)
-
+    * [Newtonian](theory/material/newtonian.md)
 
 * Developer
 
