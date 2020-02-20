@@ -5,7 +5,7 @@ general form:
 
 $$\mathbf{\sigma} = − p \bf{I} + \tau$$
 
-where $\tau = \mathbf{F(D)}$ is known as the viscous or extra stress tensor and $p$ is the thermodynamic pressure.
+where $\tau = \mathbf{F(D)}$ is known as the viscous or extra stress tensor, $p$ is the thermodynamic pressure and $\mathbf{D}$ is the rate of deformation.
 
 The mean stress $\tilde \sigma$ is equal to the thermodynamic pressure $−p$, if and only if one
 of the following two conditions are satisfied:
