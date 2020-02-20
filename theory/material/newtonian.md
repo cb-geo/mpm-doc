@@ -3,9 +3,9 @@
 The constitutive equation for stress tensor in a fluid motion is assumed to be of the
 general form:
 
-$$\mathbf{\sigma} = − p \bf{I} + \tau$$, where $\tau = \mathbf{F(D)}$
+$$\mathbf{\sigma} = − p \bf{I} + \tau$$
 
-where $\tau$ is known as the viscous or extra stress tensor and $p$ is the thermodynamic pressure.
+where $\tau = \mathbf{F(D)}$ is known as the viscous or extra stress tensor and $p$ is the thermodynamic pressure.
 
 The mean stress $\tilde \sigma$ is equal to the thermodynamic pressure $−p$, if and only if one
 of the following two conditions are satisfied:
@@ -14,7 +14,7 @@ of the following two conditions are satisfied:
 
    * Stokes condition: $K = \frac{2}{3}\mu + \lambda = 0.$
 
-where, $\lambda$ and $\mu$ are Lame constants. In general, the Stokes condition does not hold. For Newtonian fluids, incompressibility does not necessarily imply that $\tilde \sigma = − p$. 
+where $\mu$ and $\lambda$ are Lame constants. In general, the Stokes condition does not hold. For Newtonian fluids, incompressibility does not necessarily imply that $\tilde \sigma = − p$. 
 
 The thermodynamic pressure $p$ is calculated as
 
@@ -28,7 +28,7 @@ to minimise pressure osciallations.
 
 For an isotropic viscous fluid, the stress tensor takes the form:
 
-$$ \sigma = 2 \mu \mathbf{D} + \lamdba(tr \mathbf{D})\mathbf{I} - p\mathbf{I} $$.
+$$ \sigma = 2 \mu \mathbf{D} + \lambda(tr \mathbf{D})\mathbf{I} - p\mathbf{I} $$.
 
 $$ \sigma_{ij} = 2 \mu D_{ij} + (\lambda D_{kk} - p) \delta_{ij} $$
 
