@@ -12,7 +12,7 @@ where $\tau$ is known as the viscous or extra stress tensor and $p$ is the therm
 The mean stress $\tilde \sigma$ is equal to the thermodynamic pressure $−p$, if and only if one
 of the following two conditions are satisfied:
 
-   * Fluid is incompressible: $\Delta \cdot \bf{D} = 0$
+   * Fluid is incompressible: $\nabla \cdot \bf{D} = 0$
 
    * Stokes condition: $K = \frac{2}{3}\mu + \lambda = 0.$
 
