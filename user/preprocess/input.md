@@ -213,6 +213,23 @@ The `particles` object defines the type of particles, and the material of each p
 
 An initial `material_id` must still be assigned outside of `particle_sets`.
 
+### Particle injection
+
+Particle injection is a generation technique that can be used to inject particles in specific cells (or all cells using a `cset_id` of `-1`). Particle injection allows for specifing a duration in which particles are to be inserted in a cell. Injection will happen only when a given cell is empty and the particles are introduced at the Gauss points of the cell. The argument `duration` is optional, if not specified, particle injection will continue throughout the simulation, as long as the injection cell is empty. The `duration` of injection can be controlled by specifying a start and end time.
+
+```
+      "generator": {
+        "check_duplicates": true,
+        "particle_type": "P3D",
+        "cset_id": 0,  
+        "material_id": 1,
+        "nparticles_per_dir": 2,
+        "velocity": [0.0, 0.0, -5.0],
+        "duration": [0.01, 0.02],
+        "type": "inject"
+      },
+```
+
 ## Analysis
 
 The `analysis` object defines the type of analysis, number of steps, time-step, and an optional resume support.
