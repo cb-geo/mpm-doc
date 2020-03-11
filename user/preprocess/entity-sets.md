@@ -22,6 +22,7 @@ The model can be divided into several sets of particles or nodes by using the `e
         {
         "id": 1,
         "set": [n1_0, ... , n1_n]
+        }
     ],
     "cell_sets": [
         {
@@ -31,6 +32,7 @@ The model can be divided into several sets of particles or nodes by using the `e
         {
         "id": 1,
         "set": [c1_0, ... , c1_n]
+        }
     ]
 
 }
