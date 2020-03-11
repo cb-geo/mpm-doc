@@ -402,7 +402,7 @@ Velocity and friction constraints can be specified on the nodes. Velocity constr
             }
         ],
         "nodal_euler_angles": "nodal-euler-angles.txt",
-        "particle_velocity_constraints": [
+        "particles_velocity_constraints": [
             {
                 "pset_id" : 0,
                 "dir": 0,
