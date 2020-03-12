@@ -49,9 +49,9 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
         "io_type": "Ascii2D",
         "particle_type": "P2D",
         "material_id": 1,
+        "pset_id": 0,
         "type": "file"
-      },
-      "set_id": 0
+      }
     },
     {
       "generator": {
@@ -59,10 +59,10 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
         "cset_id": -1,
         "particle_type": "P2D",
         "material_id": 1,
+        "pset_id": 1,
         "nparticles_per_dir": 2,
         "type": "gauss"
-      },
-      "set_id": 1
+      }
     }
   ],
   "materials": [
@@ -193,25 +193,27 @@ The `particles` object defines the type of particles, and the material of each p
         "io_type": "Ascii2D",
         "particle_type": "P2D",
         "material_id": 1,
+        "pset_id": 0,
         "type": "file"
-      },
-      "set_id": 0
+      }
     },
     {
       "generator": {
         "check_duplicates": true,
         "cset_id": -1,
+        "pset_id": 0,
         "particle_type": "P2D",
         "material_id": 1,
         "nparticles_per_dir": 2,
         "type": "gauss"
-      },
-      "set_id": 1
+      }
     }
   ]
 ```
 
 An initial `material_id` must still be assigned outside of `particle_sets`.
+
+> Warning: Particle set id is not supported in `inject` mode.
 
 ### Particle injection
 
