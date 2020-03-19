@@ -60,7 +60,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
         "particle_type": "P2D",
         "material_id": 1,
         "nparticles_per_dir": 2,
-        "type": "gauss"
+        "type": "gauss",
         "pset_id": 1
       }
     }
