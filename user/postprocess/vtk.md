@@ -5,7 +5,6 @@ When the CB-Geo mpm code is compiled with VTK libraries, the MPM code can be set
 ```JSON
   "post_processing": {
     "output_steps": 5,
-    "vtk": ["stresses", "strains", "velocities"],
     "vtk_statevars": ["pdstrain"],
     "path": "results/"
   }
