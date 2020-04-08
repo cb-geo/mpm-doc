@@ -112,6 +112,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     "type": "MPMExplicit3D",
     "stress_update": "usf",
     "velocity_update": true,
+    "locate_particles": true,
     "dt": 1.0E-5,
     "damping": {
       "type": "Cundall",
@@ -241,6 +242,7 @@ The `analysis` object defines the type of analysis, number of steps, time-step, 
     "stress_update": "usf",
     "velocity_update", true,
     "dt": 1.0E-5,
+    "locate_particles": true,
     "nsteps": 10,
     "uuid": "usf-axial-loading-5cb93af",
     "resume" : {
@@ -286,6 +288,13 @@ Cundall damping can be specified in the analysis option. A 5% damping is applied
       "type": "Cundall",
       "damping_ratio": 0.05
     },
+```
+
+### Locate particles [optional]
+
+If a particle goes outside the mesh, the simulation is stopped. However, setting the `locate_particles` to `false` allows the simulation to continue, even if particle cannot be located.
+```
+    "locate_particles": false,
 ```
 
 ## Loading
