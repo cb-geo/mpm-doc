@@ -111,7 +111,15 @@ provided [here](https://cb-geo.github.io/git-course/#/adv/emojis).
 
 ## Issues and PRS
 
-* Always use GitHub issues and PR templates, **do not skip** to a blank template. 
+* Always use GitHub issues and PR templates, **do not skip** to a blank template.
+
+
+| Template type              | Purpose                      |
+|:---------------------------|:----------------------------:|
+| Bug report                 | Filing a bug report / issue  |
+| Feature request            | Request to add a new feature |
+| Request for comments       | For new ideas / discussions  |
+
 
 * Describe your feature / issue in as much detail as possible. Do not leave the description blank. 
 _Title says it all_ is not a useful description. Explain the context and give additional details. 
@@ -123,3 +131,4 @@ _Title says it all_ is not a useful description. Explain the context and give ad
 * Use draft PRs to have discussions on design/architecture. Add label as `discussions` in creating draft PRs.
 
 * Issues and PRs will be automatically closed after 90 days of inactivity.
+
