@@ -38,6 +38,7 @@
   * Material
     * [Bingham](theory/material/bingham.md)
     * [Newtonian](theory/material/newtonian.md)
+    * [NorSand](theory/material/norsand.md)
 
 * Developer
   * [Guidelines](code/developer.md)
