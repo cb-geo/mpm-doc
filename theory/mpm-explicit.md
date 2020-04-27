@@ -15,7 +15,8 @@ Based on this observation, Nairn (2003) used a new algorithm known as _USAVG
 (Update Stress Averaged)_ which combines both USF and MUSL. Figure illustrates the
 implementation of each version of stress update method within MPM algorithm.
 
-![Stress update algorithms](stress-update.png)
+![Stress update algorithms](stress-update-algorithms.png)
+
 > Comparison of USF, USL, MUSL and USAVG. $x$ is the position vector, $v$ is the velocity,
 $a$ is the acceleration, $\varepsilon$ is the strain tensor and $\sigma$ is the stress
 tensor. Subscripts, $p$ and $I$ represents values at material points and background nodes.
