@@ -32,7 +32,7 @@
   * Geometry
     * [Rotation matrices](theory/geometry/rotation-matrices.md)
   * [MPM](theory/mpm.md)
-    * MPM Explicit
+    * [MPM Explicit](theory/mpm-explicit.md)
       * [Update Stress First](theory/usf.md)
       * [Update Stress Last](theory/usl.md)
   * Material
