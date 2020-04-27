@@ -29,11 +29,6 @@ that commit should be broken across multiple commits where each commit should
 describe one and only one of the changes made. Always check if your code compiles
 without any errors before pushing.
 
-- Commit messages should be short and to the point. Prefer specific descriptions
-over general ones. To reduce boiler plate text such as "bug fix" prefer the use
-of an emoji such as :bug:. A list of useful emojis and what they mean are
-provided [here](https://cb-geo.github.io/git-course/#/adv/emojis).
-
 - Use branches when developing prospective features or implementing breaking
 changes. Only merge these branches into `master` after the changes have been
 accepted for production and due notice has been provided to users.
@@ -61,11 +56,20 @@ the repo. To remove any large files / bad data accidentally commited to the repo
 
 ## Git Commit Messages
 
-* Use the present tense ("Add feature" not "Added feature")
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-* Limit the first line to 72 characters or less
-* Reference issues and pull requests liberally
-* Consider starting the commit message with an applicable emoji :smiley: :
+- Commit messages should be short and to the point. Prefer specific descriptions
+over general ones. To reduce boiler plate text such as "bug fix" prefer the use
+of an emoji such as :bug:. A list of useful emojis and what they mean are
+provided [here](https://cb-geo.github.io/git-course/#/adv/emojis).
+
+- Use the present tense ("Add feature" not "Added feature")
+
+- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+
+- Limit the first line to 72 characters or less
+
+- Reference issues and pull requests liberally
+
+- Consider starting the commit message with an applicable emoji :smiley: :
 
 
 | Commit type                | Emoji                        | Syntax                        |
