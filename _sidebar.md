@@ -40,6 +40,6 @@
     * [Newtonian](theory/material/newtonian.md)
 
 * Developer
-
+  * [Guidelines](code/developer.md)
   * [Overview](code/overview.md)
   * [Material](code/material/material.md)
