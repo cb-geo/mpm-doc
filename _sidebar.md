@@ -38,6 +38,8 @@
   * Material
     * [Bingham](theory/material/bingham.md)
     * [Newtonian](theory/material/newtonian.md)
+    * [MohrCoulomb](theory/material/mohr-coulomb.md)
+    * [ModifiedCamClay](theory/material/modified-cam-clay.md)
 
 * Developer
   * [Guidelines](code/developer.md)
