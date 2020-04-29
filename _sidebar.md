@@ -40,6 +40,7 @@
     * [Newtonian](theory/material/newtonian.md)
     * [MohrCoulomb](theory/material/mohr-coulomb.md)
     * [ModifiedCamClay](theory/material/modified-cam-clay.md)
+    * [NorSand](theory/material/norsand.md)
 
 * Developer
   * [Guidelines](code/developer.md)
