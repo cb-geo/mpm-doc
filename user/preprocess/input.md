@@ -120,6 +120,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     },
     "uuid": "usf-axial-loading-5cb93af",
     "nsteps": 10,
+    "nload_balance_steps": 5,
     "resume": {
       "resume": true,
       "uuid": "usf-axial-loading-5cb93af",
@@ -244,6 +245,7 @@ The `analysis` object defines the type of analysis, number of steps, time-step, 
     "dt": 1.0E-5,
     "locate_particles": true,
     "nsteps": 10,
+    "nload_balance_steps": 5,
     "uuid": "usf-axial-loading-5cb93af",
     "resume" : {
       "resume": true,
@@ -296,6 +298,15 @@ If a particle goes outside the mesh, the simulation is stopped. However, setting
 ```
     "locate_particles": false,
 ```
+
+### Load balancing [optional]
+
+Dynamic load balancing is enabled by default, which happens at a fixed number of steps (1000). To change the load balancing frequency alter this optional parameter:
+
+```
+    "nload_balance_steps": 5,
+```
+
 
 ## Loading
 
