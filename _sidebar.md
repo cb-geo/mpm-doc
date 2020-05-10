@@ -44,5 +44,6 @@
 
 * Developer
   * [Guidelines](code/developer.md)
+    * [Static analysis](code/static-analysis.md)
   * [Overview](code/overview.md)
   * [Material](code/material/material.md)
