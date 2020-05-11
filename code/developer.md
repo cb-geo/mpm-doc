@@ -29,7 +29,7 @@ Before you create a branch for feature development, open a Request for Comments 
 git checkout -b feature/parallel/dynamic_loadbalance
 ```
 
-Feature branches without an RFC will be deleted. 
+Feature branches without an RFC will be deleted. All major RFCs should have an associated milestone with a deadline. This helps others know when a particular feature will be ready.
 
 ## 3. Add commits
 
