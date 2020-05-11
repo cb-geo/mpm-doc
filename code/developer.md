@@ -1,8 +1,6 @@
+# CB-Geo Workflow
 
-# CB-Geo Git Workflow
-
-
-CB-Geo Git flow is a branch-based workflow that supports teams to develop an integrated codebase for regular deployments of features
+CB-Geo flow is a branch-based workflow that supports teams to develop an integrated codebase for regular deployments of features. Based on [Atlassian](https://www.atlassian.com/blog/git/simple-git-workflow-is-simple) and [GitHub Flow](https://guides.github.com/introduction/flow/) documents.
 
 ## 1. Checkout develop
 
@@ -12,7 +10,6 @@ Start by pulling down the latest changes from `develop`
 git checkout develop
 git pull origin develop
 ```
-
 
 ## 2. Create a branch
 
@@ -77,9 +74,7 @@ Once a Pull Request has been opened, the person or team reviewing your changes m
 
 Once your pull request has been reviewed and the branch passes your tests, you can deploy your changes to verify them in production. This requires the benchmark tests to pass. Now that your changes have been benchmark verified, it is time to merge your code into the `develop` branch. If your branch causes issues, i.e., nightly benchmark fails, you can roll it back by deploying the existing develop into production.
 
-# Developer guidelines
-## Git Guidelines
-
+# Git developer guidelines
 - Repositories should have a short, memorable, and topical name. Avoid the use
 of capital letters and special characters.
 
