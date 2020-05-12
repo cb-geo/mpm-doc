@@ -42,8 +42,11 @@
     * [ModifiedCamClay](theory/material/modified-cam-clay.md)
     * [NorSand](theory/material/norsand.md)
 
-* Developer
-  * [Guidelines](code/developer.md)
-    * [Static analysis](code/static-analysis.md)
+* Code
   * [Overview](code/overview.md)
   * [Material](code/material/material.md)
+
+* Developer
+  * [Getting started](developer/getting-started.md)
+  * [CB-Geo developer workflow](developer/workflow.md)
+  * [CB-Geo git guidelines](developer/git-guidelines.md)
