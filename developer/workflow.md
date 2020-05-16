@@ -23,7 +23,7 @@ All hot-fix branches should be prefixed with `hotfix/`. Create a new branch when
 
 
 ### Branches for feature development
-Before you create a branch for feature development, open a Request for Comments [RFC](https://github.com/cb-geo/mpm/issues/new?template=request_for_comments.md) explaining the feature and the design principle. Once the RFC has been approved, please go ahead and create a new branch. Prefix a feature branchname with `feature/`.
+Before you create a branch for feature development, open a Request for Comments [RFC](https://github.com/cb-geo/mpm/issues/new?template=request_for_comments.md) explaining the feature and the design principle. **RFC should contain code snippets, class outlines, inheritance schemes, outline of new features.** Without this detail RFCs are not useful to discuss ideas. Merely mentioning a new feature will be implemented is NOT a useful RFC. It would become a placeholder for your PR and not a design and discussion board, before the actual implementation of the code. Once the RFC has been approved, please go ahead and create a new branch. Prefix a feature branchname with `feature/`.
 
 ```
 git checkout -b feature/parallel/dynamic_loadbalance
