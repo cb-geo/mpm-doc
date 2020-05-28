@@ -34,7 +34,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     },
     "particles_volumes": "particles-volumes.txt",
     "particles_stresses": "particles-stresses.txt",
-    "particles_cells": "particles-cells.txt",
+    "particle_cells": "particles-cells.txt",
     "isoparametric": false,
     "check_duplicates": false,
     "cell_type": "ED3H8",
@@ -462,6 +462,7 @@ Boundary conditions on the nodes can be specified through as ASCII file. The JSO
 condition is:
 
 ```
+  "mesh": {
     "boundary_conditions": {
         "velocity_constraints": [
             {
@@ -473,14 +474,15 @@ condition is:
                 "file" : "friction-constraints.txt"
             }
         ],
-    },
-    "external_loading_conditions": {
-        "concentrated_nodal_forces": [
-          {
-               "file": "nodal-tractions.txt"
-          }
-        ]
     }
+  },
+  "external_loading_conditions": {
+      "concentrated_nodal_forces": [
+        {
+             "file": "nodal-tractions.txt"
+        }
+      ]
+  }
 ```
 
 #### Velocity constraints
