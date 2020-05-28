@@ -473,7 +473,7 @@ condition is:
             {
                 "file" : "friction-constraints.txt"
             }
-        ],
+        ]
     }
   },
   "external_loading_conditions": {
