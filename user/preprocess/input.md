@@ -365,11 +365,13 @@ Loading conditions on the nodes can also be specified through an ASCII file. The
 condition is:
 
 ```
-    "external_loading_conditions": {
-        "concentrated_nodal_forces": {
-               "file": "nodal-tractions.txt"
+  "external_loading_conditions": {
+      "concentrated_nodal_forces": [
+        {
+             "file": "nodal-tractions.txt"
         }
-    }
+      ]
+  }
 ```
 
 #### Concentrated nodal forces
@@ -475,13 +477,6 @@ condition is:
             }
         ]
     }
-  },
-  "external_loading_conditions": {
-      "concentrated_nodal_forces": [
-        {
-             "file": "nodal-tractions.txt"
-        }
-      ]
   }
 ```
 
