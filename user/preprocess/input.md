@@ -148,7 +148,7 @@ The `mesh` object define the mesh (node and cells) and boundary conditions. The 
     },
     "particles_volumes": "particles-volumes.txt",
     "particles_stresses": "particles-stresses.txt",
-    "particles_cells": "particles-cells.txt",
+    "particle_cells": "particles-cells.txt",
     "isoparametric": false,
     "check_duplicates": false,
     "cell_type": "ED3H8",
