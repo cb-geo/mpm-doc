@@ -55,9 +55,11 @@ git clone https://github.com/cb-geo/mpm-benchmarks.git
 
 ## Compile on LS5
 
-To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
+Please use the intel compiler on LS5. To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
 
 ```shell
+export CC=icc
+export CXX=icpc
 mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen -DKAHIP_ROOT=$HOME/KaHIP ..
 
 make -j
