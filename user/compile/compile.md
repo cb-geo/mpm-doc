@@ -7,13 +7,13 @@ To compile the CB-Geo MPM code please make sure you have the following packages.
 
 * [Boost](http://www.boost.org/)
 * [Eigen](http://eigen.tuxfamily.org/)
-* [Intel TBB](https://www.threadingbuildingblocks.org/)
 * [HDF5](https://support.hdfgroup.org/HDF5/)
 
 #### Optional
 * [MKL](https://software.intel.com/en-us/mkl)
 * [MPI](https://www.open-mpi.org/)
 * [KaHIP](https://github.com/schulzchristian/KaHIP)
+* [OpenMP 5.0](https://www.openmp.org/specifications/)
 * [Partio](https://github.com/wdas/partio)
 * [VTK](https://www.vtk.org/)
 
@@ -24,7 +24,7 @@ Please run the following command:
 ```shell
 dnf install -y boost boost-devel clang clang-analyzer clang-tools-extra cmake cppcheck dnf-plugins-core \
                    eigen3-devel findutils freeglut freeglut-devel gcc gcc-c++ git hdf5 hdf5-devel \
-                   kernel-devel lcov libnsl make ninja-build openmpi openmpi-devel tar tbb tbb-devel \
+                   kernel-devel lcov libnsl make ninja-build openmpi openmpi-devel tar \
                    valgrind vim vtk vtk-devel wget
 ```
 
@@ -33,8 +33,19 @@ dnf install -y boost boost-devel clang clang-analyzer clang-tools-extra cmake cp
 Please run the following commands to install dependencies:
 
 ```
-sudo apt-get install -y gcc git libboost-all-dev libeigen3-dev libhdf5-serial-dev libopenmpi-dev \
-                        libtbb-dev
+sudo apt update
+sudo apt upgrade
+sudo apt install -y gcc git libboost-all-dev libeigen3-dev libhdf5-serial-dev libopenmpi-dev libomp-dev
+```
+
+If you are running Ubuntu 18.04 or below, you may want to update the GCC version to 9 to have OpenMP 5 specifications
+support.
+
+```
+sudo apt install software-properties-common
+sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+sudo apt install gcc-9 g++-9
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 90 --slave /usr/bin/g++ g++ /usr/bin/g++-9 --slave /usr/bin/gcov gcov /usr/bin/gcov-9
 
 ```
 
