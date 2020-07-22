@@ -245,7 +245,7 @@ Particle injection is a generation technique that can be used to inject particle
 
 ## Material Sets [Optional]
 
-The `material_sets` object defines the relationship between `material_id` and `pset_id`. If provided, this parameter is used to redefine the `material_id` for each provided `pset_id` within the `entity_sets` input JSON. 'material_id' is update prior to the first step. This optional parameter allows for the particles from a single input file to be assigned multiple materials. 
+The `material_sets` object defines the relationship between `material_id` and `pset_id`. If provided, this parameter is used to redefine the `material_id` for each provided `pset_id`. The 'material_id' is updated prior to the first step. This optional parameter allows for the particles from a single input file to be assigned multiple materials. 
 
 ```
   "material_sets": [
