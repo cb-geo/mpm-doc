@@ -81,6 +81,16 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
       "youngs_modulus": 1.5E+06
     }
   ],
+  "material_sets": [
+    {
+      "material_id": 0,
+      "pset_id": 0
+    },
+    {
+      "material_id": 1,
+      "pset_id": 1
+    }
+  ],
   "external_loading_conditions": {
     "concentrated_nodal_forces": [
       {
