@@ -84,11 +84,11 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   "material_sets": [
     {
       "material_id": 0,
-      "pset_id": 0
+      "pset_id": 2
     },
     {
       "material_id": 1,
-      "pset_id": 1
+      "pset_id": 3
     }
   ],
   "external_loading_conditions": {
@@ -251,11 +251,11 @@ The `material_sets` object defines the relationship between `material_id` and `p
   "material_sets": [
       {
         "material_id": 0,
-        "pset_id": 0
+        "pset_id": 2
       },
       {
         "material_id": 1,
-        "pset_id": 1
+        "pset_id": 3
       }
     ]
 ```
