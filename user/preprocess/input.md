@@ -81,6 +81,16 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
       "youngs_modulus": 1.5E+06
     }
   ],
+  "material_sets": [
+    {
+      "material_id": 0,
+      "pset_id": 2
+    },
+    {
+      "material_id": 1,
+      "pset_id": 3
+    }
+  ],
   "external_loading_conditions": {
     "concentrated_nodal_forces": [
       {
@@ -231,6 +241,23 @@ Particle injection is a generation technique that can be used to inject particle
         "duration": [0.01, 0.02],
         "type": "inject"
       },
+```
+
+## Material Sets [Optional]
+
+The `material_sets` object defines the relationship between `material_id` and `pset_id`. If provided, this relationship is used to redefine the `material_id` for each particle associated with the provided `pset_id`. Particle sets and the associated `pset_id` are defined within the `entity_sets` JSON. The `material_id` is updated prior to the first step. This optional parameter allows for the particles from a single input file to be assigned multiple materials. 
+
+```
+  "material_sets": [
+      {
+        "material_id": 0,
+        "pset_id": 2
+      },
+      {
+        "material_id": 1,
+        "pset_id": 3
+      }
+    ]
 ```
 
 ## Analysis
