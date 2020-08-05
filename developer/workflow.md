@@ -31,6 +31,9 @@ git checkout -b feature/parallel/dynamic_loadbalance
 
 Feature branches without an RFC will be deleted. All major RFCs should have an associated milestone with a deadline. This helps others know when a particular feature will be ready.
 
+### Feature pull request
+For a small feature addition without a prior RFC, you may choose to create a PR from your personal fork of the project. However, this **feature PR must have sections on Design Detail, Rationale, and Alternatives.**
+
 ## 3. Add commits
 
 Once your branch has been created, it's time to start making changes. Whenever you add, edit, or delete a file, you're making a commit, and adding them to your branch. This process of adding commits keeps track of your progress as you work on a feature branch.
