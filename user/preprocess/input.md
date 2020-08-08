@@ -140,7 +140,12 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   },
   "post_processing": {
     "output_steps": 5,
-    "vtk_statevars": ["pdstrain"],
+    "vtk_statevars": [
+     {
+        "phase_id": 0,
+        "statevars" : ["pdstrain"]
+      }
+    ]
     "path": "results/"
   }
 }
