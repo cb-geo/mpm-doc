@@ -13,7 +13,7 @@ Update stress last refers to incrementing the stresses at the material points af
 
 	$$ m_p = \rho V_p $$
 
-* The shape functions ($N_i (\textbf{x}_p^t)$) and the gradient of the shape functions $B_i (\textbf{x}_p^t)$ are computed for each material point $p$, based on the cell in which they are located.
+* The shape functions $N_i (\textbf{x}_p^t)$ and the gradient of the shape functions $B_i (\textbf{x}_p^t)$ are computed for each material point $p$, based on the cell in which they are located.
 
 * The nodal mass and momentum are calculated based on the mass and velocity of all the material points in the cell and are mapped to the nodes using the shape functions.
 
