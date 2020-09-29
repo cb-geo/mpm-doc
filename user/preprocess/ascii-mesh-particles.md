@@ -64,6 +64,7 @@ An example of a 3D mesh comprising of two cells and twelve nodes is shown below:
 The material points file has the following format:
 
 ```
+nparticles
 # material point coordinates
 x_0	y_0 	z_0
 x_1	y_1 	z_1
@@ -73,7 +74,7 @@ x_i	y_i	z_i
 x_n	y_n	z_n 
 ```
 
-$x_i$, $y_i$, $z_i$ correspond to the Cartesian coordinates of each material point. The material points are assigned a unique id from 0 to `n - 1`.
+`nparticles` is the total number of particles. $x_i$, $y_i$, $z_i$ correspond to the Cartesian coordinates of each material point. The material points are assigned a unique id from 0 to `n - 1`.
 
 The `particles-cell.txt` file which describes the initial cell location of each material point has the following format:
 ```
@@ -85,3 +86,20 @@ p_i	c_i
 p_n	c_n
 ```
 where $p_i$ is the particle id and $c_i$ is the cell id where particle $p_i$ belongs.
+
+### Particle Stresses [Optional]
+
+The `particles_stresses.txt` file has the following format:
+
+```
+nparticles
+# material point stresses
+sigma_xx,0	sigma_yy,0	sigma_zz,0	tau_xy,0	tau_yz,0	tau_zx,0
+sigma_xx,1	sigma_yy,1	sigma_zz,1	tau_xy,1	tau_yz,1	tau_zx,1
+...
+sigma_xx,i	sigma_yy,i	sigma_zz,i	tau_xy,i	tau_yz,i	tau_zx,i
+...
+sigma_11,n	sigma_22,n	sigma_33,n	tau_12,n	tau_23,n	tau_31,n
+```
+
+`nparticles` is the total number of particles. $\sigma_{xx,i}$, $\sigma_{yy,i}$, $\sigma_{zz,i}$, $\tau_{xy,i}$, $\tau_{yz,i}$, $\tau_{zx,i}$ correspond to the insitu stresses on each material point. Stresses are assigned in order to each material point based on the unique id from 0 to `n - 1`. If including a `particles_stresses.txt` file, stresses must be assigned for all material points.
