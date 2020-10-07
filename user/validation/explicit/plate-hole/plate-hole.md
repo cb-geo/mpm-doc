@@ -11,7 +11,7 @@ $\sigma_{rr}=\frac{\sigma_0}{2}(1-(\frac{a}{r})^2)+\frac{\sigma_0}{2}(1-4(\frac{
 
 $\sigma_{\theta\theta}=\frac{\sigma_0}{2}(1+(\frac{a}{r})^2)-\frac{\sigma_0}{2}(1+3(\frac{a}{r})^4)cos2\theta$
 
-$\tau_{r\theta}=-\frac{\sigma_0}{2}(1+2(\frac{a}{r})^2-3(\frac{a}{r}^4))sin2\theta$
+$\tau_{r\theta}=-\frac{\sigma_0}{2}(1+2(\frac{a}{r})^2-3(\frac{a}{r})^4)sin2\theta$
 
 where _a_ is hole radius, _r_ and $\theta$ are radial coordinates and $\sigma_0$ is remote stress. The stress concentration factor, $K_t$ which is defined as the ratio of the maximum stress, $\sigma_{max}$ at hole to the remote stress, $\sigma_0$ for the infinite width plate is 3.
 
