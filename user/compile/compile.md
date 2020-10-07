@@ -85,7 +85,7 @@ Houdini supported (*.bgeo) files will be generated. These can be rendered using 
 ### KaHIP installation for domain decomposition
 
 ```shell
-git clone https://github.com/kahip/kahip && cd kahip && git checkout 78d2bb0a2c8cb396fed45710a4292034fffdaf83
+git clone https://github.com/kahip/kahip && cd kahip
 sh ./compile_withcmake.sh
 ```
 
