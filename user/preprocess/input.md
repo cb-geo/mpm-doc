@@ -378,60 +378,6 @@ A load without a math function will be applied as a static load. Use math functi
 
 Both `concentrated_nodal_forces` and `particle_surfacce_traction` use [`entity_sets`](./entity_sets) to apply forces on a set of nodes and particles. The loading can be time-varying. The time-variation of the load can be specified using a math function. Setting the `nset_id` or `pset_id` to `-1` will apply the loading to all the nodes and particles. 
 
-### Math functions
-
-Math functions are useful to define how a certain load varies with time. A typical math function is shown below.
-
-```
-  "math_functions": [
-    {
-      "id": 0,
-      "type": "Linear",
-      "xvalues": [0.0, 0.5, 1.0, 1.5],
-      "fxvalues": [0.0, 1.0, 1.0, 0.0],
-    }
-  ]
-```
-
-This is a linear function with x and corresponding f(x) values. The function varies as shown in the figure. If used with a traction, the value of traction at different times will be computed as the defined math function.
-
-![x_fx](x_fx.png)
-
-### ASCII Math Functions
-Math functions can also be specified through an ASCII file, and this is useful when it is rather long such that can be used to define time history of a dynamic earthquake ground motion. The JSON configuration for the math function is:
-
-```
-  "math_functions": [
-    {
-      "id": 1,
-      "type": "Linear",
-      "file": "math-function.txt",
-      "xvalues": [],
-      "fxvalues": []
-    }
-  ]
-```
-
-Math function can be specified in the following format:
-
-```
-x_0     fx_0 
-x_1     fx_1 
-...
-...
-x_i     fx_i 
-...
-...
-x_n     fx_n 
-```
-
-where, 
-
-`x_i` is the independent varirable x,
-
-`fx_i` is the dependent variable f(x).
-
-
 ### ASCII loading conditions
 > Warning: ASCII loading conditions do not support math functions
 
@@ -602,3 +548,55 @@ where,
 
 `f_i` is the friction coefficient.
 
+## Math functions
+
+Math functions are useful to define how a certain load varies with time. A typical math function is shown below.
+
+```
+  "math_functions": [
+    {
+      "id": 0,
+      "type": "Linear",
+      "xvalues": [0.0, 0.5, 1.0, 1.5],
+      "fxvalues": [0.0, 1.0, 1.0, 0.0],
+    }
+  ]
+```
+
+This is a linear function with x and corresponding f(x) values. The function varies as shown in the figure. If used with a traction, the value of traction at different times will be computed as the defined math function.
+
+![x_fx](x_fx.png)
+
+### ASCII Math Functions
+Math functions can also be specified through an ASCII file, and this is useful when it is rather long such that can be used to define time history of a dynamic earthquake ground motion. The JSON configuration for the math function is:
+
+```
+  "math_functions": [
+    {
+      "id": 1,
+      "type": "Linear",
+      "file": "math-function.txt",
+      "xvalues": [],
+      "fxvalues": []
+    }
+  ]
+```
+
+Math function can be specified in the following format:
+
+```
+x_0     fx_0 
+x_1     fx_1 
+...
+...
+x_i     fx_i 
+...
+...
+x_n     fx_n 
+```
+
+where, 
+
+`x_i` is the independent varirable x,
+
+`fx_i` is the dependent variable f(x).
