@@ -568,7 +568,7 @@ This is a linear function with x and corresponding f(x) values. The function var
 ![x_fx](x_fx.png)
 
 ### ASCII Math Functions
-Math functions can also be specified through an ASCII file, and this is useful when it is rather long such that can be used to define time history of a dynamic earthquake ground motion. The JSON configuration for the math function is:
+Math functions can also be specified through an ASCII file, and this is useful when they are rather long such as math functions used to define time history of a dynamic earthquake ground motion. The JSON configuration for the math function is:
 
 ```
   "math_functions": [
