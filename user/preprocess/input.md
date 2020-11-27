@@ -116,6 +116,13 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
       "type": "Linear",
       "xvalues": [0.0, 0.5, 1.0],
       "fxvalues": [0.0, 1.0, 1.0]
+    },
+    {
+      "id": 1,
+      "type": "Linear",
+      "file": "math-function.txt",
+      "xvalues": [],
+      "fxvalues": []
     }
   ],
   "analysis": {
@@ -390,12 +397,45 @@ This is a linear function with x and corresponding f(x) values. The function var
 
 ![x_fx](x_fx.png)
 
+### ASCII Math Functions
+Math functions can also be specified through an ASCII file, and this is useful when it is rather long such that can be used to define time history of a dynamic earthquake ground motion. The JSON configuration for the math function is:
+
+```
+  "math_functions": [
+    {
+      "id": 1,
+      "type": "Linear",
+      "file": "math-function.txt",
+      "xvalues": [],
+      "fxvalues": []
+    }
+  ]
+```
+
+Math function can be specified in the following format:
+
+```
+x_0     fx_0 
+x_1     fx_1 
+...
+...
+x_i     fx_i 
+...
+...
+x_n     fx_n 
+```
+
+where, 
+
+`x_i` is the independent varirable x,
+
+`fx_i` is the dependent variable f(x).
+
 
 ### ASCII loading conditions
 > Warning: ASCII loading conditions do not support math functions
 
-Loading conditions on the nodes can also be specified through an ASCII file. The JSON configuration for the boundary
-condition is:
+Loading conditions on the nodes can also be specified through an ASCII file. The JSON configuration for the loading condition is:
 
 ```
   "external_loading_conditions": {
