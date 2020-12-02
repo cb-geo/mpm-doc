@@ -120,13 +120,13 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
   ],
   "analysis": {
     "type": "MPMExplicit3D",
-    "stress_update": "usf",
+    "mpm_scheme": "usf",
     "velocity_update": true,
     "locate_particles": true,
     "dt": 1.0E-5,
     "damping": {
       "type": "Cundall",
-      "damping_ratio": 0.05
+      "damping_factor": 0.05
     },
     "uuid": "usf-axial-loading-5cb93af",
     "nsteps": 10,
@@ -273,7 +273,7 @@ The `analysis` object defines the type of analysis, number of steps, time-step, 
 ```
   "analysis": {
     "type": "MPMExplicit3D",
-    "stress_update": "usf",
+    "mpm_scheme": "usf",
     "velocity_update", true,
     "dt": 1.0E-5,
     "locate_particles": true,
@@ -321,7 +321,7 @@ Cundall damping can be specified in the analysis option. A 5% damping is applied
 ```
     "damping": {
       "type": "Cundall",
-      "damping_ratio": 0.05
+      "damping_factor": 0.05
     },
 ```
 
