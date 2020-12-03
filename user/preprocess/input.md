@@ -573,9 +573,7 @@ Math functions can also be specified through a CSV file, and this is useful when
     {
       "id": 1,
       "type": "Linear",
-      "file": "math-function.csv",
-      "xvalues": [],
-      "fxvalues": []
+      "file": "math-function.csv"
     }
   ]
 ```
