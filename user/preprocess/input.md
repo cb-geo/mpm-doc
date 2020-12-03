@@ -565,15 +565,15 @@ This is a linear function with x and corresponding f(x) values. The function var
 
 ![x_fx](x_fx.png)
 
-### ASCII Math Functions
-Math functions can also be specified through an ASCII file, and this is useful when they are rather long such as math functions used to define time history of a dynamic earthquake ground motion. The JSON configuration for the math function is:
+### CSV Math Functions
+Math functions can also be specified through a CSV file, and this is useful when they are rather long such as math functions used to define time history of a dynamic earthquake ground motion. The JSON configuration for the math function is:
 
 ```
   "math_functions": [
     {
       "id": 1,
       "type": "Linear",
-      "file": "math-function.txt",
+      "file": "math-function.csv",
       "xvalues": [],
       "fxvalues": []
     }
@@ -583,14 +583,14 @@ Math functions can also be specified through an ASCII file, and this is useful w
 Math function can be specified in the following format:
 
 ```
-x_0     fx_0 
-x_1     fx_1 
-...
-...
-x_i     fx_i 
-...
-...
-x_n     fx_n 
+x_0,  fx_0, 
+x_1,  fx_1, 
+...,   ...,
+...,   ..., 
+x_i,  fx_i, 
+...,   ...,
+...,   ...,
+x_n,  fx_n 
 ```
 
 where, 
