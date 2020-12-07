@@ -120,7 +120,7 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
     {
       "id": 1,
       "type": "Linear",
-      "csvfile": "math-function.csv"
+      "file": "math-function.csv"
     }
   ],
   "analysis": {
@@ -581,6 +581,7 @@ Math functions can also be specified through a CSV file, and this is useful when
 Math function can be specified in the following format:
 
 ```
+#xvalue, fxvalue
 x_0,  fx_0, 
 x_1,  fx_1, 
 ...,   ...,
