@@ -33,7 +33,7 @@ mv eigen-eigen* eigen
 > KaHIP for domain decomposition
 
 ```shell
-cd $HOME && git clone https://github.com/schulzchristian/KaHIP && \
+cd $HOME && git clone https://github.com/KaHIP/KaHIP && \
    cd KaHIP && sh ./compile_withcmake.sh
 ```
 
