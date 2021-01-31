@@ -25,9 +25,7 @@ Certain prerequisites such as `boost` and `hdf5` are available on TACC, and can 
 cd $HOME
 module load boost hdf5 vtk
 export LD_LIBRARY_PATH=$SWR_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
-wget http://bitbucket.org/eigen/eigen/get/3.3.7.zip
-unzip 3.3.7.zip
-mv eigen-eigen* eigen
+git clone https://gitlab.com/libeigen/eigen.git
 ```
 
 > KaHIP for domain decomposition
