@@ -19,12 +19,15 @@ Please enable [2FA (Two-factor authentication)](https://portal.tacc.utexas.edu/t
 
 Certain prerequisites such as `boost` and `hdf5` are available on TACC, and can be accessed using `module load` command. Additional dependency of `eigen` must be installed locally:
 
-> Eigen
 
 ```shell
 cd $HOME
 module load boost hdf5 vtk
 export LD_LIBRARY_PATH=$SWR_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
+```
+
+> Eigen
+```shell
 git clone https://gitlab.com/libeigen/eigen.git
 ```
 
