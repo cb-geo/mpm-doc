@@ -17,11 +17,6 @@ Please enable [2FA (Two-factor authentication)](https://portal.tacc.utexas.edu/t
 
 ## Installing prerequisites
 
-Set Intel as the default compiler.
-```shell
-export CC=icc
-export CXX=icpc
-```
 Certain prerequisites such as `boost` and `hdf5` are available on TACC, and can be accessed using `module load` command. Additional dependency of `eigen` must be installed locally:
 
 
