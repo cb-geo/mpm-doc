@@ -53,8 +53,6 @@ To clone the mpm benchmark repository:
 git clone https://github.com/cb-geo/mpm-benchmarks.git
 ```
 
-
-
 ## Compile on Frontera with VTK
 
 Please use the intel compiler on Frontera. To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
