@@ -60,7 +60,7 @@ Please use the intel compiler on Frontera. To build the Make file, the procedure
 ```shell
 export CC=icc
 export CXX=icpc
-mkdir build && cd build && cmake -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP -DVTK_DIR=/work/01197/semeraro/frontera/VTK/VTKBinary/ ..
+mkdir build && cd build && cmake -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP -DVTK_ROOT=/work/01197/semeraro/frontera/VTK/VTKBinary/ ..
 
 make -j
 ```
@@ -75,6 +75,6 @@ git clone https://github.com/cb-geo/mpm-benchmarks.git
 git clone https://github.com/cb-geo/mpm.git && cd mpm
 export CC=icc
 export CXX=icpc
-mkdir build && cd build &&  cmake -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP -DVTK_DIR=/work/01197/semeraro/frontera/VTK/VTKBinary/ ..
+mkdir build && cd build &&  cmake -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP -DVTK_ROOT=/work/01197/semeraro/frontera/VTK/VTKBinary/ ..
 make -j
 ```
