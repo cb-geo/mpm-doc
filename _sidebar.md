@@ -43,6 +43,7 @@
     * [MohrCoulomb](theory/material/mohr-coulomb.md)
     * [ModifiedCamClay](theory/material/modified-cam-clay.md)
     * [NorSand](theory/material/norsand.md)
+  * [Contact](theory/contact.md)
 
 * Code
   * [Overview](code/overview.md)
