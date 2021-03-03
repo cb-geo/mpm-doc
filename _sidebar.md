@@ -38,7 +38,7 @@
       * [Update Stress First](theory/usf.md)
       * [Update Stress Last](theory/usl.md)
   * Material
-    * [LinearElastic](theory/material/linearelastic.md)
+    * [LinearElastic](theory/material/linear-elastic.md)
     * [Bingham](theory/material/bingham.md)
     * [Newtonian](theory/material/newtonian.md)
     * [MohrCoulomb](theory/material/mohr-coulomb.md)
