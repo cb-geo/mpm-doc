@@ -22,7 +22,7 @@ $$ v_s = \sqrt{\frac{M}{\rho}}, $$
 
 $$ v_p = \sqrt{\frac{G}{\rho}}, $$
 
-where $\rho$ is the density.
+where $\rho$ is the density. Both wave velocities are automatically computed and stored as JSON material properties when the linear elastic model is used. $v_s$ and $v_p$ are accessible via `property["swave_velocity"]` and `property["pwave_velocity"]`, respectively. 
 
 ## Input Parameters
 
