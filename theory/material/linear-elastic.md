@@ -10,7 +10,7 @@ $$ K = \frac{E}{3 (1 - 2\nu)}, $$
 
 $$ G = \frac{E}{2(1 + \nu)}, $$
 
-$$ M =  , $$
+$$ M = \frac{E(1 - \nu)}{(1 + \nu)(1 - 2 \nu)} , $$
 
 where $E$ is the Young's modulus and $\nu$ is the Poisson's ratio.
 
@@ -18,9 +18,9 @@ where $E$ is the Young's modulus and $\nu$ is the Poisson's ratio.
 
 The shear and pressue wave velocities ($v_s$ and $v_p$, respectively) are defined [1] as follows,
 
-$$ v_s = , $$
+$$ v_s = \sqrt{\frac{M}{\rho}}, $$
 
-$$ v_p = , $$
+$$ v_p = \sqrt{\frac{G}{\rho}}, $$
 
 where $\rho$ is the density.
 
@@ -48,4 +48,4 @@ An example input JSON is provided for a 2D linear elastic model.
 
 ## References
 
-[1] Last Name, F. M. initials (YEAR). Title. Journal, volume, pages.
+[1] Al-Kafaji, I. K. J. (2013). Formulation of a Dynamic Material Point Method (MPM) for Geomechanical Problems. PhD Thesis. University of Stuttgart. 
