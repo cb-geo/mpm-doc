@@ -21,7 +21,7 @@ Certain prerequisites such as `boost` and `hdf5` are available on TACC, and can 
 
 
 ```shell
-cd $HOME
+cd $WORK
 module load boost hdf5 vtk
 export LD_LIBRARY_PATH=$SWR_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
 ```
@@ -35,24 +35,24 @@ git clone https://gitlab.com/libeigen/eigen.git
 > KaHIP for domain decomposition
 
 ```shell
-cd $HOME && git clone https://github.com/KaHIP/KaHIP && \
+cd $WORK && git clone https://github.com/KaHIP/KaHIP && \
    cd KaHIP && sh ./compile_withcmake.sh
 ```
 
-## Get the code to LS5
+## Clone MPM code to LS5
 
 The `git clone` command can be used directly in the login node to clone the mpm repository into the LS5.
 
 ```shell
+cd $WORK
 git clone https://github.com/cb-geo/mpm.git
 ```
 
 To clone the mpm benchmark repository:
 
 ```shell
-git clone https://github.com/cb-geo/mpm-benchmarks.git
+git clone https://github.com/cb-geo/mpm-benchmarks.git benchmarks
 ```
-
 
 
 ## Compile on LS5
@@ -62,10 +62,29 @@ Please use the intel compiler on LS5. To build the Make file, the procedure is s
 ```shell
 export CC=icc
 export CXX=icpc
-mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$HOME/eigen -DKAHIP_ROOT=$HOME/KaHIP ..
+mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP ..
 
 make -j
 ```
+
+### Single installation and compile script
+```shell
+cd $WORK
+module load boost hdf5 vtk
+export LD_LIBRARY_PATH=$SWR_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
+git clone https://gitlab.com/libeigen/eigen.git
+cd $WORK && git clone https://github.com/KaHIP/KaHIP && \
+   cd KaHIP && sh ./compile_withcmake.sh
+cd $WORK && git clone https://github.com/cb-geo/mpm.git
+git clone https://github.com/cb-geo/mpm-benchmarks.git benchmarks
+export CC=icc
+export CXX=icpc
+cd mpm && mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP ..
+make -j
+```   
+
+
+
 ## Running the code
 
 ### Interactive session via idev

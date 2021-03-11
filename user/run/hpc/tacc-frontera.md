@@ -17,11 +17,12 @@ Please enable [2FA (Two-factor authentication)](https://portal.tacc.utexas.edu/t
 
 ## Installing prerequisites
 
-Certain prerequisites such as `boost` and `hdf5` are available on TACC, and can be accessed using `module load` command. Additional dependency of `eigen` must be installed locally:
+Certain prerequisites such as `boost`, `swr` and `hdf5` are available on TACC, and can be accessed using `module load` command. Additional dependency of `eigen` must be installed locally:
 
 
 ```shell
-module load boost hdf5
+module load boost hdf5 swr/20.0.5
+export LD_LIBRARY_PATH=$TACC_SWR_LIB:$LD_LIBRARY_PATH
 ```
 
 > Eigen
@@ -38,7 +39,7 @@ cd $WORK && git clone https://github.com/KaHIP/KaHIP && \
    cd KaHIP && sh ./compile_withcmake.sh 
 ```
 
-## Get the code to Frontera
+## Clone MPM code to Frontera
 
 The `git clone` command can be used directly in the login node to clone the mpm repository into the Frontera.
 
@@ -50,7 +51,7 @@ git clone https://github.com/cb-geo/mpm.git
 To clone the mpm benchmark repository:
 
 ```shell
-git clone https://github.com/cb-geo/mpm-benchmarks.git
+git clone https://github.com/cb-geo/mpm-benchmarks.git benchmarks
 ```
 
 ## Compile on Frontera with VTK
@@ -67,14 +68,16 @@ make -j
 
 ## Single installation and compile script
 ```shell
-module load boost hdf5
+module load boost hdf5 swr/20.0.5
+export LD_LIBRARY_PATH=$TACC_SWR_LIB:$LD_LIBRARY_PATH
 cd $WORK && git clone https://gitlab.com/libeigen/eigen.git
 cd $WORK && git clone https://github.com/KaHIP/KaHIP && \
    cd KaHIP && sh ./compile_withcmake.sh 
-git clone https://github.com/cb-geo/mpm-benchmarks.git
-git clone https://github.com/cb-geo/mpm.git && cd mpm
+cd $WORK
+git clone https://github.com/cb-geo/mpm.git
+git clone https://github.com/cb-geo/mpm-benchmarks.git benchmarks
 export CC=icc
 export CXX=icpc
-mkdir build && cd build &&  cmake -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP -DVTK_ROOT=/work/01197/semeraro/frontera/VTK/VTKBinary/ ..
+cd mpm && mkdir build && cd build &&  cmake -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP -DVTK_ROOT=/work/01197/semeraro/frontera/VTK/VTKBinary/ ..
 make -j
 ```
