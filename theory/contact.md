@@ -1,20 +1,29 @@
 # Contact Mechanics Between Distinct Bodies
 
-The Material Point Method is naturally capable of modelling distinct bodies because each material point holds the information of its own material. However, the conventional MPM alone does not handle contact mechanics as the surface of distinct bodies meet. Additionally, one may need to identify contact interfaces without the need of prescribing their geometry at the start of a simulation. Therefore, the MPM requires a contact algorithm capable of identifying the contact of distinct bodies and applying their contact relationship. A first approach to deal with frictional contact was introduced by Bardenhagen et. al. (2000). This approach is the one presented within this document. Bardenhagen et. al. (2000) also describes the normal to the interface surface for each material as the normalized gradients of the volume. However, the authors method can lead to normal vectors of both materials that are not always aligned -- i.e., opposite to each other for two materials in contact -- which can lead to further errors of the contact relationship. Therefore, a slight change, as proposed by Nairn (2013), was introduced to the algorithm to handle such cases.
+The Material Point Method is naturally capable of modeling distinct bodies because each material point holds the information of its material. However, the conventional MPM alone does not handle contact mechanics when different bodies meet. Therefore, the MPM requires a contact algorithm capable of identifying the contact between distinct bodies and applying a contact relationship. A frictional contact algorithm proposed by Bardenhagen et. al. (2000) is implemented in the CB-Geo MPM code. The approach involves prescribing a normal to the interface surface by mapping the gradient of volumes from the material points to the computational grid, identifying the normal and tangential movement to the interface, and finally correcting the velocity to avoid interpenetration of the bodies and resolve their frictional relationship. Moreover, for each distinct body, the mapped gradients of the volumes are nomalized, yielding the final normal unit vector, the mapped gradients of the volumes are normalized, yielding the final normal unit vector at the surface. However, the gradient of volumes alone usually leads to normal vectors on each body that are not aligned with each other. When this happens, the conservation of momentum is violated as the contact mechacnis is applied to contact nodes. Hence, the contact implementation allows for the use of two extensions to this normal vector computation, namely the Maximum Volume Gradient (MVG) and the Average Volume Gradient (AVG), proposed by Nairn (2013). Both approaches guarantee a colinearity between the computed normal vectors at the same node.
+
+
+![Fig. 1: Contact nodes, each detected when two or more bodies map information to that given node.](contact/contact-nodes.png)
+
+> Fig. 1: Contact nodes, each detected when two or more bodies map information to that given node.
+
+![Fig. 2: Resulting normal vectors at each contact node determined by the conventional volume gradient approach. Different colors represent different bodies.](contact/normal-vectors.png)
+
+> Fig. 2: Resulting normal vectors at each contact node determined by the conventional volume gradient approach. Different colors represent different bodies.
 
 # Contact Algorithm {docsify-ignore}
 
-> at each time step $\Delta t$ from $t$ to $t + \Delta t$, the nodal kinematics are initially computed similarly to the conventional MPM algorithm but considering the distinct materials:
+> at each time step $\Delta t$ from $t$ to $t + \Delta t$, the nodal kinematics are computed similar to the conventional MPM algorithm while considering distinct materials:
 
 ## Initial Nodal Kinematics
 
 * The state parameters at the material points are initialised at the beginning of every time step in the same manner as it is in the conventional MPM.
 
-* The shape functions $N_i(x_p^t)$ and the gradient of the shape functions $B_i (x_p^t)$ are also computed at each material point as the conventional MPM dictates, with no changes due to the contact algorihtm.
+* The shape functions $N_i(x_p^t)$ and the gradient of the shape functions $B_i (x_p^t)$ are also computed at each material point like in conventional MPM.
 
-* A nodal set of all the material ids (with no repetition) is created by identifying the material ids of all the material points in the cell. Each new material id is appended to this set. The size of this set will indicate whether the node is located at an interface of two or more materials or not.
+* To identify a contact node, the material ids of all the material points in a cell are mapped to the associated nodes, where a list of unique material ids is maintained. Any node which has more than two material ids is identified as a contact node.
 
-* The nodal mass and momentum are calculated separately for each body $k$. They are based on the mass and velocity of all the material points in the cell that belong to their respective body and are mapped to the nodes using the shape functions.
+* The nodal mass and momentum are calculated separately for each body $k$ based on the mass and velocity of all the material points corresponding to the body $k$ in the cell. The properties are then mapped to the nodes using the shape functions.
 
     * Compute nodal mass of each body
 
@@ -70,13 +79,31 @@ The Material Point Method is naturally capable of modelling distinct bodies beca
 
 > at each time step $\Delta t$ from $t$ to $t + \Delta t$:
 
-* The domain gradient is computed at each node for each separate material by mapping the gradient of the volumes at each node:
+* The volume gradient is computed at each node for each separate material by mapping the gradient of the volumes at each node:
 
     $$ \textbf{g}_{i,k}^t = \sum\limits_{p \in k} V_p^t B_i(\textbf{x}_p^t) $$
 
-* The normal unit vector at the interface of two materials is then determined considering the Maximum Volume Gradient Approach (MVG). This approach compares the domain gradients of the two materials in contact. The largest one in magnitude is normalized to determine the normal unit vector of that material while the normal unit vector of the lowest is set to be the opposite of the latter:
+* The domain is computed at each node for each separate material by mapping the volumes at each node:
 
-    $$ || \textbf{g}_{i,a}^t || > || \textbf{g}_{i,b}^t || \Rightarrow \hat{n}_{i,a}^t = \frac{\textbf{g}_{i,a}^t }{|| \textbf{g}_{i,a}^t  ||} \quad \mbox{and} \quad \hat{n}_{i,b}^t = \frac{\textbf{g}_{i,b}^t }{|| \textbf{g}_{i,b}^t  ||} $$
+    $$ \Omega_{i,k}^t = \sum\limits_{p\in k} V_p^t N_i(\mathbf{x}_p^t) $$
+
+* The normal unit vector is then determined in one of the three following procedures:
+
+    1. Pure Volume Gradient approach, as described by Bardenhagen et al. (2000). The normal unit vector is simply the normalized volume gradient vector:
+
+    $$ \hat{n_{i,k}^t} = \frac{\textbf{g}_{i,k}^t }{|| \textbf{g}_{i,k}^t  ||} $$
+
+    2. Maximum Volume Gradient (MVG) approach, which compares the domain of the two materials in contact. The normal unit vector is the normalized gradient vector of the body with largest domain:
+
+    $$ \Omega_{i,a}^t >  \Omega_{i,b}^t \Rightarrow \hat{n}_{i,a}^t = \frac{\textbf{g}_{i,a}^t }{|| \textbf{g}_{i,a}^t  ||} \quad \mbox{and} \quad \hat{n}_{i,b}^t = -\hat{n}_{i,a}^ = -\frac{\textbf{g}_{i,a}^t }{|| \textbf{g}_{i,a}^t  ||} $$
+
+    3. Average Volume Gradient (AVG) approach, which sets the normal unit vector as the weighted average of the volume gradients with respect to the domains. The conventional normal unit vector refers to the ones determined in the first approach:
+
+    $$ \tilde{\mathbf{g}}_{i,a}^t = \frac{\Omega_{i,a}^t\mathbf{g}_{i,a}^t - \Omega_{i,b}^t\mathbf{g}_{i,b}^t}{\sum\limits_k \Omega_{i,k}^t} \quad \mbox{and} \quad \hat{n}_{i,a}^t = \frac{\tilde{\mathbf{g}}_{i,a}^t}{|| \tilde{\mathbf{g}}_{i,a}^t ||} $$
+
+![Fig. 3: Graphic representation of the normal vector computation approaches in the CB-Geo MPM.](contact/normal-approach.png)
+
+> Fig. 3:  Graphic representation of the normal vector computation approaches in the CB-Geo MPM.
 
 ## Apply Contact Mechanics
 
