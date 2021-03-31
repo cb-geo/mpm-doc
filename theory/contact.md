@@ -23,25 +23,25 @@ The Material Point Method is naturally capable of modeling distinct bodies becau
 
 * To identify a contact node, the material ids of all the material points in a cell are mapped to the associated nodes, where a list of unique material ids is maintained. Any node which has more than two material ids is identified as a contact node.
 
-* The nodal mass and momentum are calculated separately for each body $k$ based on the mass and velocity of all the material points corresponding to the body $k$ in the cell. The properties are then mapped to the nodes using the shape functions.
+* The nodal mass and momentum are calculated separately for each body $b$ based on the mass and velocity of all the material points corresponding to the body $b$ in the cell. The properties are then mapped to the nodes using the shape functions.
 
     * Compute nodal mass of each body
 
-        $$ m^t_{i,k} = \sum\limits_{p \in k} N_i(\textbf{x}_p^t) m_p $$
+        $$ m^{t,(b)}_{i} = \sum\limits_{p \in b} N_i(\textbf{x}_p^t) m_p $$
 
     * Compute nodal momentum of each momentum
 
-        $$ (m \textbf{v})^t_{i,k} =  \sum\limits_{p \in k} N_i(\textbf{x}_p^t)m_p \textbf{v}_p^t $$
+        $$ (m \textbf{v})^{t,(b)}_{i} =  \sum\limits_{p \in b} N_i(\textbf{x}_p^t)m_p \textbf{v}_p^t $$
 
-* The nodal velocities at each active node $i$ is computed for each material $k$ based on the momentum and the nodal mass.
+* The nodal velocities at each active node $i$ is computed for each material $b$ based on the momentum and the nodal mass.
 
-    $$ \textbf{v}_{i,k}^t = \frac{(m \textbf{v})_{i,k}^t}{m_{i,k}^t} $$
+    $$ \textbf{v}_{i}^{t,(b)} = \frac{(m \textbf{v})_{i}^{t,(b)}}{m_{i}^{t,(b)}} $$
 
 * For the USF approach:
 
     * The strain at each material point is computed by mapping the strain rate from the nodes considering the material id of $p$:
 
-        $$ \boldsymbol{\varepsilon}_p^t = \sum\limits_{i} B_i(\textbf{x}_p^t) \textbf{v}_{i,k}^t \quad \mbox{with} \quad k \ni p $$ 
+        $$ \boldsymbol{\varepsilon}_p^t = \sum\limits_{i} B_i(\textbf{x}_p^t) \textbf{v}_{i}^{t,(b)} \quad \mbox{with} \quad b \ni p $$ 
 
     * The stress is then updated at each material point based on the constitutive model as it is for the conventional MPM with the USF approach. 
 
@@ -49,31 +49,31 @@ The Material Point Method is naturally capable of modeling distinct bodies becau
 
     * Body force:
 
-        $$ \textbf{b}_{i,k}^{t} = G \sum\limits_{p \in k} N_i(\textbf{x}_p^t) m_p $$
+        $$ \textbf{b}_{i}^{t,(b)} = G \sum\limits_{p \in b} N_i(\textbf{x}_p^t) m_p $$
 
 * Compute the nodal external and internal force considering each material id separately
 
     * External force:
 
-        $$ (\textbf{f})^{ext,t}_{i,k} = \textbf{b}_{i,k}^t + \textbf{t}_{i,k}^t $$
+        $$ (\textbf{f})^{ext,t,(b)}_{i} = \textbf{b}_{i}^{t,(b)} + \textbf{t}_{i}^{t,(b)} $$
 
     * Internal force:
 
-        $$ (\textbf{f})^{int,t}_{i,k} = \sum\limits_{p \in k} V_p^t B_i(\textbf{x}_p^t) \boldsymbol{\sigma}_p^t $$
+        $$ (\textbf{f})^{int,t,(b)}_{i} = \sum\limits_{p \in b} V_p^t B_i(\textbf{x}_p^t) \boldsymbol{\sigma}_p^t $$
 
     * Resulting force:
 
-        $$ \textbf{f}_{i,k}^t = (\textbf{f})^{ext,t}_{i,k} + (\textbf{f})^{int,t}_{i,k} $$
+        $$ \textbf{f}_{i}^{t,(b)} = (\textbf{f})^{ext,t,(b)}_{i} + (\textbf{f})^{int,t,(b)}_{i} $$
 
 * The nodal acceleration and velocities of the next step $ t + \Delta t$ for each mateiral id are computed on all active nodes:
 
     * Nodal acceleration:
 
-        $$ \textbf{a}_{i,k}^{t+\Delta t} = \frac{\textbf{f}_{i,k}^t}{m_{i,k}^t} $$
+        $$ \textbf{a}_{i}^{t+\Delta t,(b)} = \frac{\textbf{f}_{i}^{t,(b)}}{m_{i}^{t,(b)}} $$
 
     * Nodal velocity:
 
-        $$ \textbf{v}_{i,k}^{t + \Delta t} = \textbf{v}_{i,k}^t + \textbf{a}_{i,k}^{t + \Delta t} * \Delta t $$
+        $$ \textbf{v}_{i}^{t + \Delta t,(b)} = \textbf{v}_{i}^{t,(b)} + \textbf{a}_{i}^{t + \Delta t,(b)} * \Delta t $$
 
 ## Normal Vector Computation
 
@@ -81,25 +81,25 @@ The Material Point Method is naturally capable of modeling distinct bodies becau
 
 * The volume gradient is computed at each node for each separate material by mapping the gradient of the volumes at each node:
 
-    $$ \textbf{g}_{i,k}^t = \sum\limits_{p \in k} V_p^t B_i(\textbf{x}_p^t) $$
+    $$ \textbf{g}_{i}^{t,(b)} = \sum\limits_{p \in b} V_p^t B_i(\textbf{x}_p^t) $$
 
 * The domain is computed at each node for each separate material by mapping the volumes at each node:
 
-    $$ \Omega_{i,k}^t = \sum\limits_{p\in k} V_p^t N_i(\mathbf{x}_p^t) $$
+    $$ \Omega_{i}^{t,(b)} = \sum\limits_{p\in b} V_p^t N_i(\mathbf{x}_p^t) $$
 
 * The normal unit vector is then determined in one of the three following procedures:
 
     1. Pure Volume Gradient approach, as described by Bardenhagen et al. (2000). The normal unit vector is simply the normalized volume gradient vector:
 
-    $$ \hat{n_{i,k}^t} = \frac{\textbf{g}_{i,k}^t }{|| \textbf{g}_{i,k}^t  ||} $$
+    $$ \hat{n_{i}^{t,(b)}} = \frac{\textbf{g}_{i}^{t,(b)} }{|| \textbf{g}_{i}^{t,(b)}  ||} $$
 
     2. Maximum Volume Gradient (MVG) approach, which compares the domain of the two materials in contact. The normal unit vector is the normalized gradient vector of the body with largest domain:
 
-    $$ \Omega_{i,a}^t >  \Omega_{i,b}^t \Rightarrow \hat{n}_{i,a}^t = \frac{\textbf{g}_{i,a}^t }{|| \textbf{g}_{i,a}^t  ||} \quad \mbox{and} \quad \hat{n}_{i,b}^t = -\hat{n}_{i,a}^ = -\frac{\textbf{g}_{i,a}^t }{|| \textbf{g}_{i,a}^t  ||} $$
+    $$ \Omega_{i}^{t,(b1)} >  \Omega_{i}^{t,(b2)} \Rightarrow \hat{n}_{i}^{t,(b1)} = \frac{\textbf{g}_{i}^{t,(b1)} }{|| \textbf{g}_{i}^{t,(b1)}  ||} \quad \mbox{and} \quad \hat{n}_{i}^{t,(b2)} = -\hat{n}_{i}^{t,(b1)} = -\frac{\textbf{g}_{i}^{t,(b1)} }{|| \textbf{g}_{i}^{t,(b1)}  ||} $$
 
     3. Average Volume Gradient (AVG) approach, which sets the normal unit vector as the weighted average of the volume gradients with respect to the domains. The conventional normal unit vector refers to the ones determined in the first approach:
 
-    $$ \tilde{\mathbf{g}}_{i,a}^t = \frac{\Omega_{i,a}^t\mathbf{g}_{i,a}^t - \Omega_{i,b}^t\mathbf{g}_{i,b}^t}{\sum\limits_k \Omega_{i,k}^t} \quad \mbox{and} \quad \hat{n}_{i,a}^t = \frac{\tilde{\mathbf{g}}_{i,a}^t}{|| \tilde{\mathbf{g}}_{i,a}^t ||} $$
+    $$ \tilde{\mathbf{g}}_{i}^{t,(b1)} = \frac{\Omega_{i}^{t,(b1)} \mathbf{g}_{i}^{t,(b1)} - \Omega_{i}^{t,(b2)} \mathbf{g}_{i}^{t,(b2)}}{\sum\limits_b \Omega_{i}^{t,(b)}} \quad \mbox{and} \quad \hat{n}_{i}^{t,(b1)} = \frac{\tilde{\mathbf{g}}_{i}^{t,(b1)}}{|| \tilde{\mathbf{g}}_{i}^{t,(b1)} ||} $$
 
 ![Fig. 3: Graphic representation of the normal vector computation approaches in the CB-Geo MPM.](contact/normal-approach.png)
 
@@ -115,31 +115,31 @@ The Material Point Method is naturally capable of modeling distinct bodies becau
 
 * The material's relative velocity to the velocity of the center of mass is computed at each contact node. The velocity of the center of mass is the one determined using the conventional MPM algorithm.
 
-    $$ \Delta \textbf{v}_{i,k}^{t+\Delta t} = \textbf{v}_{i,k}^{t+\Delta t} - \textbf{v}_{i}^{t+\Delta t} $$
+    $$ \Delta \textbf{v}_{i}^{t+\Delta t,(b)} = \textbf{v}_{i}^{t+\Delta t,(b)} - \textbf{v}_{i}^{t+\Delta t} $$
 
 * The material's movement is checked at each contact node:
 
-    $$ \Delta \textbf{v}_{i,k}^{t+\Delta t} \cdot \hat{n}_{i,k}^t > 0 \quad \Rightarrow \quad \mbox{approaching} $$
+    $$ \Delta \textbf{v}_{i}^{t+\Delta t,(b)} \cdot \hat{n}_{i}^{t,(b)} > 0 \quad \Rightarrow \quad \mbox{approaching} $$
 
-    $$ \Delta \textbf{v}_{i,k}^{t+\Delta t} \cdot \hat{n}_{i,k}^t \leq 0 \quad \Rightarrow \quad \mbox{separating} $$
+    $$ \Delta \textbf{v}_{i}^{t+\Delta t,(b)} \cdot \hat{n}_{i}^{t,(b)} \leq 0 \quad \Rightarrow \quad \mbox{separating} $$
 
-* If the node is not a contact node or if the material is separating, nothing is done ($ \tilde{\textbf{v}}_{i,k}^{t+\Delta t} = \textbf{v}_{i,k}^{t+\Delta t} $). Otherwise (approaching condition):
+* If the node is not a contact node or if the material is separating, nothing is done ($ \tilde{\textbf{v}}_{i}^{t+\Delta t,(b)} = \textbf{v}_{i}^{t+\Delta t,(b)} $). Otherwise (approaching condition):
 
     * The normal and tangential components of the relative velocity are computed
 
-        $$ \Delta \textbf{v}_{i,k,norm}^{t+\Delta t} = [\Delta \textbf{v}_{i,k}^{t+\Delta t} \cdot \hat{n}_{i,k}^t] \hat{n}_{i,k}^t $$
+        $$ \Delta \textbf{v}_{i,norm}^{t+\Delta t,(b)} = [\Delta \textbf{v}_{i}^{t+\Delta t,(b)} \cdot \hat{n}_{i}^{t,(b)}] \hat{n}_{i}^{t,(b)} $$
 
-        $$ \Delta \textbf{v}_{i,k,tan}^{t+\Delta t} = \hat{n}_{i,k}^t \times [\Delta \textbf{v}_{i,k}^{t+\Delta t} \times \hat{n}_{i,k}^t] $$
+        $$ \Delta \textbf{v}_{i,tan}^{t+\Delta t,(b)} = \hat{n}_{i}^{t,(b)} \times [\Delta \textbf{v}_{i}^{t+\Delta t,(b)} \times \hat{n}_{i}^{t,(b)}] $$
 
     * The following normal and tangential corrections are determined
 
-        $$ \textbf{c}_{i,k,norm}^{t + \Delta t} = - \Delta \textbf{v}_{i,k,norm}^{t+\Delta t} $$
+        $$ \textbf{c}_{i,norm}^{t + \Delta t,(b)} = - \Delta \textbf{v}_{i,norm}^{t+\Delta t,(b)} $$
 
-        $$ \textbf{c}_{i,k,tan}^{t + \Delta t} = - \min(\mu \Delta \textbf{v}_{i,k,norm}^{t+\Delta t}, \Delta \textbf{v}_{i,k,tan}^{t+\Delta t}) $$
+        $$ \textbf{c}_{i,tan}^{t + \Delta t,(b)} = - \min(\mu \Delta \textbf{v}_{i,norm}^{t+\Delta t,(b)}, \Delta \textbf{v}_{i,tan}^{t+\Delta t,(b)}) $$
 
     * The nodal velocity is updated
 
-        $$ \tilde{\textbf{v}}_{i,k}^{t+\Delta t} = \textbf{v}_{i,k}^{t+\Delta t} + \textbf{c}_{i,k,norm}^{t + \Delta t} + \textbf{c}_{i,k,tan}^{t + \Delta t} $$
+        $$ \tilde{\textbf{v}}_{i}^{t+\Delta t,(b)} = \textbf{v}_{i}^{t+\Delta t,(b)} + \textbf{c}_{i,norm}^{t + \Delta t,(b)} + \textbf{c}_{i,tan}^{t + \Delta t,(b)} $$
 
 ## Update of Material Points
 
@@ -151,7 +151,7 @@ The Material Point Method is naturally capable of modeling distinct bodies becau
 
     * Material point velocity:
 
-        $$ \textbf{v}_p^{t+\Delta t} = \sum\limits_{i} N_i(\textbf{x}_p^t)\tilde{\textbf{v}}_{i,k}^{t+\Delta t} \quad \mbox{with} \quad k \ni p $$
+        $$ \textbf{v}_p^{t+\Delta t} = \sum\limits_{i} N_i(\textbf{x}_p^t)\tilde{\textbf{v}}_{i}^{t+\Delta t,(b)} \quad \mbox{with} \quad b \ni p $$
 
     * Material point position:
 
@@ -187,41 +187,41 @@ $\boldsymbol{\varepsilon}_{p}^t$ strain tensor of the material point $p$ at time
 
 $i$ node index
 
-$k$ material index
+$b$ material index
 
-$\textbf{a}_{i,k}^t$ acceleration of node $i$ and material $k$
+$\textbf{a}_{i}^{t,(b)}$ acceleration of node $i$ and material $b$
 
-$\textbf{b}_{i,k}^t$ body force of node $i$ and material $k$ at time $t$
+$\textbf{b}_{i}^{t,(b)}$ body force of node $i$ and material $b$ at time $t$
 
-$\textbf{f}_{i,k}^t$ nodal force of node $i$ and material $k$ at time $t$
+$\textbf{f}_{i}^{t,(b)}$ nodal force of node $i$ and material $b$ at time $t$
 
-$\textbf{f}_{i,k}^{ext,t}$ nodal external force of node $i$ and material $k$ at time $t$
+$\textbf{f}_{i}^{ext,t,(b)}$ nodal external force of node $i$ and material $b$ at time $t$
 
-$\textbf{f}_{i,k}^{int,t}$ nodal internal force of node $i$ and material $k$ at time $t$
+$\textbf{f}_{i}^{int,t,(b)}$ nodal internal force of node $i$ and material $b$ at time $t$
 
-$m_{i,k}^t$ mass of node $i$ and material $k$ at time $t$
+$m_{i}^{t,(b)}$ mass of node $i$ and material $b$ at time $t$
 
-$(m\textbf{v})_{i,k}^t$ momentum of node $i$ and material $k$ at time $t$
+$(m\textbf{v})_{i}^{t,(b)}$ momentum of node $i$ and material $b$ at time $t$
 
-$\textbf{t}_{i,k}^t$ traction at node $i$ and material $k$ at time $t$
+$\textbf{t}_{i}^{t,(b)}$ traction at node $i$ and material $b$ at time $t$
 
-$\textbf{v}_{i,k}^t$ velocity of node $i$ and material $k$ at time $t$
+$\textbf{v}_{i}^{t,(b)}$ velocity of node $i$ and material $b$ at time $t$
 
-$\boldsymbol{\sigma}_{i,k}^t$ stress tensor of node $i$ and material $k$ at time $t$
+$\boldsymbol{\sigma}_{i}^{t,(b)}$ stress tensor of node $i$ and material $b$ at time $t$
 
 $\textbf{v}_i^t$ velocity of the center of mass at node $i$ and time $t$
 
-$\Delta \textbf{v}_{i,k}^t$ relative velocity of node $i$ and material $k$ at time $t$
+$\Delta \textbf{v}_{i}^{t,(b)}$ relative velocity of node $i$ and material $b$ at time $t$
 
-$\Delta \textbf{v}_{i,k,norm}^t$ normal component of the relative velocity of node $i$ and material $k$ at time $t$
+$\Delta \textbf{v}_{i,norm}^{t,(b)}$ normal component of the relative velocity of node $i$ and material $b$ at time $t$
 
-$\Delta \textbf{v}_{i,k,tan}^t$ tangent component of the relative velocity of node $i$ and material $k$ at time $t$
+$\Delta \textbf{v}_{i,tan}^{t,(b)}$ tangent component of the relative velocity of node $i$ and material $b$ at time $t$
 
-$\textbf{c}_{i,k,norm}^t$ normal correction of the velocity of node $i$ and material $k$ at time $t$
+$\textbf{c}_{i,norm}^{t,(b)}$ normal correction of the velocity of node $i$ and material $b$ at time $t$
 
-$\textbf{c}_{i,k,tan}^t$ tangent correction of the velocity of node $i$ and material $k$ at time $t$
+$\textbf{c}_{i,tan}^{t,(b)}$ tangent correction of the velocity of node $i$ and material $b$ at time $t$
 
-$\tilde{\textbf{v}}_{i,k}^t$ corrected velocity of node $i$ and material $k$ at time $t$
+$\tilde{\textbf{v}}_{i}^{t,(b)}$ corrected velocity of node $i$ and material $b$ at time $t$
 
 ### Shape Functions
 
