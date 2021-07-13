@@ -1,34 +1,97 @@
 # NorSand
 
-The bonded NorSand model is an extension of the original critical state based constitutive model NorSand by Jefferies (1993). Relevant equations are presented briefly on this document.
+The bonded NorSand model is an extension of the original critical state based constitutive model NorSand by Jefferies (1993) and Jefferies and Been (2016). Relevant equations are presented briefly on this document.
 
-## Yield Function
+## Summary of NorSand Equations
 
-$$ F = \frac{q}{p+p_c} - \frac{M_\theta}{N}\left[1 + (N-1)\left(\frac{p + p_c}{p_i + p_c + p_d}\right)^\frac{N}{1-N}\right] $$
+Relevant equations are presented below with a complete list of symbols provided at the end. 
 
-$$M(\theta) = M_{tc} - \frac{M_{tc}^2}{3 + M_{tc}}cos(\frac{3\theta}{2})$$
+### Internal Model Parameters
 
-where $p$ is the mean pressure, $q$ is the magnitude of deviatoric stress, $\theta$ is the Lode's angle (with cosine convention), $M$ is the slope of the critical line, $M_{tc}$ is the value of $M$ under trial extension status. Furthermore, $p_c$ and $p_d$ are cohesive and dilative pressure terms to describe the bond. They are defined as:
+Internal model parameters are used to calculate the critical stress ratio image needed to determine the yield surface. Using the critical stress ratio image represent one of the major updates between Jefferies (1993) and Jeffereies and Been (2016). 
 
-$$ p_c = p_{c0} \exp{(-m_c \varepsilon^p_d)} $$
+$$ \psi_i = e - e_i $$
 
-$$ p_d = p_{d0} \exp{(-m_d \varepsilon^p_d)} $$
+$$ \quad e_i = \Gamma - \lambda\ln(p_i/p_{\text{atm}}) $$
 
-where $p_{c0}$ is the initial cohesive pressure term, $p_{d0}$ is the initial dilative pressure term, $m_c$ is cohesive degradation term and $m_d$ is dilative degradation term. Lastly, $\varepsilon^p_d$ is the equivalent plastic deviatoric strain. 
+$$ \chi_i = \frac{\chi_{tc}}{(1-\chi_{tc}\lambda/M_{tc})} $$
 
-## Flow Rule
+$$ M_i = M_{\theta} \left(1-\frac{\chi_i N |\psi_i|}{M_{tc}}\right) $$
 
-An assosiated potential flow rules is defined, which means it has the same format with the yield function.
+$$ M_{itc} = M_{tc} \left(1-\frac{\chi_i N |\psi_i|}{M_{tc}}\right) $$
 
-## Elastic Modulus
+### Critical State
 
-The bulk and shear modulus are defined as follow, with an assumption of constant Poisson's ratio $\nu$.
+The critical stress relies on lode angle, which uses a cosine convention in `CB-Geo`. This form of the critical stress ratio is from Jefferies and Shuttle (2011). 
+
+$$ M_{\theta} = M_{tc}-\frac{M_{tc}^2}{3+M_{tc}}\cos\left(\frac{3\theta}{2}\right) $$
+
+### Yield Surface
+
+The yield surface equation includes a cap which relies on the internal model parametes above. 
+
+$$ F = \frac{q}{p+p_c} - M_i +M_i \ln\left(\frac{p+p_c}{p_i+p_c+p_d}\right), \quad \left(\frac{p_i+p_c+p_d}{p+p_c}\right)_{\text{max}}=\exp\left[\frac{-\chi_i\psi_i}{M_{itc}}\right] $$
+
+### Bonded model
+
+$$ p_c = p_{c0} \exp{(-m_c \varepsilon^p_q)} $$
+
+$$ p_d = p_{d0} \exp{(-m_d \varepsilon^p_q)} $$
+
+### Hardening Rule
+
+$$ \frac{\partial p_i}{\partial\varepsilon_q^p} = H\frac{M_i}{M_{itc}}\left(\frac{p}{p_i}\right)^2\left[\exp\left(\frac{-\chi_i\psi_i}{M_{tc}}\right)-\frac{p_i}{p}\right]p_i $$
+
+
+### Flow Rule (associated potential flow rule)
+
+$$ P = F $$
+
+### Elasticity
 
 $$ K = \frac{1 + e}{\kappa}p + m_M (p_c + p_d) $$
 
 $$ G = \frac{3K(1 - 2\nu)}{2(1+\nu)} $$
 
-where $e$ is the void ratio, $\kappa$ is the swell/recompression index,, $K$ is the volumetric modulus, and finally $G$ is the shear modulus.
+
+### Symbols
+| Symbol              | Name                                             |
+| ------------------- | ------------------------------------------------ |
+| $e$                 | void ratio                                       |
+| $e_i$               | void ratio image                                 |
+| $F$                 | yield surface funciton                           |
+| $G$                 | shear modulus                                    |
+| $H$                 | hardening modulus                                |
+| $K$                 | bulk modulus                                     |
+| $m_c$               | cohesive degradation                             |
+| $m_d$               | dilative degradation                             |
+| $m_M$               | bonded modulus                                   |
+| $M_{\theta}$        | critical stress ratio                            |
+| $M_{i}$             | critical stress ratio image                      |
+| $M_{itc}$           | critical stress ratio triaxial compression image |
+| $M_{tc}$            | critical stress ratio triaxial compression       |
+| $N$                 | volumetric coupling (dilatancy) parameter        |
+| $p$                 | mean stress                                      |
+| $p_{\text{atm}}$    | atmospheric reference pressure                   |
+| $p_c$               | cohesive pressure                                |
+| $p_{c0}$            | initial cohesive pressure                        |
+| $p_d$               | dilative pressure                                |
+| $p_{d0}$            | initial dilative pressure                        |
+| $p_i$               | mean stress image                                |
+| $P$                 | potential function                               |
+| $q$                 | deviatoric stress                                |
+| $\Gamma$            | void ratio at reference pressure                 |
+| $\varepsilon_q^p$   | plastic deviatoric strain                        |
+| $\eta$              | stress ratio                                     |
+| $\theta$            | lode angle (cosine convention)                   |
+| $\kappa$            | unload/reload slope                              |
+| $\lambda$           | normal compression line (NCL) slope              |
+| $\nu$               | Poisson's ratio (assumed constant)               |
+| $\phi$              | friction angle                                   |
+| $\chi_i$            | state-dilatancy image                            |
+| $\chi_{tc}$         | state-dilatancy triaxial compression             |
+| $\psi$              | state parameter                                  |
+| $\psi_i$            | state parameter image                            |
 
 
 ## Input Parameters
@@ -83,7 +146,7 @@ An example input JSON is given as follow for 3D bonded model. Note that `toleran
   * "m_modulus" is bonded modulus effects of the cohesion and dilation $m_M$,
   * "tolerance" is an optional tolerance value for computations such as yield condition, set default as machine epsilon.
 
-For traditional NorSand (Jefferies, 1993), `bond_model` is set to be `false`. The code could also take a simpler and reduced input such as follow. Note that `tolerance` is also optional along with the other six variables.
+For traditional NorSand (Jefferies, 2016), `bond_model` is set to be `false`. The code could also take a simpler and reduced input such as follow. Note that `tolerance` is also optional along with the other six variables.
 
 ```
   "materials": [
@@ -109,3 +172,6 @@ For traditional NorSand (Jefferies, 1993), `bond_model` is set to be `false`. Th
 ## References
 
 [1] Jefferies, M. G. (1993). Nor-Sand: a simle critical state model for sand. Géotechnique, 43(1), 91-103.
+[2] Jefferies, M., Been K. (2016). "Soil liquefaction: a critical state approach." Second Edition. CRC Press.
+[3] Jefferies, M., Shuttle, D. (2011). "On the operating critical friction ratio in general stress states." Géotechnique, 61(8), 709-713.
+[4] Setiasabda, Ezra Y. (2020). “Material point method for large deformation modeling in geomechanics using isoparametric elements.” Ph.D. dissertation, Berkeley, CA: Univ. of California, Berkeley.
