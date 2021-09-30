@@ -64,7 +64,7 @@ export CC=icc
 export CXX=icpc
 mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP ..
 
-make -j
+make -j8
 ```
 
 ### Single installation and compile script
@@ -80,7 +80,7 @@ git clone https://github.com/cb-geo/mpm-benchmarks.git benchmarks
 export CC=icc
 export CXX=icpc
 cd mpm && mkdir build && cd build && cmake -DBOOST_ROOT=$TACC_BOOST_DIR -DBOOST_INCLUDE_DIRS=$TACC_BOOST_INC -DCMAKE_BUILD_TYPE=Release -DEIGEN3_INCLUDE_DIR=$WORK/eigen -DKAHIP_ROOT=$WORK/KaHIP ..
-make -j
+make -j8
 ```   
 
 
