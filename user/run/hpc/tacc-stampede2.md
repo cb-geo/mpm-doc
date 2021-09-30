@@ -1,14 +1,14 @@
-# Lonestar 5
+# Stampede 2
 
-Lonestar 5 (LS5) is a high performance computing system deployed at TACC (Texas Advanced Computing Center). More information about the system configuration and usage can be accessed in the [Lonestar 5 User Guide](https://portal.tacc.utexas.edu/user-guides/lonestar5).
+Stampede 2 ( is a high performance computing system deployed at TACC (Texas Advanced Computing Center). More information about the system configuration and usage can be accessed in the [Stampede 2 User Guide](https://portal.tacc.utexas.edu/user-guides/lonestar5).
 
 ## Accessing the system
 
-To access Lonestar 5, it is recommended to create a [design safe account](https://www.designsafe-ci.org/account/register/), as it offers other facilities in addition to HPC access. Upon registering, the system can be accessed by using a SSH (Secure Shell) client, which is done by using the following command:
+To access Stampede 2, it is recommended to create a [design safe account](https://www.designsafe-ci.org/account/register/), as it offers other facilities in addition to HPC access. Upon registering, the system can be accessed by using a SSH (Secure Shell) client, which is done by using the following command:
 
 
 ```shell
-ssh taccuserid@ls5.tacc.utexas.edu
+ssh taccuserid@stampede2.tacc.utexas.edu
 ```
 
 *(taccuserid is the user id selected for registrering in the design safe website)*
@@ -39,9 +39,9 @@ cd $WORK && git clone https://github.com/KaHIP/KaHIP && \
    cd KaHIP && sh ./compile_withcmake.sh
 ```
 
-## Clone MPM code to LS5
+## Clone MPM code to Stampede
 
-The `git clone` command can be used directly in the login node to clone the mpm repository into the LS5.
+The `git clone` command can be used directly in the login node to clone the mpm repository into the Stampede.
 
 ```shell
 cd $WORK
@@ -55,9 +55,9 @@ git clone https://github.com/cb-geo/mpm-benchmarks.git benchmarks
 ```
 
 
-## Compile on LS5
+## Compile on Stampede
 
-Please use the intel compiler on LS5. To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
+Please use the intel compiler on Stampede. To build the Make file, the procedure is similar to running the mpm on a local machine where the user also creates a build directory. However, the cmake command used is:
 
 ```shell
 export CC=icc
@@ -128,27 +128,27 @@ The list of submitted jobs can be viewed with `showq` (or `showq -u` if only a l
 
 > When running using MPI, the recommendation is to use twice the number of MPI tasks corresponding to the number of nodes (for e.g., set N = 4 and n = 8).
 
-## Transfering files to LS5
+## Transfering files to Stampede
 
 To transfer files to a local machine to a login node, the user can use either `rsync` or `scp`. These commands must be used locally, for example:
 
 ```shell
-rsync filename userid@ls5.tacc.utexas.edu:/path/to/project/directory/
-scp filename username@ls5.tacc.utexas.edu:/path/to/project/directory/
+rsync filename userid@stampede2.tacc.utexas.edu:/path/to/project/directory/
+scp filename username@stampede2.tacc.utexas.edu:/path/to/project/directory/
 ```
 
-For more information, visit [Lonestar 5 GUide - Transferring Files](https://portal.tacc.utexas.edu/user-guides/lonestar5#managing-transferring).
+For more information, visit [Stampede 2 GUide - Transferring Files](https://portal.tacc.utexas.edu/user-guides/stampede2#transferring-files).
 
 ## Mounting a remote directory
 
 Whenever the output files need to be accessed from the local machine, it is necessary to mount a remote directory that can access the files in the login node the user has been assigned to. This is done with:
 
 ```shell
-localhost$ sshfs taccuserid@ls5.tacc.utexas.edu:/path/to/files/ ~/path/to/local/directory/
+localhost$ sshfs taccuserid@stampede2.tacc.utexas.edu:/path/to/files/ ~/path/to/local/directory/
 ```
 
 Unmounting the remote directory can be done with `fusermount -u ~/path/to/local/directory/`.
 
 <aside class="notice">
-To view the results, the hdf5 files must be used. VTK files cannot be generated in Lonestar 5. 
+To view the results, the hdf5 files must be used. VTK files cannot be generated in Stampede 2. 
 </aside>
