@@ -22,7 +22,7 @@ Certain prerequisites such as `boost` and `hdf5` are available on TACC, and can 
 
 ```shell
 cd $WORK
-module load boost hdf5 vtk
+module load boost hdf5 qt5 vtk
 export LD_LIBRARY_PATH=$SWR_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
 ```
 
@@ -70,7 +70,7 @@ make -j
 ### Single installation and compile script
 ```shell
 cd $WORK
-module load boost hdf5 vtk
+module load boost hdf5 qt5 vtk
 export LD_LIBRARY_PATH=$SWR_LD_LIBRARY_PATH:$LD_LIBRARY_PATH
 git clone https://gitlab.com/libeigen/eigen.git
 cd $WORK && git clone https://github.com/KaHIP/KaHIP && \
