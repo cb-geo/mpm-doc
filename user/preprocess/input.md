@@ -30,6 +30,17 @@ The CB-Geo MPM code uses a `JSON` file for input configuration.
                 "friction": 0.5
             }
         ],
+        "absorbing_constraints": [
+            {
+                "nset_id" : 2,
+                "dir" : 2,
+                "delta" : 1.5,
+                "h_min" : 3,
+                "a" : 1.0,
+                "b" : 1.0,
+                "position" : "corner"
+            }
+        ],
         "nodal_euler_angles": "nodal-euler-angles.txt"
     },
     "particles_volumes": "particles-volumes.txt",
@@ -457,6 +468,17 @@ Velocity and friction constraints can be specified on the nodes. Velocity constr
                 "friction": 0.5
             }
         ],
+        "absorbing_constraints": [
+            {
+                "nset_id" : 2,
+                "dir" : 2,
+                "delta" : 1.5,
+                "h_min" : 3,
+                "a" : 1.0,
+                "b" : 1.0,
+                "position" : "corner"
+            }
+        ],
         "nodal_euler_angles": "nodal-euler-angles.txt",
         "particles_velocity_constraints": [
             {
@@ -562,3 +584,37 @@ where,
 
 `f_i` is the friction coefficient.
 
+### Absorbing boundary conditions
+
+Kelvin-Voigt style (i.e., dashpot-spring assemblage) can be specified in the following format:
+
+```
+"absorbing_constraints": [
+    {
+        "nset_id" : nset_id,
+        "dir" : dir,
+        "delta" : delta,
+        "h_min" : h_min,
+        "a" : a,
+        "b" : b,
+        "position" : position
+    }
+```
+
+where,
+
+`nset_id` is an unsigned integer corresponds to the node set id where the boundary is applied.
+
+`dir` is the direction number `(0|1|2)` that corresponds to compression wave (p-wave) travel.
+
+`delta` is the virtual thickness (consistent units) that controls spring stiffness and thus boundary dispalcements. 
+
+`h_min` is the mean cell length (consistent units).
+
+`a` is the dimensionless dashpot weight factor corresponding to compression waves (p-waves), typically 1.
+
+`b` is the dimensionless dashpot weight factor corresponding to shear waves (s-waves), typically 1.
+
+`position` indicates where nodes are located within the model. For 2D model, the absorbing boundary can be applied to nodes located at `"corner"` and "`edge`". For 3D models, the absorbing boundary can be applied to nodes located at the `"corner"`, `"edge"`, and `"face"`.
+
+Current absorbing boundary implementation is developed for square mesh using linear basis functions. 
