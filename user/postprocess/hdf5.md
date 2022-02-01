@@ -1,6 +1,6 @@
 # HDF5
 
-The CB-Geo mpm code writes HDF5 data of partices at each output time step. The HDF5 data can be read using Python / Pandas. If `pandas` package is not installed, run `pip3 install pandas`. 
+The CB-Geo mpm code writes HDF5 data of particles at each output time step. The HDF5 data can be read using Python / Pandas. If `pandas` package is not installed, run `pip3 install pandas`. 
 
 To read a particles HDF5 data, for example `particles00.h5` at step 0:
 
