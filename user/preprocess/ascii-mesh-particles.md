@@ -6,7 +6,7 @@ The ASCII mesh has the following format:
 ```
 nnodes 	ncells
 # nodal coordinates
-x_0 	y_0 	z_0
+x_0	y_0 	z_0
 x_1	y_1 	z_1
 ...
 x_i	y_i	z_i
@@ -23,7 +23,7 @@ ni_i ni_j ni_k ni_l ni_w ni_x ni_y ni_z
 nn_i nn_j nn_k nn_l nn_w nn_x nn_y nn_z
 ```
 
-`nnz` is the number of nodes.
+`nnodes` is the number of nodes.
 
 `ncells` the number of cells.
  
@@ -31,9 +31,6 @@ $x_i$, $y_i$, $z_i$ correspond to the Cartesian coordinates of each node.
 
 Each node will be assigned a unique id from `0` to `nnodes -1`, and will be assigned in the 
 order in which they appear. 
-
-`ncells` refers to the number of nodes per element. 
-
 
 `n1_1, n1_2... n1_nn` corresponds to the node ids forming each cell. Cell ids should be arranged in the same order as the shape functions. This code uses the standard GMSH order for numbering nodes in cells.
 
@@ -74,11 +71,11 @@ x_i	y_i	z_i
 x_n	y_n	z_n 
 ```
 
-`nparticles` is the total number of particles. $x_i$, $y_i$, $z_i$ correspond to the Cartesian coordinates of each material point. The material points are assigned a unique id from 0 to `n - 1`.
+`nparticles` is the total number of particles. $x_i$, $y_i$, $z_i$ correspond to the Cartesian coordinates of each material point. The material points are assigned a unique id from 0 to `nparticles - 1`.
 
 The `particles-cell.txt` file which describes the initial cell location of each material point has the following format:
 ```
-p_1	c_0
+p_0	c_0
 p_1	c_1
 ...
 p_i	c_i
@@ -99,7 +96,7 @@ sigma_xx,1	sigma_yy,1	sigma_zz,1	tau_xy,1	tau_yz,1	tau_zx,1
 ...
 sigma_xx,i	sigma_yy,i	sigma_zz,i	tau_xy,i	tau_yz,i	tau_zx,i
 ...
-sigma_11,n	sigma_22,n	sigma_33,n	tau_12,n	tau_23,n	tau_31,n
+sigma_xx,n	sigma_yy,n	sigma_zz,n	tau_xy,n	tau_yz,n	tau_zx,n
 ```
 
-`nparticles` is the total number of particles. $\sigma_{xx,i}$, $\sigma_{yy,i}$, $\sigma_{zz,i}$, $\tau_{xy,i}$, $\tau_{yz,i}$, $\tau_{zx,i}$ correspond to the insitu stresses on each material point. Stresses are assigned in order to each material point based on the unique id from 0 to `n - 1`. If including a `particles_stresses.txt` file, stresses must be assigned for all material points.
+`nparticles` is the total number of particles. $\sigma_{xx,i}$, $\sigma_{yy,i}$, $\sigma_{zz,i}$, $\tau_{xy,i}$, $\tau_{yz,i}$, $\tau_{zx,i}$ correspond to the insitu stresses on each material point. Stresses are assigned in order to each material point based on the unique id from 0 to `nparticles - 1`. If including a `particles_stresses.txt` file, stresses must be assigned for all material points.
