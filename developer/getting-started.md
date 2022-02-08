@@ -29,7 +29,7 @@ Always use `clang-format` to format your code. Runnning `sh ../clang-tools/forma
 
 ## Code documentation
 
-**Documentation is an integral part of code development and must go in-sync with feature development and bug fixes. Documentation is always more important than the facy new feature** Always add in-code docuemntation using Doxygen. 
+**Documentation is an integral part of code development and must go in-sync with feature development and bug fixes. Documentation is always more important than the fancy new feature** Always add in-code documentation using Doxygen.
 
 To document a C++ class:
 

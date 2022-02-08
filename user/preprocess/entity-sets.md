@@ -44,4 +44,4 @@ The model can be divided into several sets of particles or nodes by using the `e
 
 `c0_i` is the id of a cell within the set id 0.
 
-Each entity (particle or node or cell) set will be assigned a unique id and a vector with the entity's (particles or nodes) id belonging to this set. The entity's id respect the order of the entity input file -- e.g. a particle id of 3 is the fourth particle in the input file `particles.txt`.
+Each entity (particle or node or cell) set will be assigned a unique id and a vector with the entity's (particles or nodes) id belonging to this set. The entity's id respects the order of the entity input file -- e.g. a particle id of 3 is the fourth particle in the input file `particles.txt`.
